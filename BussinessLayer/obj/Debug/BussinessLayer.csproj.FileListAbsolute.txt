@@ -1,0 +1,9 @@
+D:\Courses\NewProjects\FullProject\BussinessLayer\bin\Debug\BussinessLayer.dll
+D:\Courses\NewProjects\FullProject\BussinessLayer\bin\Debug\BussinessLayer.pdb
+D:\Courses\NewProjects\FullProject\BussinessLayer\bin\Debug\DataAccessLayer.dll
+D:\Courses\NewProjects\FullProject\BussinessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Courses\NewProjects\FullProject\BussinessLayer\obj\Debug\BussinessLayer.csproj.AssemblyReference.cache
+D:\Courses\NewProjects\FullProject\BussinessLayer\obj\Debug\BussinessLayer.csproj.CoreCompileInputs.cache
+D:\Courses\NewProjects\FullProject\BussinessLayer\obj\Debug\Bussines.E1038C4E.Up2Date
+D:\Courses\NewProjects\FullProject\BussinessLayer\obj\Debug\BussinessLayer.dll
+D:\Courses\NewProjects\FullProject\BussinessLayer\obj\Debug\BussinessLayer.pdb
