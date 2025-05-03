@@ -37,12 +37,6 @@ namespace DVLD_Full_Project
         {
             MessageBox.Show("Not Implamtion yet", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        private void accountSettingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Not Implamtion yet", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -11,7 +11,7 @@ using BussinessLayer;
 
 namespace DVLD_Full_Project
 {
-    public partial class frmAddOrEdit : Form
+    public partial class frmAddOrEditPerson : Form
     {
         private enum _enFormMode
         {
@@ -21,7 +21,7 @@ namespace DVLD_Full_Project
         private _enFormMode _Mode;
         private int _ID;
         private clsPerson _Person;
-        public frmAddOrEdit(int ID)
+        public frmAddOrEditPerson(int ID)
         {
             InitializeComponent();
             _ID = ID;

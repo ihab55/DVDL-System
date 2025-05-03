@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\frmpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:frmpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\frmpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -18,31 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1498,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA1wBUAAAAoAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "frmUsers.cs [Design]",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmUsers.cs",
+              "RelativeDocumentMoniker": "frmUsers.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmUsers.cs [Design]",
+              "RelativeToolTip": "frmUsers.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T02:51:05.717Z",
+              "WhenOpened": "2025-05-03T05:11:05.122Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmUsers.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmUsers.cs",
+              "RelativeDocumentMoniker": "frmUsers.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmUsers.cs",
+              "RelativeToolTip": "frmUsers.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAswDcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T05:25:46.228Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "frmPeople.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmPeople.cs",
+              "RelativeDocumentMoniker": "frmPeople.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmPeople.cs",
+              "RelativeToolTip": "frmPeople.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAqwGMAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T06:01:55.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "frmPeople.cs [Design]",
               "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmPeople.cs",
               "RelativeDocumentMoniker": "frmPeople.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmPeople.cs [Design]*",
-              "RelativeToolTip": "frmPeople.cs [Design]*",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmPeople.cs [Design]",
+              "RelativeToolTip": "frmPeople.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T02:50:35.766Z",
+              "WhenOpened": "2025-05-03T06:01:54.007Z",
               "EditorCaption": " [Design]"
             }
           ]

@@ -104,34 +104,39 @@
             this.changePasswordToolStripMenuItem,
             this.toolStripMenuItem1,
             this.signOutToolStripMenuItem});
-            this.accountSettingToolStripMenuItem.Image = global::DVLD_Full_Project.Properties.Resources.settings_config;
+            this.accountSettingToolStripMenuItem.Image = global::DVLD_Full_Project.Properties.Resources.account_settings;
             this.accountSettingToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.accountSettingToolStripMenuItem.Name = "accountSettingToolStripMenuItem";
             this.accountSettingToolStripMenuItem.Size = new System.Drawing.Size(270, 76);
             this.accountSettingToolStripMenuItem.Text = "Account setting";
-            this.accountSettingToolStripMenuItem.Click += new System.EventHandler(this.accountSettingToolStripMenuItem_Click);
             // 
             // currentToolStripMenuItem
             // 
+            this.currentToolStripMenuItem.Image = global::DVLD_Full_Project.Properties.Resources.id;
+            this.currentToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.currentToolStripMenuItem.Name = "currentToolStripMenuItem";
-            this.currentToolStripMenuItem.Size = new System.Drawing.Size(288, 36);
+            this.currentToolStripMenuItem.Size = new System.Drawing.Size(316, 54);
             this.currentToolStripMenuItem.Text = "Current User Info";
             // 
             // changePasswordToolStripMenuItem
             // 
+            this.changePasswordToolStripMenuItem.Image = global::DVLD_Full_Project.Properties.Resources.password;
+            this.changePasswordToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(288, 36);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(316, 54);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(285, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(313, 6);
             // 
             // signOutToolStripMenuItem
             // 
+            this.signOutToolStripMenuItem.Image = global::DVLD_Full_Project.Properties.Resources.sign_out;
+            this.signOutToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(288, 36);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(316, 54);
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 

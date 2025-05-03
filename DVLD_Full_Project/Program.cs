@@ -19,9 +19,10 @@ namespace DVLD_Full_Project
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Test());
             //Application.Run(new frmPeople());
-            Application.Run(new Main());
+            //Application.Run(new Main());
+            Application.Run(new frmUsers());
 
-            #region//              Main Run For Me
+            //#region//              Main Run For Me
             //do
             //{
             //    IsRestart = false;
@@ -33,7 +34,7 @@ namespace DVLD_Full_Project
             //    }
             //}
             //while (IsRestart);
-            #endregion
+            //#endregion
         }
     }
 }

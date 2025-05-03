@@ -45,7 +45,8 @@ namespace DataAccessLayer
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = "SELECT * FROM Users";
+            string query = @"SELECT Users.UserID, Users.PersonID, (People.FirstName + ' '+ People.SecondName+' '+ People.ThirdName+ ' ' + People.LastName)AS FullName
+            , Users.UserName, Users.IsActive FROM Users INNER JOIN People ON Users.PersonID = People.PersonID";
             SqlCommand command = new SqlCommand(query, connection);
             try {
                 connection.Open();

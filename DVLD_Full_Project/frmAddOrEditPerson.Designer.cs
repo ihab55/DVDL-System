@@ -1,6 +1,6 @@
 ﻿namespace DVLD_Full_Project
 {
-    partial class frmAddOrEdit
+    partial class frmAddOrEditPerson
     {
         /// <summary>
         /// Required designer variable.

@@ -33,7 +33,6 @@
             // 
             // ucAddEditPerson1
             // 
-            this.ucAddEditPerson1.BackgroundImage = global::DVLD_Full_Project.Properties.Resources.settings_config;
             this.ucAddEditPerson1.Location = new System.Drawing.Point(79, 49);
             this.ucAddEditPerson1.Name = "ucAddEditPerson1";
             this.ucAddEditPerson1.Size = new System.Drawing.Size(853, 387);

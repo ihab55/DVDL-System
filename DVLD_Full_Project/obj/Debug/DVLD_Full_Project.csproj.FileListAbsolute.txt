@@ -19,7 +19,8 @@ D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Ful.7CAB8130
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.Main.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmPeople.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.Use_Controller.ucAddEditPerson.resources
-D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmAddOrEdit.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmCardDetailsPerson.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\bin\Debug\Guna.UI2.dll
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmmLogin.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmAddOrEditPerson.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmUsers.resources

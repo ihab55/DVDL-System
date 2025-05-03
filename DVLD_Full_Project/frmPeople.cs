@@ -116,14 +116,14 @@ namespace DVLD_Full_Project
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            frmAddOrEdit frm = new frmAddOrEdit(-1);
+            frmAddOrEditPerson frm = new frmAddOrEditPerson(-1);
             frm.ShowDialog();
             _RefreashData();
         }
 
         private void addNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAddOrEdit frm = new frmAddOrEdit(-1);
+            frmAddOrEditPerson frm = new frmAddOrEditPerson(-1);
             frm.ShowDialog();
 
             _RefreashData();
@@ -131,7 +131,7 @@ namespace DVLD_Full_Project
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddOrEdit frm = new frmAddOrEdit((int)dataGridView1.CurrentRow.Cells[0].Value);
+            frmAddOrEditPerson frm = new frmAddOrEditPerson((int)dataGridView1.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
             _RefreashData();
         }

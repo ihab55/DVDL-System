@@ -31,7 +31,7 @@ namespace DVLD_Full_Project
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmAddOrEdit frm = new frmAddOrEdit(_ID);
+            frmAddOrEditPerson frm = new frmAddOrEditPerson(_ID);
             frm.ShowDialog();
             ucPersonCard1.FillPersonCard(_ID);
         }
