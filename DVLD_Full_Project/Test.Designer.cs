@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucAddEditPerson1 = new DVLD_Full_Project.Use_Controller.ucAddEditPerson();
+            this.ucFilterPerson2 = new DVLD_Full_Project.Use_Controller.ucFilterPerson();
             this.SuspendLayout();
             // 
-            // ucAddEditPerson1
+            // ucFilterPerson2
             // 
-            this.ucAddEditPerson1.Location = new System.Drawing.Point(79, 49);
-            this.ucAddEditPerson1.Name = "ucAddEditPerson1";
-            this.ucAddEditPerson1.Size = new System.Drawing.Size(853, 387);
-            this.ucAddEditPerson1.TabIndex = 0;
+            this.ucFilterPerson2.Location = new System.Drawing.Point(244, 87);
+            this.ucFilterPerson2.Name = "ucFilterPerson2";
+            this.ucFilterPerson2.Size = new System.Drawing.Size(704, 303);
+            this.ucFilterPerson2.TabIndex = 0;
+            this.ucFilterPerson2.OnPersonSelected += new System.Action<int>(this.ucFilterPerson2_OnPersonSelected);
             // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 569);
-            this.Controls.Add(this.ucAddEditPerson1);
+            this.Controls.Add(this.ucFilterPerson2);
             this.Name = "Test";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -52,7 +53,7 @@
 
         #endregion
         private Use_Controller.ucFilterPerson ucFilterPerson1;
-        private Use_Controller.ucAddEditPerson ucAddEditPerson1;
+        private Use_Controller.ucFilterPerson ucFilterPerson2;
     }
 }
 

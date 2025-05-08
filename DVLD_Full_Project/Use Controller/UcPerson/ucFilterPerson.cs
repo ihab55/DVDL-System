@@ -13,51 +13,56 @@ namespace DVLD_Full_Project.Use_Controller
 {
     public partial class ucFilterPerson : UserControl
     {
+        public event Action<int> OnPersonSelected;
+        protected virtual void PersonSelected(int Personid)
+        {
+            Action<int> handler = OnPersonSelected;
+            if (handler != null)
+            {
+                handler(Personid);
+            }
+        }
+
         public ucFilterPerson()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSearchPerson_Click(object sender, EventArgs e)
         {
+            bool Isfouned = false;
             try
             {
-                clsPerson person = null;
-            switch (cbFilter.SelectedIndex)
-            {
-                case 0:
-                   
-                        person = clsPerson.Find(int.Parse(textBox1.Text));
-                        if (person != null)
-                        {
-                            ucPersonCard1.FillPersonCard(person.Id);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Person not found");
-                        }
+                switch (cbFilter.SelectedIndex)
+                {
+                    case 0:
+                        Isfouned = ucPersonCard1.FillPersonCard(int.Parse(textBox1.Text));
                         break;
-                    
-                case 1:
-                     person = clsPerson.Find(textBox1.Text);
-                    if (person != null)
-                    {
-                        ucPersonCard1.FillPersonCard(person.Id);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Person not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    break;
-                default:
-                    return;
-            }
+                    case 1:
+                        Isfouned = ucPersonCard1.FillPersonCard(textBox1.Text);
+                        break;
+                    default:
+                        MessageBox.Show("Error in comboBox", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                }
+                if (OnPersonSelected != null && Isfouned)//&& filterEnable
+                {
+                    OnPersonSelected(ucPersonCard1.ID);
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Error : " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+        }
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            frmAddOrEditPerson frm = new frmAddOrEditPerson(-1);
+            frm.ShowDialog();
+        }
+        public void FillPersonCard(int ID)
+        {
+            ucPersonCard1.FillPersonCard(ID);
         }
     }
 }

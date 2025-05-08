@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinessLayer;
+using DVLD_Full_Project.Use_Controller;
 
 namespace DVLD_Full_Project
 {
@@ -51,6 +52,11 @@ namespace DVLD_Full_Project
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             DataView view = _PrintDv.DefaultView;
+            if (textBox1.Text == "" )
+            {
+                _RefreshData();
+                return;
+            }
             try
             {
                 string filterColumn = cmbFilter.SelectedItem.ToString();
@@ -72,6 +78,40 @@ namespace DVLD_Full_Project
                 _RefreshData();
                 MessageBox.Show($"Error filtering data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btAdd_Click(object sender, EventArgs e)
+        {
+            FrmAddEditUsers frm = new FrmAddEditUsers();
+            frm.ShowDialog();
+            _RefreshData();
+        }
+
+        private void addNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmAddEditUsers frm = new FrmAddEditUsers();
+            frm.ShowDialog();
+            _RefreshData();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddEditUsers frm = new FrmAddEditUsers((int)dataGridView1.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _RefreshData();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (clsUser.DeleteUsers((int)dataGridView1.CurrentRow.Cells[0].Value))
+            {
+                MessageBox.Show("User Delete succesfull", "Done", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show("User Delete failed have connect Data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            _RefreshData();
         }
     }
 }

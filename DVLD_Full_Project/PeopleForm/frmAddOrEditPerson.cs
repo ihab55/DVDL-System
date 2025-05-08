@@ -76,11 +76,6 @@ namespace DVLD_Full_Project
 
                 }
             }
-            else
-            {
-                MessageBox.Show("Somthing Went Error","Erroe",MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
     }
 }

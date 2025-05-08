@@ -95,7 +95,7 @@ namespace DataAccessLayer
         {
             int id = -99;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"INSERT INTO [dbo].[Users]
+            string query = @"INSERT INTO Users
                     (PersonID,UserName,Password,IsActive)
                     VALUES(@PersonID,@UserName,@Password,@IsActive);
                 SELECT SCOPE_IDENTITY();";

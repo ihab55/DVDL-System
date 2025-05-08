@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD_Full_Project.Use_Controller;
 
 namespace DVLD_Full_Project
 {
@@ -18,9 +19,7 @@ namespace DVLD_Full_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Test());
-            //Application.Run(new frmPeople());
-            //Application.Run(new Main());
-            Application.Run(new frmUsers());
+            Application.Run(new Main());
 
             //#region//              Main Run For Me
             //do

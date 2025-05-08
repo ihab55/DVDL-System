@@ -35,7 +35,8 @@ namespace DVLD_Full_Project
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not Implamtion yet", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmUsers frm = new frmUsers();
+            frm.ShowDialog();
         }
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {

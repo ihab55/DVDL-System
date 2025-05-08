@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinessLayer;
+using DVLD_Full_Project.Use_Controller;
 
 namespace DVLD_Full_Project
 {
@@ -16,6 +17,11 @@ namespace DVLD_Full_Project
         public Test()
         {
             InitializeComponent();
+        }
+
+        private void ucFilterPerson2_OnPersonSelected(int obj)
+        {
+            MessageBox.Show(obj.ToString());
         }
     }
 }

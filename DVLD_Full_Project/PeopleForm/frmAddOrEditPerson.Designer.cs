@@ -81,20 +81,20 @@
             // 
             this.ucAddEditPerson1.Location = new System.Drawing.Point(1, 51);
             this.ucAddEditPerson1.Name = "ucAddEditPerson1";
-            this.ucAddEditPerson1.Size = new System.Drawing.Size(766, 332);
+            this.ucAddEditPerson1.Size = new System.Drawing.Size(775, 334);
             this.ucAddEditPerson1.TabIndex = 0;
             // 
-            // frmAddOrEdit
+            // frmAddOrEditPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 377);
+            this.ClientSize = new System.Drawing.Size(775, 379);
             this.ControlBox = false;
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucAddEditPerson1);
-            this.Name = "frmAddOrEdit";
+            this.Name = "frmAddOrEditPerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add/Edit Person";
             this.Load += new System.EventHandler(this.frmAddOrEdit_Load);

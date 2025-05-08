@@ -24,3 +24,4 @@ D:\Courses\NewProjects\FullProject\DVLD_Full_Project\bin\Debug\Guna.UI2.dll
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmmLogin.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmAddOrEditPerson.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmUsers.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.Use_Controller.FrmAddEditUsers.resources

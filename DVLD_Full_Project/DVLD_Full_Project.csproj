@@ -52,16 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAddOrEditPerson.cs">
+    <Compile Include="PeopleForm\frmAddOrEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddOrEditPerson.Designer.cs">
+    <Compile Include="PeopleForm\frmAddOrEditPerson.Designer.cs">
       <DependentUpon>frmAddOrEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCardDetailsPerson.cs">
+    <Compile Include="PeopleForm\frmCardDetailsPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCardDetailsPerson.Designer.cs">
+    <Compile Include="PeopleForm\frmCardDetailsPerson.Designer.cs">
       <DependentUpon>frmCardDetailsPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="frmmLogin.cs">
@@ -70,16 +70,22 @@
     <Compile Include="frmmLogin.Designer.cs">
       <DependentUpon>frmmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPeople.cs">
+    <Compile Include="PeopleForm\frmPeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPeople.Designer.cs">
+    <Compile Include="PeopleForm\frmPeople.Designer.cs">
       <DependentUpon>frmPeople.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUsers.cs">
+    <Compile Include="UsersForm\FrmAddEditUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUsers.Designer.cs">
+    <Compile Include="UsersForm\FrmAddEditUsers.Designer.cs">
+      <DependentUpon>FrmAddEditUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsersForm\frmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersForm\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
@@ -125,19 +131,22 @@
     <Compile Include="Use Controller\ucUserCard.Designer.cs">
       <DependentUpon>ucUserCard.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmAddOrEditPerson.resx">
+    <EmbeddedResource Include="PeopleForm\frmAddOrEditPerson.resx">
       <DependentUpon>frmAddOrEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCardDetailsPerson.resx">
+    <EmbeddedResource Include="PeopleForm\frmCardDetailsPerson.resx">
       <DependentUpon>frmCardDetailsPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmmLogin.resx">
       <DependentUpon>frmmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPeople.resx">
+    <EmbeddedResource Include="PeopleForm\frmPeople.resx">
       <DependentUpon>frmPeople.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUsers.resx">
+    <EmbeddedResource Include="UsersForm\FrmAddEditUsers.resx">
+      <DependentUpon>FrmAddEditUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersForm\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
@@ -244,6 +253,7 @@
     <None Include="ButtonIcon\eye.png" />
     <None Include="HeadImage\account_settings.png" />
     <None Include="HeadImage\id.png" />
+    <None Include="CardIcon\nextIcon.png" />
     <Content Include="HeadImage\IMG_0750.jpeg" />
   </ItemGroup>
   <ItemGroup />

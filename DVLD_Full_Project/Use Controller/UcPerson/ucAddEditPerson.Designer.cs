@@ -516,7 +516,7 @@
             this.Controls.Add(this.clabID);
             this.Controls.Add(this.gpPersonCard);
             this.Name = "ucAddEditPerson";
-            this.Size = new System.Drawing.Size(766, 332);
+            this.Size = new System.Drawing.Size(775, 332);
             this.Load += new System.EventHandler(this.ucAddEditPerson_Load);
             this.gpPersonCard.ResumeLayout(false);
             this.gpPersonCard.PerformLayout();
