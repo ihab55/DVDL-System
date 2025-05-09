@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +14,19 @@ namespace DVLD_Full_Project
 {
     public partial class frmmLogin : Form
     {
-        static private clsUser _User;
-        static private bool IsRememberMe = false;
+        private string filePath = "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\UserLogin.txt";
         public frmmLogin()
         {
             InitializeComponent();
         }
-
+        private string[] _SplitSpecialString(string input)
+        {
+            return input.Split(new string[] { "#//#" }, StringSplitOptions.None);
+        }
+        private string _CreateDataString(string username, string password, bool isActive)
+        {
+            return $"{username}#//#{password}#//#{isActive}";
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -32,13 +39,14 @@ namespace DVLD_Full_Project
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (clsUser.IsUserRight(txtUsername.Text,txtPassword.Text))
+            bool IsActive = false;
+            if (clsUser.IsUserRight(txtUsername.Text,txtPassword.Text,ref IsActive))
             {
-                _User = clsUser.Find(txtUsername.Text);
-                if (_User.IsActive)
+                if (IsActive)
                 {
                     this.DialogResult = DialogResult.OK;
                     errorProvider1.Clear();
+                    File.WriteAllText(filePath,checkBox1.Checked? _CreateDataString(txtUsername.Text, txtPassword.Text, checkBox1.Checked): string.Empty);
                     this.Close();
                 }
                 else
@@ -56,18 +64,14 @@ namespace DVLD_Full_Project
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            IsRememberMe = checkBox1.Checked;
-        }
-
         private void frmmLogin_Load(object sender, EventArgs e)
         {
-            if (IsRememberMe)
+            if (File.Exists(filePath) && new FileInfo(filePath).Length > 0)
             {
-                txtUsername.Text = _User.UserName;
-                txtPassword.Text = _User.Password;
-                checkBox1.Checked = true;
+                string []Data =_SplitSpecialString(File.ReadAllText(filePath));
+                txtUsername.Text = Data[0];
+                txtPassword.Text = Data[1];
+                checkBox1.Checked = bool.Parse(Data[2]);
             }
         }
     }

@@ -94,9 +94,9 @@ namespace BussinessLayer
         {
             return clsUsersData.GetAllUsers();
         }
-        public static bool IsUserRight(string username, string password)
+        public static bool IsUserRight(string username, string password, ref bool Active)
         {
-            return clsUsersData.IsUserExists(username,password);
+            return clsUsersData.IsUserExistsIsActive(username,password,ref Active);
         }
     }
 }

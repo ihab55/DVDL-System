@@ -160,11 +160,11 @@ namespace DataAccessLayer
             }
             return Isfounded;
         }
-        public static bool IsUserExists(string user_name,string password)
+        public static bool IsUserExistsIsActive(string user_name,string password,ref bool Active)
         {
             bool Isfounded = false;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = "SELECT x = 1 FROM Users WHERE UserName= @UserName AND Password = @Password";
+            string query = "SELECT IsActive FROM Users WHERE UserName= @UserName AND Password = @Password";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@UserName", user_name);
             command.Parameters.AddWithValue("@Password", password);
@@ -172,7 +172,11 @@ namespace DataAccessLayer
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                Isfounded = reader.HasRows;
+                if (reader.Read())
+                {
+                    Active = (bool)reader["IsActive"];
+                    Isfounded = true;
+                }
                 reader.Close();
             }
             catch (Exception ex)

@@ -3,20 +3,18 @@
   "WorkspaceRootPath": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\usersform\\frmaddeditusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:usersform\\frmaddeditusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:frmmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\usersform\\frmaddeditusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:usersform\\frmaddeditusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B27CD1D0-03AF-43CE-8AF5-80FDB52BDE0C}|..\\BussinessLayer\\BussinessLayer.csproj|d:\\courses\\newprojects\\fullproject\\bussinesslayer\\clsuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\usersform\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:usersform\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:frmmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\usersform\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:usersform\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E6CE5E0E-1E27-40FC-B26F-4725D2F71FA0}|..\\ConsoleTest\\ConsoleTest.csproj|d:\\courses\\newprojects\\fullproject\\consoletest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,54 +29,55 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "frmUsers.cs [Design]",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\UsersForm\\frmUsers.cs",
-              "RelativeDocumentMoniker": "UsersForm\\frmUsers.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\UsersForm\\frmUsers.cs [Design]",
-              "RelativeToolTip": "UsersForm\\frmUsers.cs [Design]",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\ConsoleTest\\Program.cs",
+              "RelativeDocumentMoniker": "..\\ConsoleTest\\Program.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\ConsoleTest\\Program.cs",
+              "RelativeToolTip": "..\\ConsoleTest\\Program.cs",
+              "ViewState": "AgIAABsBAAAAAAAAAAAswCEBAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T04:04:48.663Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmUsers.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\UsersForm\\frmUsers.cs",
-              "RelativeDocumentMoniker": "UsersForm\\frmUsers.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\UsersForm\\frmUsers.cs",
-              "RelativeToolTip": "UsersForm\\frmUsers.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAA3wGcAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T04:04:54.878Z",
+              "WhenOpened": "2025-05-09T07:26:36.981Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FrmAddEditUsers.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\UsersForm\\FrmAddEditUsers.cs",
-              "RelativeDocumentMoniker": "UsersForm\\FrmAddEditUsers.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\UsersForm\\FrmAddEditUsers.cs*",
-              "RelativeToolTip": "UsersForm\\FrmAddEditUsers.cs*",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAwwE8AAAA7AAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "frmmLogin.cs [Design]",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmmLogin.cs",
+              "RelativeDocumentMoniker": "frmmLogin.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmmLogin.cs [Design]",
+              "RelativeToolTip": "frmmLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T03:52:44.606Z",
+              "WhenOpened": "2025-05-09T07:31:03.8Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "clsUser.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsUser.cs",
+              "RelativeDocumentMoniker": "..\\BussinessLayer\\clsUser.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsUser.cs",
+              "RelativeToolTip": "..\\BussinessLayer\\clsUser.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAYwGMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T09:44:55.19Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FrmAddEditUsers.cs [Design]",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\UsersForm\\FrmAddEditUsers.cs",
-              "RelativeDocumentMoniker": "UsersForm\\FrmAddEditUsers.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\UsersForm\\FrmAddEditUsers.cs [Design]*",
-              "RelativeToolTip": "UsersForm\\FrmAddEditUsers.cs [Design]*",
+              "Title": "frmmLogin.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmmLogin.cs",
+              "RelativeDocumentMoniker": "frmmLogin.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmmLogin.cs",
+              "RelativeToolTip": "frmmLogin.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAA/wCkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T03:52:39.7Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-05-09T07:31:10.541Z",
+              "EditorCaption": ""
             }
           ]
         },

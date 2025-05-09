@@ -111,6 +111,11 @@ namespace DVLD_Full_Project.Use_Controller
                 labHead.Left = 230;
                 ucFilterPerson1.Enabled = false;
                 ucFilterPerson1.FillPersonCard(_User.PersonID);
+                txtUsername.Text = _User.UserName;
+                txtPassword.Text = _User.Password;
+                txtCopyPassword.Text = _User.Password;
+                chbIsActive.Checked = _User.IsActive;
+                txtUserID.Text = _User.Id.ToString();
             }
         }
     }

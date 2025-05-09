@@ -19,20 +19,20 @@ namespace DVLD_Full_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Test());
-            Application.Run(new Main());
+            //Application.Run(new Main());
 
             //#region//              Main Run For Me
-            //do
-            //{
-            //    IsRestart = false;
-            //    frmmLogin Login = new frmmLogin();
-            //    Application.Run(Login);
-            //    if (Login.DialogResult == DialogResult.OK)
-            //    {
-            //        Application.Run(new Main());
-            //    }
-            //}
-            //while (IsRestart);
+            do
+            {
+                IsRestart = false;
+                frmmLogin Login = new frmmLogin();
+                Application.Run(Login);
+                if (Login.DialogResult == DialogResult.OK)
+                {
+                    Application.Run(new Main());
+                }
+            }
+            while (IsRestart);
             //#endregion
         }
     }
