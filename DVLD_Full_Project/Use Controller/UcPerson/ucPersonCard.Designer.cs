@@ -32,6 +32,7 @@ namespace DVLD_Full_Project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucPersonCard));
             this.gpPersonCard = new System.Windows.Forms.GroupBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.clabDate = new System.Windows.Forms.Label();
             this.clabGendor = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -75,6 +76,7 @@ namespace DVLD_Full_Project
             // 
             // gpPersonCard
             // 
+            this.gpPersonCard.Controls.Add(this.linkLabel1);
             this.gpPersonCard.Controls.Add(this.clabDate);
             this.gpPersonCard.Controls.Add(this.clabGendor);
             this.gpPersonCard.Controls.Add(this.pictureBox10);
@@ -109,6 +111,18 @@ namespace DVLD_Full_Project
             this.gpPersonCard.TabIndex = 0;
             this.gpPersonCard.TabStop = false;
             this.gpPersonCard.Text = "Person Information";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(549, 18);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(113, 18);
+            this.linkLabel1.TabIndex = 33;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Edit Person Info";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // clabDate
             // 
@@ -445,5 +459,6 @@ namespace DVLD_Full_Project
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label clabDate;
         private System.Windows.Forms.Label clabGendor;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

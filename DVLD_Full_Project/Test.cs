@@ -17,11 +17,8 @@ namespace DVLD_Full_Project
         public Test()
         {
             InitializeComponent();
+            ucUserCard1.FillUserCard(1);
         }
 
-        private void ucFilterPerson2_OnPersonSelected(int obj)
-        {
-            MessageBox.Show(obj.ToString());
-        }
     }
 }

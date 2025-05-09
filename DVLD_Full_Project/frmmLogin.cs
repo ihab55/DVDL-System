@@ -15,6 +15,7 @@ namespace DVLD_Full_Project
     public partial class frmmLogin : Form
     {
         private string filePath = "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\UserLogin.txt";
+        public string UserName = "";
         public frmmLogin()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace DVLD_Full_Project
             {
                 if (IsActive)
                 {
+                    UserName = txtUsername.Text;
                     this.DialogResult = DialogResult.OK;
                     errorProvider1.Clear();
                     File.WriteAllText(filePath,checkBox1.Checked? _CreateDataString(txtUsername.Text, txtPassword.Text, checkBox1.Checked): string.Empty);

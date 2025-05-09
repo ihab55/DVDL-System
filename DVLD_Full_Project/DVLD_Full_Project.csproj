@@ -82,6 +82,12 @@
     <Compile Include="UsersForm\FrmAddEditUsers.Designer.cs">
       <DependentUpon>FrmAddEditUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsersForm\frmUserChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersForm\frmUserChangePass.Designer.cs">
+      <DependentUpon>frmUserChangePass.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsersForm\frmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,12 @@
     <Compile Include="Use Controller\ucUserCard.Designer.cs">
       <DependentUpon>ucUserCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsersForm\frmUsersCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersForm\frmUsersCard.Designer.cs">
+      <DependentUpon>frmUsersCard.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="PeopleForm\frmAddOrEditPerson.resx">
       <DependentUpon>frmAddOrEditPerson.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsersForm\FrmAddEditUsers.resx">
       <DependentUpon>FrmAddEditUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersForm\frmUserChangePass.resx">
+      <DependentUpon>frmUserChangePass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsersForm\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
@@ -171,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Use Controller\ucUserCard.resx">
       <DependentUpon>ucUserCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersForm\frmUsersCard.resx">
+      <DependentUpon>frmUsersCard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -254,6 +272,7 @@
     <None Include="HeadImage\account_settings.png" />
     <None Include="HeadImage\id.png" />
     <None Include="CardIcon\nextIcon.png" />
+    <None Include="ButtonIcon\password.png" />
     <Content Include="HeadImage\IMG_0750.jpeg" />
   </ItemGroup>
   <ItemGroup />

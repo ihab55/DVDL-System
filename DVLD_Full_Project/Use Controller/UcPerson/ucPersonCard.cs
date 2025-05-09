@@ -89,5 +89,11 @@ namespace DVLD_Full_Project
                 MessageBox.Show("User not founded", "not foumded", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmAddOrEditPerson frm = new frmAddOrEditPerson(ID);
+            frm.ShowDialog();
+        }
     }
 }

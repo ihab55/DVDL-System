@@ -19,7 +19,7 @@ namespace DVLD_Full_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Test());
-            //Application.Run(new Main());
+            //Application.Run(new Main("Msaqer77"));
 
             //#region//              Main Run For Me
             do
@@ -29,7 +29,7 @@ namespace DVLD_Full_Project
                 Application.Run(Login);
                 if (Login.DialogResult == DialogResult.OK)
                 {
-                    Application.Run(new Main());
+                    Application.Run(new Main(Login.UserName));
                 }
             }
             while (IsRestart);

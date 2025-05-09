@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD_Full_Project.UsersForm;
 
 namespace DVLD_Full_Project
 {
     public partial class Main : Form
     {
-        public Main(bool Reminder = false)
+        public static string UserName = "Admin";
+        public Main(string username)
         {
             InitializeComponent();
+            UserName = username;
         }
 
         private void applicationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,6 +45,18 @@ namespace DVLD_Full_Project
         {
             this.Close();
             Program.IsRestart = true;
+        }
+
+        private void currentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsersCard frm = new frmUsersCard(UserName);
+            frm.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserChangePass frm = new frmUserChangePass(UserName);
+            frm.ShowDialog();
         }
     }
 }

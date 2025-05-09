@@ -8,20 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD_Full_Project
+namespace DVLD_Full_Project.UsersForm
 {
-    public partial class frmCardDetailsPerson : Form
+    public partial class frmUsersCard : Form
     {
-        private int _ID;
-        public frmCardDetailsPerson(int ID)
+        public frmUsersCard(int ID)
         {
             InitializeComponent();
-            _ID = ID;
+            ucUserCard1.FillUserCard(ID);
         }
-
-        private void frmCardDetailsPerson_Load(object sender, EventArgs e)
+        public frmUsersCard(string username)
         {
-            ucPersonCard1.FillPersonCard(_ID);
+            InitializeComponent();
+            ucUserCard1.FillUserCard(username);
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -116,14 +116,14 @@ namespace DVLD_Full_Project
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            frmAddOrEditPerson frm = new frmAddOrEditPerson(-1);
+            frmAddOrEditPerson frm = new frmAddOrEditPerson();
             frm.ShowDialog();
             _RefreashData();
         }
 
         private void addNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAddOrEditPerson frm = new frmAddOrEditPerson(-1);
+            frmAddOrEditPerson frm = new frmAddOrEditPerson();
             frm.ShowDialog();
 
             _RefreashData();

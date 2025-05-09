@@ -21,11 +21,17 @@ namespace DVLD_Full_Project
         private _enFormMode _Mode;
         private int _ID;
         private clsPerson _Person;
+        public frmAddOrEditPerson()
+        {
+            InitializeComponent();
+            _ID = -1;
+            _Mode = _enFormMode._enAddPeople ;
+        }
         public frmAddOrEditPerson(int ID)
         {
             InitializeComponent();
             _ID = ID;
-            _Mode = (ID==-1) ? _enFormMode._enAddPeople : _Mode = _enFormMode._enEditPerson;
+            _Mode = _enFormMode._enEditPerson;
         }
         void _RefrashPersonCard()
         {

@@ -57,7 +57,7 @@ namespace DVLD_Full_Project.Use_Controller
         }
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
-            frmAddOrEditPerson frm = new frmAddOrEditPerson(-1);
+            frmAddOrEditPerson frm = new frmAddOrEditPerson();
             frm.ShowDialog();
         }
         public void FillPersonCard(int ID)

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinessLayer;
 using DVLD_Full_Project.Use_Controller;
+using DVLD_Full_Project.UsersForm;
 
 namespace DVLD_Full_Project
 {
@@ -43,10 +44,17 @@ namespace DVLD_Full_Project
                 _RefreshData();
                 textBox1.Visible = false;
             }
-            else
+            else if (cmbFilter.SelectedIndex == 5)
+            {
+                textBox1.Visible = false;
+                combActive.Visible = true;
+                _RefreshData();
+            }
+            else 
             {
                 textBox1.Visible = true;
             }
+            textBox1.Text = string.Empty;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -112,6 +120,33 @@ namespace DVLD_Full_Project
                 MessageBox.Show("User Delete failed have connect Data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             _RefreshData();
+        }
+
+        private void combActive_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataView view = _PrintDv.DefaultView;
+            try
+            {
+                string filterColumn = cmbFilter.SelectedItem.ToString();                
+                    view.RowFilter = $"[{filterColumn}] ={((combActive.SelectedIndex==0)?true:false)}";               
+            }
+            catch (Exception ex)
+            {
+                _RefreshData();
+                MessageBox.Show($"Error filtering data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsersCard frm = new frmUsersCard((int)dataGridView1.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserChangePass frm = new frmUserChangePass((int)dataGridView1.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
         }
     }
 }

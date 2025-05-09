@@ -47,9 +47,9 @@
             this.groupBox1.Controls.Add(this.labUserName);
             this.groupBox1.Controls.Add(this.clabUserID);
             this.groupBox1.Controls.Add(this.labUserID);
-            this.groupBox1.Location = new System.Drawing.Point(3, 246);
+            this.groupBox1.Location = new System.Drawing.Point(3, 248);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(694, 61);
+            this.groupBox1.Size = new System.Drawing.Size(697, 61);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login Information";
@@ -116,19 +116,19 @@
             // 
             // ucPersonCard1
             // 
-            this.ucPersonCard1.Location = new System.Drawing.Point(-15, 0);
+            this.ucPersonCard1.Location = new System.Drawing.Point(3, 3);
             this.ucPersonCard1.Name = "ucPersonCard1";
             this.ucPersonCard1.Size = new System.Drawing.Size(721, 250);
             this.ucPersonCard1.TabIndex = 0;
             // 
-            // UserCard
+            // ucUserCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ucPersonCard1);
-            this.Name = "UserCard";
-            this.Size = new System.Drawing.Size(704, 315);
+            this.Name = "ucUserCard";
+            this.Size = new System.Drawing.Size(710, 323);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
