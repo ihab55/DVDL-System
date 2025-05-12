@@ -20,11 +20,6 @@ namespace DVLD_Full_Project
             UserName = username;
         }
 
-        private void applicationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Not Implamtion yet","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
-        }
-
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPeople frm = new frmPeople();
@@ -56,6 +51,17 @@ namespace DVLD_Full_Project
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUserChangePass frm = new frmUserChangePass(UserName);
+            frm.ShowDialog();
+        }
+
+        private void drivingLicensesServuceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes frm = new frmManageApplicationTypes();
             frm.ShowDialog();
         }
     }

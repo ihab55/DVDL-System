@@ -20,10 +20,9 @@ namespace DataAccessLayer
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
+                
                     dt.Load(reader);
-                }
+                
                 reader.Close();
             }
             catch (Exception ex)

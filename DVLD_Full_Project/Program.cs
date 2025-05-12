@@ -20,7 +20,7 @@ namespace DVLD_Full_Project
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Test());
             //Application.Run(new Main("Msaqer77"));
-
+            //Application.Run(new frmManageApplicationTypes());
             //#region//              Main Run For Me
             do
             {

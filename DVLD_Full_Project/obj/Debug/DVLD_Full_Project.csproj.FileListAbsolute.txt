@@ -27,3 +27,5 @@ D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.Use_Controller.FrmAddEditUsers.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.UsersForm.frmUsersCard.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.UsersForm.frmUserChangePass.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmManageApplicationTypes.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmEditApplicationType.resources
