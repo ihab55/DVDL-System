@@ -200,15 +200,15 @@
             this.cmbFilter.FormattingEnabled = true;
             this.cmbFilter.Items.AddRange(new object[] {
             "(None)",
-            "Person ID",
-            "National ID",
+            "PersonID",
+            "National No",
             "First Name",
             "Second Name",
             "Third Name",
             "Last Name",
             "Nationality",
             "Gendor",
-            "Phone ",
+            "Phone",
             "Email"});
             this.cmbFilter.Location = new System.Drawing.Point(169, 252);
             this.cmbFilter.Name = "cmbFilter";

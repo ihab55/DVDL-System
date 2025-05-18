@@ -3,8 +3,18 @@
   "WorkspaceRootPath": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\applicationform\\frmlocaldrivinglicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:applicationform\\frmlocaldrivinglicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B27CD1D0-03AF-43CE-8AF5-80FDB52BDE0C}|..\\BussinessLayer\\BussinessLayer.csproj|d:\\courses\\newprojects\\fullproject\\bussinesslayer\\clslocaldrivinglicenseapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54B6B23C-9F1F-4E9E-A5BC-01F45A949B6F}|..\\DataAccessLayer\\DataAccessLayer.csproj|d:\\courses\\newprojects\\fullproject\\dataaccesslayer\\clslocaldrivinglicenseappdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\applicationform\\frmlocaldrivinglicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:applicationform\\frmlocaldrivinglicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,26 +23,66 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 1498,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 1701,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBYAAAAOAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "frmLocalDrivingLicense.cs [Design]",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ApplicationForm\\frmLocalDrivingLicense.cs",
+              "RelativeDocumentMoniker": "ApplicationForm\\frmLocalDrivingLicense.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ApplicationForm\\frmLocalDrivingLicense.cs [Design]",
+              "RelativeToolTip": "ApplicationForm\\frmLocalDrivingLicense.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T22:42:31.091Z",
+              "WhenOpened": "2025-05-18T13:54:33.606Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmLocalDrivingLicense.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ApplicationForm\\frmLocalDrivingLicense.cs",
+              "RelativeDocumentMoniker": "ApplicationForm\\frmLocalDrivingLicense.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ApplicationForm\\frmLocalDrivingLicense.cs",
+              "RelativeToolTip": "ApplicationForm\\frmLocalDrivingLicense.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAiwH8AAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T15:08:50.2Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "clsLocalDrivingLicenseAppData.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DataAccessLayer\\clsLocalDrivingLicenseAppData.cs",
+              "RelativeDocumentMoniker": "..\\DataAccessLayer\\clsLocalDrivingLicenseAppData.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DataAccessLayer\\clsLocalDrivingLicenseAppData.cs",
+              "RelativeToolTip": "..\\DataAccessLayer\\clsLocalDrivingLicenseAppData.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAUwEsAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T15:37:43.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "clsLocalDrivingLicenseApp.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsLocalDrivingLicenseApp.cs",
+              "RelativeDocumentMoniker": "..\\BussinessLayer\\clsLocalDrivingLicenseApp.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsLocalDrivingLicenseApp.cs",
+              "RelativeToolTip": "..\\BussinessLayer\\clsLocalDrivingLicenseApp.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAA+wC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T15:37:43.933Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 1498,
+          "DockedWidth": 1701,
           "SelectedChildIndex": -1,
           "Children": [
             {

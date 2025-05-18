@@ -230,7 +230,19 @@ namespace DataAccessLayer
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = "SELECT * FROM People";
+            string query = @"SELECT PersonID
+      ,NationalNo AS [National No]
+      ,FirstName As [First Name]
+      ,SecondName As [Second Name]
+      ,ThirdName As [Third Name]
+      ,LastName As [Last Name]
+      ,CASE WHEN Gendor = 0 THEN 'Male' 
+	  WHEN Gendor = 1 THEN 'Female' end AS [Gendor]
+      ,DateOfBirth AS [Date Of Birth]
+      ,Countries.CountryName AS Nationality
+      ,Phone
+      ,Email
+  FROM People INNER JOIN Countries ON People.NationalityCountryID = Countries.CountryID";
             SqlCommand command = new SqlCommand(query, connection);
             try
             {

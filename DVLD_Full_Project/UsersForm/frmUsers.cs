@@ -24,7 +24,7 @@ namespace DVLD_Full_Project
         {
             _PrintDv = clsUser.GetAllUsers();
             dataGridView1.DataSource = _PrintDv;
-            labNum.Text = dataGridView1.Rows.Count.ToString();
+            labNum.Text = _PrintDv.Rows.Count.ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -65,6 +65,11 @@ namespace DVLD_Full_Project
                 _RefreshData();
                 return;
             }
+            if (cmbFilter.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a filter first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 string filterColumn = cmbFilter.SelectedItem.ToString();
@@ -86,6 +91,7 @@ namespace DVLD_Full_Project
                 _RefreshData();
                 MessageBox.Show($"Error filtering data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            labNum.Text = view.Count.ToString();
         }
 
         private void btAdd_Click(object sender, EventArgs e)
@@ -135,6 +141,7 @@ namespace DVLD_Full_Project
                 _RefreshData();
                 MessageBox.Show($"Error filtering data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            labNum.Text = view.Count.ToString();
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)

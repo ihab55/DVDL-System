@@ -11,33 +11,30 @@ using BussinessLayer;
 
 namespace DVLD_Full_Project
 {
-    public partial class frmManageApplicationTypes : Form
+    public partial class frmManageTest : Form
     {
-        public frmManageApplicationTypes()
+        public frmManageTest()
         {
             InitializeComponent();
+            _Refreash();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void _RefreashForm()
+        private void _Refreash()
         {
-            dataGridView1.DataSource = clsApplicationTypes.GetAllApplicationTypes();
+            dataGridView1.DataSource = clsManageTests.GetAllManageTest();
             labNum.Text = dataGridView1.RowCount.ToString();
-        }
-
-        private void frmManageApplicationTypes_Load(object sender, EventArgs e)
-        {
-            _RefreashForm();
         }
 
         private void editApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmEditApplicationType frmEditApplicationType = new frmEditApplicationType((int)dataGridView1.SelectedCells[0].Value);
-            frmEditApplicationType.ShowDialog();
-            _RefreashForm();
+            frmEditManageTest frmEdit = new frmEditManageTest((int)dataGridView1.CurrentRow.Cells[0].Value);
+            frmEdit.ShowDialog();
+            _Refreash();
         }
+
     }
 }

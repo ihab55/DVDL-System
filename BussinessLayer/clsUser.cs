@@ -58,7 +58,7 @@ namespace BussinessLayer
             bool is_active = false;
             if (clsUsersData.GetUserByUserName(username, ref person_id, ref id, ref pass_word, ref is_active))
             {
-                return new clsUser(person_id, person_id, username, pass_word, is_active);
+                return new clsUser(id, person_id, username, pass_word, is_active);
             }
             return null;
         }

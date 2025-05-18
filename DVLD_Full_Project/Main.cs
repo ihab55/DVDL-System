@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BussinessLayer;
 using DVLD_Full_Project.UsersForm;
 
 namespace DVLD_Full_Project
 {
     public partial class Main : Form
     {
-        public static string UserName = "Admin";
         public Main(string username)
         {
             InitializeComponent();
-            UserName = username;
+            clsCurrentUsersInfo.CurrentUser =clsUser.Find(username);
         }
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,13 +44,13 @@ namespace DVLD_Full_Project
 
         private void currentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUsersCard frm = new frmUsersCard(UserName);
+            frmUsersCard frm = new frmUsersCard(clsCurrentUsersInfo.CurrentUser.UserName);
             frm.ShowDialog();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUserChangePass frm = new frmUserChangePass(UserName);
+            frmUserChangePass frm = new frmUserChangePass(clsCurrentUsersInfo.CurrentUser.UserName);
             frm.ShowDialog();
         }
 
@@ -62,6 +62,24 @@ namespace DVLD_Full_Project
         private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageApplicationTypes frm = new frmManageApplicationTypes();
+            frm.ShowDialog();
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageTest frm = new frmManageTest();
+            frm.ShowDialog();
+        }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLocalDrivingLicense frm = new frmLocalDrivingLicense();
+            frm.ShowDialog();
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewLocalDrivingLicenseAPP frm = new frmNewLocalDrivingLicenseAPP();
             frm.ShowDialog();
         }
     }
