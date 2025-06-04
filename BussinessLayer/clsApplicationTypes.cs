@@ -11,12 +11,12 @@ namespace BussinessLayer
     {
         public int ID;
         public string Title;
-        public decimal Fees;
+        public int Fees;
         public static DataTable GetAllApplicationTypes()
         {
             return DataAccessLayer.clsApplicationTypesData.GetAllApplicationTypes();
         }
-        private clsApplicationTypes (int id , string title, decimal fees)
+        private clsApplicationTypes (int id , string title, int fees)
         {
             ID = id;
             Title = title;
@@ -28,7 +28,7 @@ namespace BussinessLayer
             decimal fees = 0;
             if (clsApplicationTypesData.GetApplicationTypesByID(id,ref title,ref fees))
             {
-                return new clsApplicationTypes(id, title, fees);
+                return new clsApplicationTypes(id, title,(int) fees);
             }
             return null;
         }

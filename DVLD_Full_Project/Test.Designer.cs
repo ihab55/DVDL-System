@@ -28,31 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucUserCard1 = new DVLD_Full_Project.Use_Controller.ucUserCard();
+            this.ucDLAppInfo1 = new DVLD_Full_Project.ucDLAppInfo();
             this.SuspendLayout();
             // 
-            // ucUserCard1
+            // ucDLAppInfo1
             // 
-            this.ucUserCard1.Location = new System.Drawing.Point(135, 45);
-            this.ucUserCard1.Name = "ucUserCard1";
-            this.ucUserCard1.Size = new System.Drawing.Size(715, 325);
-            this.ucUserCard1.TabIndex = 0;
+            this.ucDLAppInfo1.Location = new System.Drawing.Point(194, 12);
+            this.ucDLAppInfo1.Name = "ucDLAppInfo1";
+            this.ucDLAppInfo1.Size = new System.Drawing.Size(782, 523);
+            this.ucDLAppInfo1.TabIndex = 0;
             // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 569);
-            this.Controls.Add(this.ucUserCard1);
+            this.Controls.Add(this.ucDLAppInfo1);
             this.Name = "Test";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Test_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private Use_Controller.ucFilterPerson ucFilterPerson1;
-        private Use_Controller.ucUserCard ucUserCard1;
+        private ucDLAppInfo ucDLAppInfo1;
     }
 }
 

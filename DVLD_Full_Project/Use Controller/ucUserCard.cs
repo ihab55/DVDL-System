@@ -23,7 +23,7 @@ namespace DVLD_Full_Project.Use_Controller
             clsUser _user = clsUser.Find(userID);
             if (_user != null)
             {
-                ucPersonCard1.FillPersonCard(_user.PersonID);
+                ucPersonCard1.FillPersonCard(_user.PersonInfo.Id);
                 clabUserID.Text = _user.Id.ToString();
                 clabUserName.Text = _user.UserName;
                 clabIsActive.Text = _user.IsActive ? "Yes" : "No";
@@ -38,7 +38,7 @@ namespace DVLD_Full_Project.Use_Controller
             clsUser _user = clsUser.Find(username);
             if (_user != null)
             {
-                ucPersonCard1.FillPersonCard(_user.PersonID);
+                ucPersonCard1.FillPersonCard(_user.PersonInfo.Id);
                 clabUserID.Text = _user.Id.ToString();
                 clabUserName.Text = _user.UserName;
                 clabIsActive.Text = _user.IsActive ? "Yes" : "No";

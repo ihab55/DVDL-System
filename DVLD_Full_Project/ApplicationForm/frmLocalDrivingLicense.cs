@@ -119,7 +119,7 @@ namespace DVLD_Full_Project
         private void canelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int LocalID = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            if (clsLocalDrivingLicenseApp.CancelLocalAppStatus(LocalID))
+            if (clsLocalDrivingLicenseApp.GetAppByID(LocalID).CancelLocalAppStatus())
             {
                 MessageBox.Show($"Application {LocalID} Canceled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 _Refresh();
@@ -129,6 +129,12 @@ namespace DVLD_Full_Project
                 MessageBox.Show($"Application {LocalID} Is Aleady Canceled OR Completed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVisonTest frm = new frmVisonTest();
+            frm.ShowDialog();
         }
     }
 }

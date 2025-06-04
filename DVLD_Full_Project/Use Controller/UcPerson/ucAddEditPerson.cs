@@ -31,7 +31,7 @@ namespace DVLD_Full_Project.Use_Controller
                 person.Gendor = (rbFemale.Checked) ? 1 : 0;
                 person.Phone = txtPhone.Text;
                 person.Email = txtEmail.Text;
-                person.CountryId =(cmbCountry.SelectedIndex==-1)? 51:cmbCountry.SelectedIndex+1;
+                person.CountryInfo.CountryId =(cmbCountry.SelectedIndex==-1)? 51:cmbCountry.SelectedIndex+1;
                 person.Address = txtAddress.Text;
                 if (pbPerson.Tag == "Delete" && person.ImagePath != "")
                 {
@@ -119,7 +119,7 @@ namespace DVLD_Full_Project.Use_Controller
             txtEmail.Text = person.Email;
             txtAddress.Text = person.Address;
             dtDateOfBirth.Value = person.DateOfBirth;
-            cmbCountry.SelectedIndex = cmbCountry.FindString(clsCountry.Find(person.CountryId).CountryName);
+            cmbCountry.SelectedIndex = cmbCountry.FindString(clsCountry.Find(person.CountryInfo.CountryId).CountryName);
             rbMale.Checked = (person.Gendor == 0);
             rbFemale.Checked = (person.Gendor == 1);
             if (person.ImagePath != "")

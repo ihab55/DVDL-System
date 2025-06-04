@@ -10,8 +10,8 @@ namespace BussinessLayer
 {
     public class clsCountry
     {
-        public int CountryId { get; }
-        public string CountryName { get; }
+        public int CountryId { get; set; }
+        public string CountryName { get; set; }
         static public DataTable GetAllCountry() {
         return clsCountryData.GetAllCountry();
         }
@@ -28,6 +28,11 @@ namespace BussinessLayer
                 return new clsCountry(Id, Name);
             }
             return null;
+        }
+        public clsCountry()
+        {
+            CountryId = -99;
+            CountryName = string.Empty;
         }
     }
 }

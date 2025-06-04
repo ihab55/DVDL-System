@@ -35,7 +35,7 @@ namespace DVLD_Full_Project
                 clabAddress.Text = person.Address;
                 clabPhone.Text = person.Phone;
                 clabEmail.Text = person.Email;
-                clabCountry.Text = clsCountry.Find(person.CountryId).CountryName;
+                clabCountry.Text = clsCountry.Find(person.CountryInfo.CountryId).CountryName;
                 switch (person.Gendor)
                 {
                     case 0:
@@ -68,7 +68,7 @@ namespace DVLD_Full_Project
                 clabAddress.Text = person.Address;
                 clabPhone.Text = person.Phone;
                 clabEmail.Text = person.Email;
-                clabCountry.Text = clsCountry.Find(person.CountryId).CountryName;
+                clabCountry.Text = clsCountry.Find(person.CountryInfo.CountryId).CountryName;
                 switch (person.Gendor)
                 {
                     case 0:

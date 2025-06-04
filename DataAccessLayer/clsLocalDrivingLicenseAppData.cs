@@ -66,62 +66,45 @@ GROUP BY
             }
             return dt;
         }
-        public static bool CancelLocalAppStatus(int LocalAppID)
+        public static bool GetLocalAppByID(int LocalAppID,ref int AppID,ref int LicID)
         {
-            int IsSuccess = 0;
+            bool Isfound = false;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"UPDATE Applications
-   SET ApplicationStatus = 2
- WHERE ApplicationID=(SELECT ApplicationID FROM LocalDrivingLicenseApplications WHERE  
-LocalDrivingLicenseApplicationID = @LocalAppID) AND ApplicationStatus =1 ";
+            string query = @"SELECT ApplicationID ,LicenseClassID FROM LocalDrivingLicenseApplications 
+        WHERE LocalDrivingLicenseApplicationID = @ID";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@LocalAppID", LocalAppID);
-            try
-            {
-                connection.Open();
-                IsSuccess = command.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                IsSuccess = 0;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return (IsSuccess > 0);
-        }
-        public static int GetLocalAppFees()
-        {
-            decimal fees = 0;
-            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = "SELECT ApplicationFees FROM ApplicationTypes WHERE ApplicationTypeID=1";
-            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", LocalAppID);
             try
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    fees = (decimal)reader["ApplicationFees"];
+                    AppID = (int)reader["ApplicationID"];
+                    LicID = (int)reader["LicenseClassID"];
+                    Isfound = true;
+                }
+                else
+                {
+                    Isfound = false;
                 }
                 reader.Close();
             }
             catch (SqlException ex)
             {
-                fees = 0;
+                Isfound = false;
             }
             finally
             {
                 connection.Close();
             }
-            return (int) fees;
+            return Isfound;
         }
         public static bool IsThisAppExist(int PersonID,int ClassID)
         {
             bool IsExist = false;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"SELECT * From LocalDrivingLicenseApplications INNER JOIN Applications ON LocalDrivingLicenseApplications.ApplicationID
+            string query = @"SELECT X=1 From LocalDrivingLicenseApplications INNER JOIN Applications ON LocalDrivingLicenseApplications.ApplicationID
             = Applications.ApplicationID WHERE ApplicantPersonID = @PersonID AND ApplicationStatus != 2 AND LicenseClassID= @ClassID";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@PersonID", PersonID);
@@ -142,9 +125,8 @@ LocalDrivingLicenseApplicationID = @LocalAppID) AND ApplicationStatus =1 ";
             }
             return IsExist ;
         }
-        public static int AddNewLocalDrivingLicenseApp(int PersonID,int Fees,int UserID,int ClassID)
+        public static int AddNewLocalDrivingLicenseApp(int AppID,int ClassID)
         {
-            int AppID = clsApplicationData.AddNewApplication(PersonID,Fees,UserID);
             int LocalAppID = -99;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
             string query = @"INSERT INTO LocalDrivingLicenseApplications
@@ -168,6 +150,29 @@ LocalDrivingLicenseApplicationID = @LocalAppID) AND ApplicationStatus =1 ";
                 connection.Close();
             }
             return LocalAppID;
+        }
+        public static bool UpdateLocalDrivingApp(int Id,int AppID, int ClassID)
+        {
+            int Affcted = -99;
+            SqlConnection connection = new SqlConnection( DataSetting.ConnctionName);
+            string query = @"UPDATE LocalDrivingLicenseApplications
+   SET ApplicationID = @AppID
+      ,LicenseClassID = @ClassID
+ WHERE  LocalDrivingLicenseApplicationID = @Id";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Id", Id);
+            command.Parameters.AddWithValue("@AppID", AppID);
+            command.Parameters.AddWithValue("@ClassID", ClassID);
+            try
+            {
+                connection.Open();
+                Affcted = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Affcted = -99;
+            }finally {connection.Close(); }
+            return (Affcted > 0);
         }
     }
 }

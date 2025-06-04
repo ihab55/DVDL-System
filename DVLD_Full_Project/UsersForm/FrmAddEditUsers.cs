@@ -63,7 +63,7 @@ namespace DVLD_Full_Project.Use_Controller
         }
         private void ucFilterPerson1_OnPersonSelected(int obj)
         {
-            _User.PersonID = obj;
+            _User.PersonInfo = clsPerson.Find(obj);
             tabPage2.Enabled = true;
         }
         private bool _ValidatePassword()
@@ -110,7 +110,7 @@ namespace DVLD_Full_Project.Use_Controller
                 labHead.Text = "Edit User";
                 labHead.Left = 230;
                 ucFilterPerson1.Enabled = false;
-                ucFilterPerson1.FillPersonCard(_User.PersonID);
+                ucFilterPerson1.FillPersonCard(_User.PersonInfo.Id);
                 txtUsername.Text = _User.UserName;
                 txtPassword.Text = _User.Password;
                 txtCopyPassword.Text = _User.Password;

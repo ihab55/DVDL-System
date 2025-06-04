@@ -18,10 +18,10 @@ namespace DVLD_Full_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             //Application.Run(new Test());
-            //Application.Run(new Main("Msaqer77"));
-            //Application.Run(new frmManageApplicationTypes());
-            //#region//              Main Run For Me
+            //Application.Run(new frmVisonTest());
+
             do
             {
                 IsRestart = false;
@@ -33,7 +33,6 @@ namespace DVLD_Full_Project
                 }
             }
             while (IsRestart);
-            //#endregion
         }
     }
 }

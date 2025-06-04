@@ -16,14 +16,14 @@ namespace BussinessLayer
         }
         private _enMode _Mode;
         public int Id { get; set; }
-        public int PersonID { get; set; }
+        public clsPerson PersonInfo { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
         public clsUser()
         {
             Id = -99;
-            PersonID = -99;
+            PersonInfo =new clsPerson();
             UserName = string.Empty;
             Password = string.Empty;
             IsActive = false;
@@ -31,11 +31,11 @@ namespace BussinessLayer
         }
         private clsUser(int id,int person_id,string username,string password,bool isactive)
         {
-            Id =id; PersonID=person_id; UserName =username; Password =password; IsActive = isactive; _Mode = _enMode._Update;
+            Id =id; PersonInfo=clsPerson.Find(person_id); UserName =username; Password =password; IsActive = isactive; _Mode = _enMode._Update;
         }
         private bool _AddNewUsers()
         {
-            this.Id = clsUsersData.AddNewUsers(this.PersonID, this.UserName, this.Password, this.IsActive);
+            this.Id = clsUsersData.AddNewUsers(this.PersonInfo.Id, this.UserName, this.Password, this.IsActive);
             return (this.Id != -99);
         }
         public static clsUser Find(int id)
@@ -72,7 +72,7 @@ namespace BussinessLayer
         }
         private bool _UpdateUsers()
         {
-            return clsUsersData.UpdateUsers(this.Id,this.PersonID,this.UserName,this.Password,this.IsActive);
+            return clsUsersData.UpdateUsers(this.Id,this.PersonInfo.Id,this.UserName,this.Password,this.IsActive);
         }
         public bool Save()
         {

@@ -123,6 +123,16 @@ namespace DVLD_Full_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap calendar_add32 {
+            get {
+                object obj = ResourceManager.GetObject("calendar_add32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cancel_row32 {
             get {
                 object obj = ResourceManager.GetObject("Cancel_row32", resourceCulture);
@@ -226,6 +236,26 @@ namespace DVLD_Full_Project.Properties {
         internal static System.Drawing.Bitmap eye {
             get {
                 object obj = ResourceManager.GetObject("eye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye_72 {
+            get {
+                object obj = ResourceManager.GetObject("eye 72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye32 {
+            get {
+                object obj = ResourceManager.GetObject("eye32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

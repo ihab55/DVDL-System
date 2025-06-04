@@ -24,7 +24,6 @@ namespace BussinessLayer
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
-
         public string FullName()
         {
             return $"{FirstName} {SecondName} {ThirdName} {LastName}";
@@ -35,7 +34,7 @@ namespace BussinessLayer
         public string Address { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public int CountryId { get; set; }
+        public clsCountry CountryInfo { get; set; }
         public string ImagePath { get; set; }
         private clsPerson(int id, string nationaliD, string firstname, string secondname, string thirdname, string lastname, DateTime dateofbirth, int gendor, string address,
             string email, string phone, int countryid, string imagepath)
@@ -50,12 +49,12 @@ namespace BussinessLayer
             Address = address;
             Email = email;
             Phone = phone;
-            CountryId = countryid;
+            CountryInfo = clsCountry.Find(countryid);
             ImagePath = imagepath;
             NationalID = nationaliD;
             _Mode = _enMode._Update;
         }
-
+        
         public clsPerson()
         {
             Id = -99;
@@ -68,7 +67,7 @@ namespace BussinessLayer
             Address = "";
             Email = "";
             Phone = "";
-            CountryId = -99;
+            CountryInfo = new clsCountry();
             ImagePath = "";
             NationalID = "";
             _Mode = _enMode._Add;
@@ -118,12 +117,12 @@ namespace BussinessLayer
 
         private bool _AddNewPerson()
         {
-            Id = clsPersonData.AddNewPerson(NationalID, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email, CountryId, ImagePath);
+            Id = clsPersonData.AddNewPerson(NationalID, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email, CountryInfo.CountryId, ImagePath);
             return (Id != -99);
         }
         private bool _UpdatePerson()
         {
-            return clsPersonData.UpdatePerson(Id,NationalID,FirstName,SecondName,ThirdName,LastName,DateOfBirth,Gendor,Address,Phone,Email,CountryId,ImagePath);
+            return clsPersonData.UpdatePerson(Id,NationalID,FirstName,SecondName,ThirdName,LastName,DateOfBirth,Gendor,Address,Phone,Email, CountryInfo.CountryId, ImagePath);
         }
         public static DataTable GetAllPeople()
         {

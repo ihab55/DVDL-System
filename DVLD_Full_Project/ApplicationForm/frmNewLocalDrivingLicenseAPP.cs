@@ -31,23 +31,24 @@ namespace DVLD_Full_Project
 
         private void ucFilterPerson1_OnPersonSelected(int obj)
         {
-            _LDL.personID = obj;
+            _LDL.ApplicationInfo.PersonInfo = clsPerson.Find(obj);
             tabPage2.Enabled = true;
             btnNext.Enabled = true;
-            txtApplicationfees.Text = _LDL.Fees.ToString();
+            txtApplicationfees.Text = _LDL.ApplicationInfo.Fees.ToString();
             txtCreatedby.Text = clsCurrentUsersInfo.CurrentUser.UserName;
             txtDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _LDL.ClassID = comboBox1.SelectedIndex+1;
+            _LDL.licenseClassInfo = clsLicenseClass.Find(comboBox1.SelectedIndex+1);
+            _LDL.ApplicationInfo.CreatedbyInfo = clsCurrentUsersInfo.CurrentUser;
             if (_LDL.IsExists())
             {
                 MessageBox.Show("This Application Already Exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (_LDL.AddNewLocalDrivingLicenseApp(clsCurrentUsersInfo.CurrentUser.Id))
+            if (_LDL.Save())
             {
                 btnSave.Enabled = false;
                 txtApplicationID.Text = _LDL.LocalDrivingLicenseApplicationID.ToString();

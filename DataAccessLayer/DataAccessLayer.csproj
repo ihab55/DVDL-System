@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,9 +46,17 @@
     <Compile Include="clsApplicationData.cs" />
     <Compile Include="clsApplicationTypesData.cs" />
     <Compile Include="clsCountryData.cs" />
+    <Compile Include="clsDetainedLicensesData.cs" />
+    <Compile Include="clsDriverData.cs" />
+    <Compile Include="clsInternationalLicenseData.cs" />
+    <Compile Include="clsLicenseClassData.cs" />
+    <Compile Include="clsLicenseData.cs" />
     <Compile Include="clsLocalDrivingLicenseAppData.cs" />
     <Compile Include="clsManageTestsData.cs" />
     <Compile Include="clsPersonData.cs" />
+    <Compile Include="clsTestAppointmentData.cs" />
+    <Compile Include="clsTestTakenData.cs" />
+    <Compile Include="clsTestTypeData.cs" />
     <Compile Include="clsUsersData.cs" />
     <Compile Include="DataSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

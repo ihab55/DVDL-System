@@ -77,6 +77,12 @@
     <Compile Include="ApplicationForm\frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditVison.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditVison.Designer.cs">
+      <DependentUpon>frmEditVison.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManageTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,12 @@
     <Compile Include="ApplicationForm\frmNewLocalDrivingLicenseAPP.Designer.cs">
       <DependentUpon>frmNewLocalDrivingLicenseAPP.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVisonTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisonTest.Designer.cs">
+      <DependentUpon>frmVisonTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="PeopleForm\frmAddOrEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +112,18 @@
     </Compile>
     <Compile Include="PeopleForm\frmCardDetailsPerson.Designer.cs">
       <DependentUpon>frmCardDetailsPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucApplicationInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucApplicationInfo.Designer.cs">
+      <DependentUpon>ucApplicationInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDLAppInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDLAppInfo.Designer.cs">
+      <DependentUpon>ucDLAppInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="UsersForm\frmmLogin.cs">
       <SubType>Form</SubType>
@@ -192,17 +216,29 @@
     <EmbeddedResource Include="ApplicationForm\frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditVison.resx">
+      <DependentUpon>frmEditVison.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManageTest.resx">
       <DependentUpon>frmManageTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm\frmNewLocalDrivingLicenseAPP.resx">
       <DependentUpon>frmNewLocalDrivingLicenseAPP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVisonTest.resx">
+      <DependentUpon>frmVisonTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PeopleForm\frmAddOrEditPerson.resx">
       <DependentUpon>frmAddOrEditPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PeopleForm\frmCardDetailsPerson.resx">
       <DependentUpon>frmCardDetailsPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucApplicationInfo.resx">
+      <DependentUpon>ucApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDLAppInfo.resx">
+      <DependentUpon>ucDLAppInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsersForm\frmmLogin.resx">
       <DependentUpon>frmmLogin.cs</DependentUpon>
@@ -347,6 +383,9 @@
     <None Include="ButtonIcon\Cancel_row32.png" />
     <None Include="ButtonIcon\test_32.png" />
     <None Include="ButtonIcon\deleteApp_32.png" />
+    <None Include="ButtonIcon\eye 72.png" />
+    <None Include="ButtonIcon\eye32.png" />
+    <None Include="ButtonIcon\calendar_add32.png" />
     <Content Include="HeadImage\IMG_0750.jpeg" />
   </ItemGroup>
   <ItemGroup />

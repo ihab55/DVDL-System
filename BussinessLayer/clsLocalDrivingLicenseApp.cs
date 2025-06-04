@@ -4,15 +4,19 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer;
 
 namespace BussinessLayer
 {
     public class clsLocalDrivingLicenseApp
     {
+        #region   Property
         public int LocalDrivingLicenseApplicationID { get; set; }
-        public int personID { get; set; }
-        public int Fees { get; set; }
-        public int ClassID { get; set; }   
+        public clsApplication ApplicationInfo { get; set; }
+        public clsLicenseClass licenseClassInfo { get; set; }
+        private enum _enMode {_enAddNew=0,_enUpdate=1}
+        _enMode _Mode;
+        #endregion
         public static DataTable GetAllLocalApp()
         {
             return DataAccessLayer.clsLocalDrivingLicenseAppData.GetAllLocalApp();
@@ -20,27 +24,67 @@ namespace BussinessLayer
         public clsLocalDrivingLicenseApp()
         {
             LocalDrivingLicenseApplicationID = -99;
-            personID = -99;
-            Fees = LocalLicenseFees();
-            ClassID = -99;
+            ApplicationInfo = new clsApplication();
+            //Add Class License in presntation;
+            _Mode = _enMode._enAddNew;
         }
-        private  int LocalLicenseFees()
+        private clsLocalDrivingLicenseApp(int localappID,int appID,int classeID)
         {
-            return DataAccessLayer.clsLocalDrivingLicenseAppData.GetLocalAppFees();
+            LocalDrivingLicenseApplicationID = localappID;
+            ApplicationInfo = clsApplication.FindApp(appID);
+            licenseClassInfo = clsLicenseClass.Find(classeID);
+            _Mode = _enMode._enUpdate;
+        }
+        public static clsLocalDrivingLicenseApp GetAppByID(int id)
+        {
+            int appID = -99;
+            int LicId = -99;
+            if (clsLocalDrivingLicenseAppData.GetLocalAppByID(id,ref appID,ref LicId))
+            {
+                return new clsLocalDrivingLicenseApp(id, appID,LicId);
+            }
+            return null;
         }
         public bool IsExists()
         {
-            return DataAccessLayer.clsLocalDrivingLicenseAppData.IsThisAppExist(this.personID, this.ClassID);
+            return DataAccessLayer.clsLocalDrivingLicenseAppData.IsThisAppExist(
+                ApplicationInfo.PersonInfo.Id, licenseClassInfo.ID);
         }
-        public  bool AddNewLocalDrivingLicenseApp(int userid)
+        private  bool AddNewLocalDrivingLicenseApp()
         {
+            ApplicationInfo.Save();
             this.LocalDrivingLicenseApplicationID = 
-          DataAccessLayer.clsLocalDrivingLicenseAppData.AddNewLocalDrivingLicenseApp(this.personID,this.Fees,userid, ClassID);
+          DataAccessLayer.clsLocalDrivingLicenseAppData.AddNewLocalDrivingLicenseApp(ApplicationInfo.ID , licenseClassInfo.ID);
             return (this.LocalDrivingLicenseApplicationID != -99);
         }
-        public static bool CancelLocalAppStatus(int LocalID)
+        private bool UpdateLocalDrivingLicense()
         {
-            return DataAccessLayer.clsLocalDrivingLicenseAppData.CancelLocalAppStatus(LocalID);
+            return clsLocalDrivingLicenseAppData.UpdateLocalDrivingApp(LocalDrivingLicenseApplicationID,
+                ApplicationInfo.ID, licenseClassInfo.ID);
+        }
+        public bool CancelLocalAppStatus()
+        {
+            return ApplicationInfo.CancelApp();
+        }
+        public bool Save()
+        {
+            switch (_Mode)
+            {
+                case _enMode._enUpdate:
+                    {
+                        return UpdateLocalDrivingLicense();
+                    }
+                case _enMode._enAddNew:
+                    {
+                        if (AddNewLocalDrivingLicenseApp())
+                        {
+                            _Mode = _enMode._enUpdate;
+                            return true;
+                        }
+                        return false;
+                    }
+            }
+            return false;
         }
     }
 }

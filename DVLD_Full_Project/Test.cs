@@ -17,8 +17,11 @@ namespace DVLD_Full_Project
         public Test()
         {
             InitializeComponent();
-            ucUserCard1.FillUserCard(1);
         }
 
+        private void Test_Load(object sender, EventArgs e)
+        {
+            ucDLAppInfo1.FillLocalAppInfo(36);
+        }
     }
 }

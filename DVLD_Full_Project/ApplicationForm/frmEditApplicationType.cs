@@ -34,7 +34,7 @@ namespace DVLD_Full_Project
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _applicationTypes.Fees = decimal.Parse(txtFees.Text);
+            _applicationTypes.Fees = int.Parse(txtFees.Text);
             _applicationTypes.Title = txtTitle.Text;
             if (_applicationTypes.Save())
             {

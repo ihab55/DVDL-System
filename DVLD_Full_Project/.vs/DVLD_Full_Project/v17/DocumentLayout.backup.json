@@ -3,18 +3,13 @@
   "WorkspaceRootPath": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\applicationform\\frmlocaldrivinglicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:applicationform\\frmlocaldrivinglicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B27CD1D0-03AF-43CE-8AF5-80FDB52BDE0C}|..\\BussinessLayer\\BussinessLayer.csproj|d:\\courses\\newprojects\\fullproject\\bussinesslayer\\clslicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B27CD1D0-03AF-43CE-8AF5-80FDB52BDE0C}|..\\BussinessLayer\\BussinessLayer.csproj|d:\\courses\\newprojects\\fullproject\\bussinesslayer\\clslocaldrivinglicenseapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B27CD1D0-03AF-43CE-8AF5-80FDB52BDE0C}|..\\BussinessLayer\\BussinessLayer.csproj|d:\\courses\\newprojects\\fullproject\\bussinesslayer\\clsdriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54B6B23C-9F1F-4E9E-A5BC-01F45A949B6F}|..\\DataAccessLayer\\DataAccessLayer.csproj|d:\\courses\\newprojects\\fullproject\\dataaccesslayer\\clslocaldrivinglicenseappdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\applicationform\\frmlocaldrivinglicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:applicationform\\frmlocaldrivinglicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{54B6B23C-9F1F-4E9E-A5BC-01F45A949B6F}|..\\DataAccessLayer\\DataAccessLayer.csproj|d:\\courses\\newprojects\\fullproject\\dataaccesslayer\\clslicensedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,55 +23,43 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmLocalDrivingLicense.cs [Design]",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ApplicationForm\\frmLocalDrivingLicense.cs",
-              "RelativeDocumentMoniker": "ApplicationForm\\frmLocalDrivingLicense.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ApplicationForm\\frmLocalDrivingLicense.cs [Design]",
-              "RelativeToolTip": "ApplicationForm\\frmLocalDrivingLicense.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "clsLicenseData.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DataAccessLayer\\clsLicenseData.cs",
+              "RelativeDocumentMoniker": "..\\DataAccessLayer\\clsLicenseData.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DataAccessLayer\\clsLicenseData.cs",
+              "RelativeToolTip": "..\\DataAccessLayer\\clsLicenseData.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAcwAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T13:54:33.606Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmLocalDrivingLicense.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ApplicationForm\\frmLocalDrivingLicense.cs",
-              "RelativeDocumentMoniker": "ApplicationForm\\frmLocalDrivingLicense.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ApplicationForm\\frmLocalDrivingLicense.cs",
-              "RelativeToolTip": "ApplicationForm\\frmLocalDrivingLicense.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAiwH8AAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T15:08:50.2Z",
+              "WhenOpened": "2025-06-03T13:07:09.955Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "clsLocalDrivingLicenseAppData.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DataAccessLayer\\clsLocalDrivingLicenseAppData.cs",
-              "RelativeDocumentMoniker": "..\\DataAccessLayer\\clsLocalDrivingLicenseAppData.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DataAccessLayer\\clsLocalDrivingLicenseAppData.cs",
-              "RelativeToolTip": "..\\DataAccessLayer\\clsLocalDrivingLicenseAppData.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAUwEsAAABSAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "clsLicense.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsLicense.cs",
+              "RelativeDocumentMoniker": "..\\BussinessLayer\\clsLicense.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsLicense.cs",
+              "RelativeToolTip": "..\\BussinessLayer\\clsLicense.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T15:37:43.9Z",
+              "WhenOpened": "2025-06-03T14:35:01.324Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "clsLocalDrivingLicenseApp.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsLocalDrivingLicenseApp.cs",
-              "RelativeDocumentMoniker": "..\\BussinessLayer\\clsLocalDrivingLicenseApp.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsLocalDrivingLicenseApp.cs",
-              "RelativeToolTip": "..\\BussinessLayer\\clsLocalDrivingLicenseApp.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAA+wC0AAAABAAAAAAAAAA==",
+              "Title": "clsDriver.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsDriver.cs",
+              "RelativeDocumentMoniker": "..\\BussinessLayer\\clsDriver.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsDriver.cs",
+              "RelativeToolTip": "..\\BussinessLayer\\clsDriver.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAQwCMAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T15:37:43.933Z",
+              "WhenOpened": "2025-06-03T14:35:28.416Z",
               "EditorCaption": ""
             }
           ]

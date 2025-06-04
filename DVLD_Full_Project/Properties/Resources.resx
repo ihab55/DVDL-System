@@ -187,6 +187,9 @@
   <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="deleteApp_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\deleteApp_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Gendor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\CardIcon\Gendor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -220,6 +223,9 @@
   <data name="papers_72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\papers_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="eye 72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\eye 72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Screenshot 2025-05-02 032017" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\Screenshot 2025-05-02 032017.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -231,6 +237,9 @@
   </data>
   <data name="Cancel_row32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\Cancel_row32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\eye32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="person_boy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\CardIcon\person_boy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -283,7 +292,7 @@
   <data name="People" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\People.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="deleteApp_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ButtonIcon\deleteApp_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="calendar_add32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\calendar_add32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

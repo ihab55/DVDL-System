@@ -33,3 +33,8 @@ D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmEditManageTest.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmLocalDrivingLicense.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmNewLocalDrivingLicenseAPP.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.ucApplicationInfo.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.ucDLAppInfo.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmVisonTest.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmEditVison.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.exe.config
