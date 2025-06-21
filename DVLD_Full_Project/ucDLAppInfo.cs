@@ -17,13 +17,17 @@ namespace DVLD_Full_Project
         {
             InitializeComponent();
         }
-        public void FillLocalAppInfo(int appID)
+        public void FillLocalAppInfo(int LocalappID)
         {
-            clsLocalDrivingLicenseApp app = clsLocalDrivingLicenseApp.GetAppByID(appID);
-            txtID.Text = app.LocalDrivingLicenseApplicationID.ToString();
-            txtClass.Text = app.licenseClassInfo.ClassName;
-            //txtPassed.Text = app.PassedTests.ToString() + "/3";
-            ucApplicationInfo1.FillApplication(app.LocalDrivingLicenseApplicationID);
+            clsLocalDrivingLicenseApp app = clsLocalDrivingLicenseApp.GetAppByID(LocalappID);
+            if (app != null)
+            {
+                txtID.Text = app.LocalDrivingLicenseApplicationID.ToString();
+                txtClass.Text = app.licenseClassInfo.ClassName;
+                txtPassed.Text = clsTestTaken.GetPassTestByAppID(LocalappID).ToString() + "/3";
+                ucApplicationInfo1.FillApplication(app.ApplicationInfo.ID);
+            }
         }
+
     }
 }

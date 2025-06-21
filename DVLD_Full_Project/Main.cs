@@ -28,7 +28,8 @@ namespace DVLD_Full_Project
 
         private void driversToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not Implamtion yet", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmDriver driver = new frmDriver();
+            driver.ShowDialog();
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)

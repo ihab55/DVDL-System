@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,19 @@ namespace BussinessLayer
             IssueReason = 0;
             //CreatedByUserInfo
         }
+        public string IssueReasonText
+        {
+            get
+            {
+                switch (IssueReason)
+                {
+                    case 1: return "First Time";
+                    case 2: return "Replacement";
+                    case 3: return "Correction";
+                    default: return "Unknown Reason";
+                }
+            }
+        }
         private clsLicense(int licenseId,int appid,int Driverid,int LiceneseId,DateTime issusedate,
             DateTime exptiondate,string notes,int paidfees,bool isactive, short issresson, int userid)
         {
@@ -53,6 +67,11 @@ namespace BussinessLayer
             IsActive = isactive;
             IssueReason = issresson;
             CreatedByUserInfo = clsUser.Find(userid);
+            _Mode = _enMode._enUpdate;
+        }
+        public static DataTable GetAllLicebseByPersonID(int prsonid)
+        {
+            return clsLicenseData.GetAllLicenseWithPerson(prsonid);
         }
         public static clsLicense Find(int licenseId)
         {
@@ -66,11 +85,32 @@ namespace BussinessLayer
             bool isactive = false;
             short issresson = -99;
             int userid = -99;
-            if (clsLicenseData.GetLicenseByID(LicenseID,ref appid,ref Driverid,ref LicenClassId,ref issusedate,ref exptiondate
+            if (clsLicenseData.GetLicenseByID(licenseId, ref appid,ref Driverid,ref LicenClassId,ref issusedate,ref exptiondate
                 ,ref notes,ref paidfees,ref isactive,ref issresson,ref userid))
             {
-                return new clsLicense(LicenseID, appid, Driverid,LicenClassId,issusedate,exptiondate
+                return new clsLicense(licenseId, appid, Driverid,LicenClassId,issusedate,exptiondate
                 ,notes,(int)paidfees,isactive,issresson,userid);
+            }
+            return null;
+        }
+        public static clsLicense GetLicenseByLocalID(int LocalID)
+        {
+            int licenseId = -99;
+            int appid = -99;
+            int Driverid = -99;
+            int LicenClassId = -99;
+            DateTime issusedate = DateTime.MinValue;
+            DateTime exptiondate = DateTime.MinValue;
+            string notes = "";
+            decimal paidfees = -99;
+            bool isactive = false;
+            short issresson = -99;
+            int userid = -99;
+            if (clsLicenseData.GetLicenseByLocalID(LocalID,ref licenseId,ref appid, ref Driverid, ref LicenClassId, ref issusedate, ref exptiondate
+                , ref notes, ref paidfees, ref isactive, ref issresson, ref userid))
+            {
+                return new clsLicense(licenseId, appid, Driverid, LicenClassId, issusedate, exptiondate
+                , notes, (int)paidfees, isactive, issresson, userid);
             }
             return null;
         }

@@ -21,7 +21,7 @@ namespace DVLD_Full_Project
 
         private void Test_Load(object sender, EventArgs e)
         {
-            ucDLAppInfo1.FillLocalAppInfo(36);
+            ucDLAppInfo1.FillLocalAppInfo(45);
         }
     }
 }

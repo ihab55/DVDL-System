@@ -53,6 +53,7 @@ namespace DVLD_Full_Project
                 btnSave.Enabled = false;
                 txtApplicationID.Text = _LDL.LocalDrivingLicenseApplicationID.ToString();
                 MessageBox.Show("Application Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {

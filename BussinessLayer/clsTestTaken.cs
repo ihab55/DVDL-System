@@ -11,7 +11,7 @@ namespace BussinessLayer
     {
         public int TestID { get; set; }
         public clsTestAppointment TestAppointmentInfo { get; set; }
-        public bool TestResualt { get; set; } 
+        public bool TestResualt { get; set; }
         public string Notes { get; set; }
         public clsUser CreatedByInfo { get; set; }
         private enum _enMode { _enAddNew = 0, _enUpdate = 1 };
@@ -37,19 +37,19 @@ namespace BussinessLayer
         }
         private bool _AddNewTestTaken()
         {
-            this.TestID = clsTestTakenData.AddNewTestTaken(TestAppointmentInfo.TestAppointmentID,TestResualt,Notes,CreatedByInfo.Id);
+            this.TestID = clsTestTakenData.AddNewTestTaken(TestAppointmentInfo.TestAppointmentID, TestResualt, Notes, CreatedByInfo.Id);
             return (this.TestID != -99);
         }
-        public static clsTestTaken Find(int id)
+        public static clsTestTaken Find(int TestAppo)
         {
-            int testAppoId = -99;
+            int id = -99;
             bool testResualt = false;
             string notes = "";
             int createdByid = -99;
-            if (clsTestTakenData.GetTestTakenById(id, ref testAppoId, ref testResualt,
+            if (clsTestTakenData.GetTestTakenByAppoId(ref id, TestAppo, ref testResualt,
                 ref notes, ref createdByid))
             {
-                return new clsTestTaken(id, testAppoId, testResualt,
+                return new clsTestTaken(id, TestAppo, testResualt,
                 notes, createdByid);
             }
             return null;
@@ -57,12 +57,16 @@ namespace BussinessLayer
         private bool _UpdateTestTaken()
         {
             return clsTestTakenData.UpdateTestTaken(this.TestID,
-                TestAppointmentInfo.TestAppointmentID, 
+                TestAppointmentInfo.TestAppointmentID,
                 TestResualt, Notes, CreatedByInfo.Id);
         }
         int GetPassTest()
         {
             return clsTestTakenData.GetTestPassByAppID(this.TestAppointmentInfo.LocalAppInfo.LocalDrivingLicenseApplicationID);
+        }
+        public static int GetPassTestByAppID(int LocalappID)
+        {
+            return clsTestTakenData.GetTestPassByAppID(LocalappID);
         }
         public bool Save()
         {
@@ -79,6 +83,10 @@ namespace BussinessLayer
                     return _UpdateTestTaken();
             }
             return false;
+        }
+        public static int GetNumOfTrailByAppID(int LclappID, int TestId)
+        {
+            return clsTestTakenData.GetNumOfTrailByAppID(LclappID, TestId);
         }
     }
 }

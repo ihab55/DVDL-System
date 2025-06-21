@@ -14,7 +14,7 @@ namespace DataAccessLayer
         {
             int newTestID = -99;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"INSERT INTO TestTaken ( TestAppointmentID, TestResult, 
+            string query = @"INSERT INTO Tests ( TestAppointmentID, TestResult, 
 Notes, CreatedByUserID) VALUES (@testAppoID, @testResult, @notes, @CreatedById);
     SELECT SCOPE_IDENTITY();";
             SqlCommand command = new SqlCommand(query, connection);
@@ -72,21 +72,21 @@ Notes, CreatedByUserID) VALUES (@testAppoID, @testResult, @notes, @CreatedById);
             finally { connection.Close(); } 
             return (Affrcted>0);
         }
-        public static bool GetTestTakenById(int id,ref int testAppoID,ref bool testResult,
+        public static bool GetTestTakenByAppoId(ref int id,int testAppoID,ref bool testResult,
            ref string notes,ref int createdById)
         {
             bool Isfouned = false;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = "SELECT TestAppointmentID ,TestResult ,Notes ,CreatedByUserID FROM Tests WHERE TestID = @id";
+            string query = "SELECT TestID,TestResult ,Notes ,CreatedByUserID FROM Tests WHERE TestAppointmentID  = @id";
             SqlCommand command = new SqlCommand(query,connection);
-            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@id", testAppoID);
             try
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    testAppoID = (int)reader["TestAppointmentID"];
+                    id = (int)reader["TestID"];
                     testResult = (bool)reader["TestResult"];
                     notes = reader["Notes"].ToString();
                     createdById = (int)reader["CreatedByUserID"];
@@ -101,7 +101,6 @@ Notes, CreatedByUserID) VALUES (@testAppoID, @testResult, @notes, @CreatedById);
             finally { connection.Close(); }
             return Isfouned;
         }
-        
         public static int GetTestPassByAppID(int LDLC)
         {
             int PasTest = -99;
@@ -122,6 +121,28 @@ WHERE TestAppointments.LocalDrivingLicenseApplicationID = @LDLC";
             }
             finally { connection.Close(); }
             return PasTest;
+        }
+        public static int GetNumOfTrailByAppID(int LDLC, int TestType)
+        {
+            int NumOfTestTaken = -99;
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT COUNT(CASE WHEN TestResult = 0 THEN 1 END) FROM Tests INNER JOIN TestAppointments ON Tests.TestAppointmentID = TestAppointments.TestAppointmentID 
+WHERE LocalDrivingLicenseApplicationID = @LDLC AND TestTypeID = @TestType";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LDLC", LDLC);
+            command.Parameters.AddWithValue("@TestType", TestType);
+            try
+            {
+                connection.Open();
+                object value = command.ExecuteScalar();
+                NumOfTestTaken = (value != null && int.TryParse(value.ToString(), out int result)) ? result : -99;
+            }
+            catch (Exception ex)
+            {
+                NumOfTestTaken = -99;
+            }
+            finally { connection.Close(); }
+            return NumOfTestTaken; 
         }
     } 
 }

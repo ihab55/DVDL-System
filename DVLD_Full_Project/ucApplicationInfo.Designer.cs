@@ -95,7 +95,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(765, 313);
+            this.groupBox1.Size = new System.Drawing.Size(884, 313);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Application Basic Info";
@@ -143,7 +143,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::DVLD_Full_Project.Properties.Resources.NameIcon;
-            this.pictureBox4.Location = new System.Drawing.Point(500, 155);
+            this.pictureBox4.Location = new System.Drawing.Point(556, 155);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(26, 29);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -153,7 +153,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::DVLD_Full_Project.Properties.Resources.DateIcon;
-            this.pictureBox3.Location = new System.Drawing.Point(500, 98);
+            this.pictureBox3.Location = new System.Drawing.Point(556, 98);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(26, 29);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -163,7 +163,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DVLD_Full_Project.Properties.Resources.DateIcon;
-            this.pictureBox2.Location = new System.Drawing.Point(500, 41);
+            this.pictureBox2.Location = new System.Drawing.Point(556, 41);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(26, 29);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -184,7 +184,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.linkLabel1.Location = new System.Drawing.Point(496, 0);
+            this.linkLabel1.Location = new System.Drawing.Point(698, 269);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(145, 22);
             this.linkLabel1.TabIndex = 16;
@@ -196,7 +196,7 @@
             // 
             this.txtCreatedBy.AutoSize = true;
             this.txtCreatedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCreatedBy.Location = new System.Drawing.Point(555, 155);
+            this.txtCreatedBy.Location = new System.Drawing.Point(611, 155);
             this.txtCreatedBy.Name = "txtCreatedBy";
             this.txtCreatedBy.Size = new System.Drawing.Size(49, 29);
             this.txtCreatedBy.TabIndex = 15;
@@ -206,7 +206,7 @@
             // 
             this.labCreatedBy.AutoSize = true;
             this.labCreatedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labCreatedBy.Location = new System.Drawing.Point(345, 155);
+            this.labCreatedBy.Location = new System.Drawing.Point(401, 155);
             this.labCreatedBy.Name = "labCreatedBy";
             this.labCreatedBy.Size = new System.Drawing.Size(149, 29);
             this.labCreatedBy.TabIndex = 14;
@@ -216,7 +216,7 @@
             // 
             this.txtStatusDate.AutoSize = true;
             this.txtStatusDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStatusDate.Location = new System.Drawing.Point(555, 98);
+            this.txtStatusDate.Location = new System.Drawing.Point(611, 98);
             this.txtStatusDate.Name = "txtStatusDate";
             this.txtStatusDate.Size = new System.Drawing.Size(49, 29);
             this.txtStatusDate.TabIndex = 13;
@@ -226,7 +226,7 @@
             // 
             this.labStatusDate.AutoSize = true;
             this.labStatusDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labStatusDate.Location = new System.Drawing.Point(341, 98);
+            this.labStatusDate.Location = new System.Drawing.Point(397, 98);
             this.labStatusDate.Name = "labStatusDate";
             this.labStatusDate.Size = new System.Drawing.Size(153, 29);
             this.labStatusDate.TabIndex = 12;
@@ -236,7 +236,7 @@
             // 
             this.txtDate.AutoSize = true;
             this.txtDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDate.Location = new System.Drawing.Point(555, 41);
+            this.txtDate.Location = new System.Drawing.Point(611, 41);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(49, 29);
             this.txtDate.TabIndex = 11;
@@ -246,7 +246,7 @@
             // 
             this.labDate.AutoSize = true;
             this.labDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labDate.Location = new System.Drawing.Point(420, 41);
+            this.labDate.Location = new System.Drawing.Point(476, 41);
             this.labDate.Name = "labDate";
             this.labDate.Size = new System.Drawing.Size(74, 29);
             this.labDate.TabIndex = 10;
@@ -358,7 +358,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "ucApplicationInfo";
-            this.Size = new System.Drawing.Size(777, 328);
+            this.Size = new System.Drawing.Size(913, 328);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();

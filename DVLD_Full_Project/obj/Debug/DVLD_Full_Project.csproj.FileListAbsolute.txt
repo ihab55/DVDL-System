@@ -35,6 +35,13 @@ D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmNewLocalDrivingLicenseAPP.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.ucApplicationInfo.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.ucDLAppInfo.resources
-D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmVisonTest.resources
-D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmEditVison.resources
 D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.exe.config
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmTakeTest.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmAddEditTest.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmIssueDrivingLicense.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmTestAppointment.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmShowLocalApp.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmDriver.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmLicenseHistory.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.frmShowLicesnse.resources
+D:\Courses\NewProjects\FullProject\DVLD_Full_Project\obj\Debug\DVLD_Full_Project.ucLicenseInfo.resources

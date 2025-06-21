@@ -14,7 +14,7 @@ namespace BussinessLayer
         public int LocalDrivingLicenseApplicationID { get; set; }
         public clsApplication ApplicationInfo { get; set; }
         public clsLicenseClass licenseClassInfo { get; set; }
-        private enum _enMode {_enAddNew=0,_enUpdate=1}
+        private enum _enMode { _enAddNew = 0, _enUpdate = 1 }
         _enMode _Mode;
         #endregion
         public static DataTable GetAllLocalApp()
@@ -28,7 +28,7 @@ namespace BussinessLayer
             //Add Class License in presntation;
             _Mode = _enMode._enAddNew;
         }
-        private clsLocalDrivingLicenseApp(int localappID,int appID,int classeID)
+        private clsLocalDrivingLicenseApp(int localappID, int appID, int classeID)
         {
             LocalDrivingLicenseApplicationID = localappID;
             ApplicationInfo = clsApplication.FindApp(appID);
@@ -39,9 +39,9 @@ namespace BussinessLayer
         {
             int appID = -99;
             int LicId = -99;
-            if (clsLocalDrivingLicenseAppData.GetLocalAppByID(id,ref appID,ref LicId))
+            if (clsLocalDrivingLicenseAppData.GetLocalAppByID(id, ref appID, ref LicId))
             {
-                return new clsLocalDrivingLicenseApp(id, appID,LicId);
+                return new clsLocalDrivingLicenseApp(id, appID, LicId);
             }
             return null;
         }
@@ -50,11 +50,11 @@ namespace BussinessLayer
             return DataAccessLayer.clsLocalDrivingLicenseAppData.IsThisAppExist(
                 ApplicationInfo.PersonInfo.Id, licenseClassInfo.ID);
         }
-        private  bool AddNewLocalDrivingLicenseApp()
+        private bool AddNewLocalDrivingLicenseApp()
         {
             ApplicationInfo.Save();
-            this.LocalDrivingLicenseApplicationID = 
-          DataAccessLayer.clsLocalDrivingLicenseAppData.AddNewLocalDrivingLicenseApp(ApplicationInfo.ID , licenseClassInfo.ID);
+            this.LocalDrivingLicenseApplicationID =
+          DataAccessLayer.clsLocalDrivingLicenseAppData.AddNewLocalDrivingLicenseApp(ApplicationInfo.ID, licenseClassInfo.ID);
             return (this.LocalDrivingLicenseApplicationID != -99);
         }
         private bool UpdateLocalDrivingLicense()
@@ -85,6 +85,11 @@ namespace BussinessLayer
                     }
             }
             return false;
+        }
+        public static bool DeleteLocalApp(int id)
+        {
+            //Cheak if the app exists And not completed before deleting
+            return clsLocalDrivingLicenseAppData.DeleteLocalApp(id);
         }
     }
 }

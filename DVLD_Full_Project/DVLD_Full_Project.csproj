@@ -59,6 +59,12 @@
     <Compile Include="ApplicationForm\frmEditApplicationType.Designer.cs">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDriver.Designer.cs">
+      <DependentUpon>frmDriver.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditManageTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,11 +83,23 @@
     <Compile Include="ApplicationForm\frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditVison.cs">
+    <Compile Include="frmAddEditTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditVison.Designer.cs">
-      <DependentUpon>frmEditVison.cs</DependentUpon>
+    <Compile Include="frmAddEditTest.Designer.cs">
+      <DependentUpon>frmAddEditTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIssueDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIssueDrivingLicense.Designer.cs">
+      <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLicenseHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLicenseHistory.Designer.cs">
+      <DependentUpon>frmLicenseHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="frmManageTest.cs">
       <SubType>Form</SubType>
@@ -95,11 +113,29 @@
     <Compile Include="ApplicationForm\frmNewLocalDrivingLicenseAPP.Designer.cs">
       <DependentUpon>frmNewLocalDrivingLicenseAPP.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVisonTest.cs">
+    <Compile Include="frmShowLicesnse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVisonTest.Designer.cs">
-      <DependentUpon>frmVisonTest.cs</DependentUpon>
+    <Compile Include="frmShowLicesnse.Designer.cs">
+      <DependentUpon>frmShowLicesnse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShowLocalApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowLocalApp.Designer.cs">
+      <DependentUpon>frmShowLocalApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTakeTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTakeTest.Designer.cs">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestAppointment.Designer.cs">
+      <DependentUpon>frmTestAppointment.cs</DependentUpon>
     </Compile>
     <Compile Include="PeopleForm\frmAddOrEditPerson.cs">
       <SubType>Form</SubType>
@@ -124,6 +160,12 @@
     </Compile>
     <Compile Include="ucDLAppInfo.Designer.cs">
       <DependentUpon>ucDLAppInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLicenseInfo.Designer.cs">
+      <DependentUpon>ucLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="UsersForm\frmmLogin.cs">
       <SubType>Form</SubType>
@@ -207,6 +249,9 @@
     <EmbeddedResource Include="ApplicationForm\frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDriver.resx">
+      <DependentUpon>frmDriver.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditManageTest.resx">
       <DependentUpon>frmEditManageTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,8 +261,14 @@
     <EmbeddedResource Include="ApplicationForm\frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditVison.resx">
-      <DependentUpon>frmEditVison.cs</DependentUpon>
+    <EmbeddedResource Include="frmAddEditTest.resx">
+      <DependentUpon>frmAddEditTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIssueDrivingLicense.resx">
+      <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLicenseHistory.resx">
+      <DependentUpon>frmLicenseHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageTest.resx">
       <DependentUpon>frmManageTest.cs</DependentUpon>
@@ -225,8 +276,17 @@
     <EmbeddedResource Include="ApplicationForm\frmNewLocalDrivingLicenseAPP.resx">
       <DependentUpon>frmNewLocalDrivingLicenseAPP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVisonTest.resx">
-      <DependentUpon>frmVisonTest.cs</DependentUpon>
+    <EmbeddedResource Include="frmShowLicesnse.resx">
+      <DependentUpon>frmShowLicesnse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowLocalApp.resx">
+      <DependentUpon>frmShowLocalApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTakeTest.resx">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestAppointment.resx">
+      <DependentUpon>frmTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PeopleForm\frmAddOrEditPerson.resx">
       <DependentUpon>frmAddOrEditPerson.cs</DependentUpon>
@@ -239,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucDLAppInfo.resx">
       <DependentUpon>ucDLAppInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucLicenseInfo.resx">
+      <DependentUpon>ucLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsersForm\frmmLogin.resx">
       <DependentUpon>frmmLogin.cs</DependentUpon>
@@ -386,6 +449,18 @@
     <None Include="ButtonIcon\eye 72.png" />
     <None Include="ButtonIcon\eye32.png" />
     <None Include="ButtonIcon\calendar_add32.png" />
+    <None Include="CardIcon\task_notes16.png" />
+    <None Include="ButtonIcon\exam32.png" />
+    <None Include="ButtonIcon\exam72.png" />
+    <None Include="ButtonIcon\car_check 32.png" />
+    <None Include="ButtonIcon\car_check72.png" />
+    <None Include="ButtonIcon\IssueBtn.png" />
+    <None Include="HeadImage\DriverIcon-removebg-preview.png" />
+    <None Include="ButtonIcon\license_History32.png" />
+    <None Include="ButtonIcon\license_History72.png" />
+    <None Include="ButtonIcon\ShowLicenss32.png" />
+    <None Include="ButtonIcon\ShowLicenss72.png" />
+    <None Include="CardIcon\help.png" />
     <Content Include="HeadImage\IMG_0750.jpeg" />
   </ItemGroup>
   <ItemGroup />

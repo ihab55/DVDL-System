@@ -3,13 +3,20 @@
   "WorkspaceRootPath": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B27CD1D0-03AF-43CE-8AF5-80FDB52BDE0C}|..\\BussinessLayer\\BussinessLayer.csproj|d:\\courses\\newprojects\\fullproject\\bussinesslayer\\clslicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\frmshowlicesnse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:frmshowlicesnse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B27CD1D0-03AF-43CE-8AF5-80FDB52BDE0C}|..\\BussinessLayer\\BussinessLayer.csproj|d:\\courses\\newprojects\\fullproject\\bussinesslayer\\clsdriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\frmshowlicesnse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:frmshowlicesnse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54B6B23C-9F1F-4E9E-A5BC-01F45A949B6F}|..\\DataAccessLayer\\DataAccessLayer.csproj|d:\\courses\\newprojects\\fullproject\\dataaccesslayer\\clslicensedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\uclicenseinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:uclicenseinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\uclicenseinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:uclicenseinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,53 +26,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1701,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "clsLicenseData.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DataAccessLayer\\clsLicenseData.cs",
-              "RelativeDocumentMoniker": "..\\DataAccessLayer\\clsLicenseData.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DataAccessLayer\\clsLicenseData.cs",
-              "RelativeToolTip": "..\\DataAccessLayer\\clsLicenseData.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAcwAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T13:07:09.955Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "clsLicense.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsLicense.cs",
-              "RelativeDocumentMoniker": "..\\BussinessLayer\\clsLicense.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsLicense.cs",
-              "RelativeToolTip": "..\\BussinessLayer\\clsLicense.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAApAAAAAAAAAA==",
+              "Title": "frmShowLicesnse.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmShowLicesnse.cs",
+              "RelativeDocumentMoniker": "frmShowLicesnse.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmShowLicesnse.cs",
+              "RelativeToolTip": "frmShowLicesnse.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAIAywBEAAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T14:35:01.324Z",
-              "IsPinned": true,
+              "WhenOpened": "2025-06-21T18:25:44.615Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "clsDriver.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsDriver.cs",
-              "RelativeDocumentMoniker": "..\\BussinessLayer\\clsDriver.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\BussinessLayer\\clsDriver.cs",
-              "RelativeToolTip": "..\\BussinessLayer\\clsDriver.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAQwCMAAAAVAAAAAAAAAA==",
+              "Title": "frmShowLicesnse.cs [Design]",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmShowLicesnse.cs",
+              "RelativeDocumentMoniker": "frmShowLicesnse.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\frmShowLicesnse.cs [Design]",
+              "RelativeToolTip": "frmShowLicesnse.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T14:35:28.416Z",
+              "WhenOpened": "2025-06-21T18:25:27.628Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ucLicenseInfo.cs",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ucLicenseInfo.cs",
+              "RelativeDocumentMoniker": "ucLicenseInfo.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ucLicenseInfo.cs",
+              "RelativeToolTip": "ucLicenseInfo.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAYwDgAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T18:24:28.102Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ucLicenseInfo.cs [Design]",
+              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ucLicenseInfo.cs",
+              "RelativeDocumentMoniker": "ucLicenseInfo.cs",
+              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\ucLicenseInfo.cs [Design]",
+              "RelativeToolTip": "ucLicenseInfo.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T18:24:24.137Z",
+              "EditorCaption": " [Design]"
             }
           ]
         },
         {
-          "DockedWidth": 1701,
+          "DockedWidth": 1498,
           "SelectedChildIndex": -1,
           "Children": [
             {

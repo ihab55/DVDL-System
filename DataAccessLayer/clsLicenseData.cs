@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,74 @@ namespace DataAccessLayer
 {
     public static class clsLicenseData
     {
+        public static bool GetLicenseByLocalID(int LocalID,ref int licenseId, ref int appid, 
+            ref int Driverid, ref int LicenClassId, ref DateTime issusedate, ref DateTime exptiondate
+                , ref string notes, ref decimal paidfees, ref bool isactive, ref short issresson, ref int userid){
+            bool IsFound = false;
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT LicenseID ,Licenses.ApplicationID ,DriverID ,LicenseClass ,IssueDate ,ExpirationDate
+,Notes ,PaidFees ,IsActive ,IssueReason ,CreatedByUserID
+FROM Licenses LEFT JOIN LocalDrivingLicenseApplications ON LocalDrivingLicenseApplications.ApplicationID = 
+Licenses.ApplicationID WHERE LocalDrivingLicenseApplicationID = @LocalID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LocalID", LocalID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    licenseId = (int)reader["LicenseID"];
+                    appid = (int)reader["ApplicationID"];
+                    Driverid = (int)reader["DriverID"];
+                    LicenClassId = (int)reader["LicenseClass"];
+                    issusedate = (DateTime)reader["IssueDate"];
+                    exptiondate = (DateTime)reader["ExpirationDate"];
+                    notes = (reader["Notes"] == DBNull.Value) ? "" : reader["Notes"].ToString();
+                    paidfees = (decimal)reader["PaidFees"];
+                    isactive = (bool)reader["IsActive"];
+                    issresson = (byte)reader["IssueReason"];
+                    userid = (int)reader["CreatedByUserID"];
+                    IsFound = true;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+        public static DataTable GetAllLicenseWithPerson(int PersonID)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT LicenseID AS [Lic.ID] , ApplicationID AS [App.ID], ClassName AS [Class Name],IssueDate AS [Issue Date] , 
+ExpirationDate AS [Expiration Date], IsActive AS [Is Active] FROM Licenses INNER JOIN LicenseClasses 
+ON LicenseClasses.LicenseClassID = Licenses.LicenseClass INNER JOIN Drivers ON Drivers.DriverID = Licenses.DriverID
+WHERE Drivers.PersonID = @PersonID ;";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                dt.Load(reader);
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
         public static int AddLicense(int ApplicationID, int DriverID
             , int LicenseClassID, DateTime IssueDate, DateTime ExpriationDate,
             string note, decimal paidfees, bool IsActive, short IssueResson, int CreatedByUserID)
@@ -27,7 +96,7 @@ namespace DataAccessLayer
             command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
             command.Parameters.AddWithValue("@IssueDate", IssueDate);
             command.Parameters.AddWithValue("@ExpriationDate", ExpriationDate);
-            if (note != "")
+            if (note == "")
             {
                 command.Parameters.AddWithValue("@note", System.DBNull.Value);
             }
@@ -161,5 +230,6 @@ ExpirationDate = @ExpriationDate ,Notes = @note ,PaidFees = @paidfees ,IsActive 
             }
             return (IsAffected > 0);
         }
+   
     }
 }

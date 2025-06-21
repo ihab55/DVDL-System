@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,10 @@ namespace BussinessLayer
             CreatedByInfo = clsUser.Find(createdByid);
             CreatedDate = createdDate;
             _Mode = _enMode._enUpdate;
+        }
+        public static DataTable GetDriver()
+        {
+            return clsDriverData.GetDriver();
         }
         public static clsDriver Find(int driverID)
         {
@@ -73,5 +78,20 @@ namespace BussinessLayer
             }
             return false;
         }
+        public static bool IsExist(int personId)
+        {
+            return clsDriverData.IsExist(personId);
         }
+        public static clsDriver FindByPersonId(int personid)
+        {
+            int driverID = -99;
+            int createdByid = -99;
+            DateTime createdDate = DateTime.MinValue;
+            if (clsDriverData.FindByPersonId(personid, ref driverID, ref createdByid, ref createdDate))
+            {
+                return new clsDriver(driverID, personid, createdByid, createdDate);
+            }
+            return null;
+        }
+    }
 }

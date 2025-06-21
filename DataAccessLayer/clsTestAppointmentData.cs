@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,34 @@ namespace DataAccessLayer
 {
     public class clsTestAppointmentData
     {
+        public static DataTable GetTestTimeByLocalIDAndTestID(int localAppId, int testTypeId)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT TestAppointmentID AS [Appointment ID]
+  ,AppointmentDate AS  [Appointment Date],PaidFees AS [Paid Fees] ,IsLocked
+  FROM TestAppointments 
+Where LocalDrivingLicenseApplicationID = @localAppId And TestTypeID = @testTypeId";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@localAppId", localAppId);
+            command.Parameters.AddWithValue("@testTypeId", testTypeId);
+            try
+            {
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it as needed
+                dt = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
         public static int AddNewTestAppointment(int testTypeId, int localAppId,
             DateTime appointmentDate, int fees, int userId, bool isLocked)
         {
@@ -43,7 +72,7 @@ SELECT SCOPE_IDENTITY();";
             return newAppointmentId;
         }
         public static bool GetAppoById(int id, ref int testTypeID, ref int localAppID,
-                ref DateTime appoitmentDate, ref int paidFees, ref int createdID, ref bool isLocked)
+                ref DateTime appoitmentDate, ref decimal paidFees, ref int createdID, ref bool isLocked)
         {
             bool isFound = false;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
@@ -58,9 +87,9 @@ SELECT SCOPE_IDENTITY();";
                 if (reader.Read())
                 {
                     testTypeID = (int)reader["TestTypeID"];
-                    localAppID = (int)reader["LocalDrivingLicenseApplicationID]"];
+                    localAppID = (int)reader["LocalDrivingLicenseApplicationID"];
                     appoitmentDate = (DateTime)reader["AppointmentDate"];
-                    paidFees = (int)reader["PaidFees"];
+                    paidFees = (decimal)reader["PaidFees"];
                     createdID = (int)reader["CreatedByUserID"];
                     isLocked = (bool)reader["IsLocked"];
                     isFound = true;
@@ -111,6 +140,26 @@ SET TestTypeID = @TestTypeId ,LocalDrivingLicenseApplicationID = @LDLAID
                 connection.Close();
             }
             return (rowsAffected > 0);
+        }
+        public static bool IsExists(int LocalID)
+        {
+            bool result = false;
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = "SELECT DISTINCT x=1 FROM TestAppointments WHERE (LocalDrivingLicenseApplicationID = @LocalID AND IsLocked != 1)";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LocalID", LocalID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                result = reader.HasRows;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+            }
+            finally { connection.Close(); }
+            return result;
         }
     }
 }

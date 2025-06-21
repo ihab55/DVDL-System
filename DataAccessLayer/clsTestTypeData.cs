@@ -16,6 +16,7 @@ namespace DataAccessLayer
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
             string query = "SELECT TestTypeTitle,TestTypeDescription,TestTypeFees FROM TestTypes WHERE TestTypeID = @id";
             SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@id", id);
             try
             {
                 connection.Open();

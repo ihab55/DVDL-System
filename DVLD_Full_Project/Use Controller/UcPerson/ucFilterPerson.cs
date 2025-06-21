@@ -64,5 +64,13 @@ namespace DVLD_Full_Project.Use_Controller
         {
             ucPersonCard1.FillPersonCard(ID);
         }
+        public void EnableCardWithPersonID(string NationalNum , out int Personid)
+        {
+            groupBox1.Enabled = false;
+            ucPersonCard1.FillPersonCard(NationalNum);
+            cbFilter.SelectedIndex = 0;
+            Personid = ucPersonCard1.ID;
+            textBox1.Text = Personid.ToString();
+        }
     }
 }

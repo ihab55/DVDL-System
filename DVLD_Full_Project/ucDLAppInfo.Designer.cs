@@ -64,7 +64,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(768, 136);
+            this.groupBox1.Size = new System.Drawing.Size(881, 136);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Driving License Application Info";
@@ -112,6 +112,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Enabled = false;
             this.linkLabel1.Location = new System.Drawing.Point(58, 95);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(156, 22);
@@ -183,7 +184,7 @@
             // 
             this.ucApplicationInfo1.Location = new System.Drawing.Point(3, 145);
             this.ucApplicationInfo1.Name = "ucApplicationInfo1";
-            this.ucApplicationInfo1.Size = new System.Drawing.Size(777, 359);
+            this.ucApplicationInfo1.Size = new System.Drawing.Size(899, 332);
             this.ucApplicationInfo1.TabIndex = 0;
             // 
             // ucDLAppInfo
@@ -193,7 +194,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ucApplicationInfo1);
             this.Name = "ucDLAppInfo";
-            this.Size = new System.Drawing.Size(782, 527);
+            this.Size = new System.Drawing.Size(913, 470);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -84,11 +85,13 @@ namespace DVLD_Full_Project
         {
             frmNewLocalDrivingLicenseAPP frm = new frmNewLocalDrivingLicenseAPP();
             frm.ShowDialog();
+            _Refresh();
         }
 
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not Implemnt Yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            frmShowLocalApp localApp = new frmShowLocalApp((int)dataGridView1.CurrentRow.Cells[0].Value);
+            localApp.ShowDialog();
         }
 
         private void eDitApplicationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,22 +101,41 @@ namespace DVLD_Full_Project
 
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not Implemnt Yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            if (dataGridView1.CurrentRow.Cells[6].Value.ToString() != "Completed")
+            {
+                clsLocalDrivingLicenseApp.DeleteLocalApp((int)dataGridView1.CurrentRow.Cells[0].Value);
+                if (MessageBox.Show("Do you want Delete this app","Check",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2)==DialogResult.Yes) {
+                    MessageBox.Show("Application Deleted Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("You Can't Delete Completed Application", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            _Refresh();
         }
 
         private void issueDrivingLicToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not Implemnt Yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        frmIssueDrivingLicense frm = new frmIssueDrivingLicense((int)dataGridView1.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _Refresh();
         }
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not Implemnt Yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            frmShowLicesnse frm = new frmShowLicesnse((int)dataGridView1.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
         }
 
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not Implemnt Yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            frmLicenseHistory frm = new frmLicenseHistory(dataGridView1.CurrentRow.Cells[2].Value.ToString());
+            frm.ShowDialog();
         }
 
         private void canelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -133,8 +155,63 @@ namespace DVLD_Full_Project
 
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmVisonTest frm = new frmVisonTest();
+            frmTestAppointment frm = new frmTestAppointment((int)dataGridView1.CurrentRow.Cells[0].Value,1);
             frm.ShowDialog();
+            _Refresh();
+        }
+        private void sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTestAppointment frm = new frmTestAppointment((int)dataGridView1.CurrentRow.Cells[0].Value, 2);
+            frm.ShowDialog();
+            _Refresh();
+        }
+
+        private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTestAppointment frm = new frmTestAppointment((int)dataGridView1.CurrentRow.Cells[0].Value, 3);
+            frm.ShowDialog();
+            _Refresh();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Enabled = true;
+            if (dataGridView1.CurrentRow.Cells[6].Value.ToString() == "New")
+            {
+                cmsSechduleTest.Enabled = cmsDeleteApp.Enabled = cmsCancelApp.Enabled = cmsEditApp.Enabled = true;
+                switch ((int)dataGridView1.CurrentRow.Cells[5].Value)
+                {
+                    case (0):
+                        cmsStrretTest.Enabled = false;
+                        cmsWrittenTest.Enabled = false;
+                        cmsVisionTest.Enabled = true;
+                        break;
+                    case (1):
+                        cmsWrittenTest.Enabled = true;
+                        cmsVisionTest.Enabled = false;
+                        cmsStrretTest.Enabled = false;
+                        break;
+                    case (2):
+                        cmsStrretTest.Enabled = true;
+                        cmsWrittenTest.Enabled = false;
+                        cmsVisionTest.Enabled = false;
+                        break;
+                    default:
+                        cmsSechduleTest.Enabled=false;
+                        cmsIssueDrivingLic.Enabled = true; break;
+                }
+            }
+            else if (dataGridView1.CurrentRow.Cells[6].Value.ToString() == "Canceled")
+            {
+                cmsEditApp.Enabled = cmsCancelApp.Enabled = cmsIssueDrivingLic.Enabled = cmsSechduleTest.Enabled = false;
+                cmsShowPersonLicense.Enabled = cmsShowLicense.Enabled = cmsShowApp.Enabled = false;
+                cmsDeleteApp.Enabled = true;
+            }
+            else
+            {
+                cmsEditApp.Enabled=cmsDeleteApp.Enabled=cmsCancelApp.Enabled=cmsIssueDrivingLic.Enabled=cmsSechduleTest.Enabled=false;
+                cmsShowPersonLicense.Enabled=cmsShowLicense.Enabled=cmsShowApp.Enabled=true;
+            }
         }
     }
 }

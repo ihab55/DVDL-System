@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace DVLD_Full_Project
 {
-    public partial class frmEditVison : Form
+    public partial class frmShowLicesnse : Form
     {
-        public frmEditVison()
+        public frmShowLicesnse(int LocalID)
         {
             InitializeComponent();
+            if(!ucLicenseInfo1.LoadDataByLocalID(LocalID)) ucLicenseInfo1.Enabled = false;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

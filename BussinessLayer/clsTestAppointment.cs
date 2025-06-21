@@ -19,6 +19,10 @@ namespace BussinessLayer
         public bool IsLocked ;
         private enum _enMode {_enAddNew=0, _enUpdate=1};
         _enMode _Mode;
+        public static DataTable GetTestTimeByLocalIDAndTestID(int localAppId, int testTypeId)
+        {
+            return clsTestAppointmentData.GetTestTimeByLocalIDAndTestID(localAppId, testTypeId);
+        }
         public clsTestAppointment()
         {
             TestAppointmentID = -99;
@@ -44,7 +48,7 @@ namespace BussinessLayer
         }
         private bool _AddNewTestAppotment()
         {
-            PaidFees = TestTypeInfo.TestFees;
+            this.PaidFees = this.TestTypeInfo.TestFees;
             this.TestAppointmentID = clsTestAppointmentData.AddNewTestAppointment(TestTypeInfo.TestTypeId, this.LocalAppInfo.LocalDrivingLicenseApplicationID,
                 this.AppoitmentDate, this.PaidFees, this.CreatedByInfo.Id, this.IsLocked);
             return (this.TestAppointmentID != -99);
@@ -54,14 +58,14 @@ namespace BussinessLayer
             int testTypeID =-99;
             int localAppID = -99;
             DateTime appoitmentDate = DateTime.MinValue;
-            int paidFees = -99;
+            decimal paidFees = -99;
             int createdByID = -99;
             bool isLocked = false;
             if (clsTestAppointmentData.GetAppoById(id, ref testTypeID,ref localAppID, 
                 ref appoitmentDate, ref paidFees,ref createdByID,ref isLocked))
             {
                 return new clsTestAppointment(id,testTypeID,localAppID,
-                appoitmentDate,paidFees , createdByID, isLocked);
+                appoitmentDate,(int)paidFees , createdByID, isLocked);
             }
             return null;
         }
@@ -86,6 +90,10 @@ namespace BussinessLayer
                     return _UpdateTestAppointment();
             }
             return false;
+        }
+        public static bool IsExists(int LocId)
+        {
+            return clsTestAppointmentData.IsExists(LocId);
         }
     }
 }

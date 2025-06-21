@@ -33,9 +33,9 @@
             // 
             // ucDLAppInfo1
             // 
-            this.ucDLAppInfo1.Location = new System.Drawing.Point(194, 12);
+            this.ucDLAppInfo1.Location = new System.Drawing.Point(169, 51);
             this.ucDLAppInfo1.Name = "ucDLAppInfo1";
-            this.ucDLAppInfo1.Size = new System.Drawing.Size(782, 523);
+            this.ucDLAppInfo1.Size = new System.Drawing.Size(930, 464);
             this.ucDLAppInfo1.TabIndex = 0;
             // 
             // Test

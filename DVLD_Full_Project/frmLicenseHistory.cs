@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BussinessLayer;
 
 namespace DVLD_Full_Project
 {
-    public partial class frmVisonTest : Form
+    public partial class frmLicenseHistory : Form
     {
-        public frmVisonTest()
+        private int personID;
+        public frmLicenseHistory(string NationalNum)
         {
             InitializeComponent();
+           ucFilterPerson1.EnableCardWithPersonID(NationalNum, out personID);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -22,15 +25,10 @@ namespace DVLD_Full_Project
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void frmLicenseHistory_Load(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            frmEditVison editVison = new frmEditVison();
-            editVison.ShowDialog();
+            dgLocal.DataSource = clsLicense.GetAllLicebseByPersonID(personID);
+            labLocalNum.Text = dgLocal.RowCount.ToString();
         }
     }
 }

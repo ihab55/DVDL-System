@@ -174,5 +174,27 @@ GROUP BY
             }finally {connection.Close(); }
             return (Affcted > 0);
         }
+        public static bool DeleteLocalApp(int Id)
+        {
+            int Affcted = -99;
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"DECLARE @appID INT;
+SELECT @appID = ApplicationID FROM LocalDrivingLicenseApplications WHERE LocalDrivingLicenseApplicationID = @Id;
+DELETE FROM LocalDrivingLicenseApplications WHERE LocalDrivingLicenseApplicationID = @Id;
+DELETE FROM Applications  WHERE ApplicationID = @appID;";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Id", Id);
+            try
+            {
+                connection.Open();
+                Affcted = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Affcted = -99;
+            }
+            finally { connection.Close(); }
+            return (Affcted > 0);
+        }
     }
 }
