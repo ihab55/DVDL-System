@@ -83,5 +83,59 @@ namespace DVLD_Full_Project
             frmNewLocalDrivingLicenseAPP frm = new frmNewLocalDrivingLicenseAPP();
             frm.ShowDialog();
         }
+
+        private void internationalLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInternationalLicenses frm = new frmInternationalLicenses();
+            frm.ShowDialog();
+        }
+
+        private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewInternational frm = new frmNewInternational();
+            frm.ShowDialog();
+        }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRenewLicenseApp licenseApp = new frmRenewLicenseApp();
+            licenseApp.ShowDialog();
+        }
+
+        private void replacementForLosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDamageAndLost lost = new frmDamageAndLost();
+            lost.ShowDialog();
+        }
+
+        private void manageDetainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageDetainLicense manageDetainLicense = new frmManageDetainLicense();
+            manageDetainLicense.ShowDialog();
+        }
+
+        private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDetainLicense detainLicense = new frmDetainLicense();
+            detainLicense.ShowDialog();
+        }
+
+        private void releasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRelaseDetainLicense frmRelaseDetainLicense = new frmRelaseDetainLicense();
+            frmRelaseDetainLicense.ShowDialog();
+        }
+
+        private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRelaseDetainLicense frm = new frmRelaseDetainLicense();
+            frm.ShowDialog();
+        }
+
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLocalDrivingLicense frm = new frmLocalDrivingLicense();
+            frm.ShowDialog();
+        }
     }
 }

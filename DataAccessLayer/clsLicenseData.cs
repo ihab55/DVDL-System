@@ -10,6 +10,52 @@ namespace DataAccessLayer
 {
     public static class clsLicenseData
     {
+        public static bool IsExists(int licenseId)
+        {
+            bool IsFound = false;
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT X=1 FROM Licenses WHERE LicenseID = @LicenseID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseID", licenseId);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                IsFound = reader.HasRows;
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+        public static bool IsExistsOrdinary(int licenseId)
+        {
+            bool IsFound = false;
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT X=1 FROM Licenses WHERE LicenseID = @LicenseID AND LicenseClass = 3";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseID", licenseId);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                IsFound = reader.HasRows;
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
         public static bool GetLicenseByLocalID(int LocalID,ref int licenseId, ref int appid, 
             ref int Driverid, ref int LicenClassId, ref DateTime issusedate, ref DateTime exptiondate
                 , ref string notes, ref decimal paidfees, ref bool isactive, ref short issresson, ref int userid){
@@ -189,10 +235,10 @@ ExpirationDate = @ExpriationDate ,Notes = @note ,PaidFees = @paidfees ,IsActive 
                     LicenseClassID = (int)reader["LicenseClass"];
                     IssueDate = (DateTime)reader["IssueDate"];
                     ExpriationDate = (DateTime)reader["ExpirationDate"];
-                    note = (reader["ApplicationID"]==DBNull.Value)?"": reader["ApplicationID"].ToString();
+                    note = (reader["Notes"] ==DBNull.Value)?"": reader["Notes"].ToString();
                     paidfees = (decimal)reader["PaidFees"];
                     IsActive = (bool)reader["IsActive"];
-                    IssueResson = (short)reader["IssueReason"];
+                    IssueResson = (byte)reader["IssueReason"];
                     CreatedByUserID = (int)reader["CreatedByUserID"];
                     IsFound = true;
                 }

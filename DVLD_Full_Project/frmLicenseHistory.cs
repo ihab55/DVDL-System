@@ -19,7 +19,12 @@ namespace DVLD_Full_Project
             InitializeComponent();
            ucFilterPerson1.EnableCardWithPersonID(NationalNum, out personID);
         }
-
+        public frmLicenseHistory(int personID)
+        {
+            InitializeComponent();
+            ucFilterPerson1.EnableCardWithPersonID( personID);
+            this.personID = personID;
+        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -29,6 +34,15 @@ namespace DVLD_Full_Project
         {
             dgLocal.DataSource = clsLicense.GetAllLicebseByPersonID(personID);
             labLocalNum.Text = dgLocal.RowCount.ToString();
+
+            dgInt.DataSource = clsInternationalLicense.GetAllInternationalLicenseByPersonID(personID);
+            labIntNum.Text = dgInt.RowCount.ToString();
+        }
+
+        private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowLicesnse showLicesnse = new frmShowLicesnse((int)dgLocal.CurrentRow.Cells[0].Value,true);
+            showLicesnse.ShowDialog();
         }
     }
 }

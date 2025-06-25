@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ControlTab = new System.Windows.Forms.TabControl();
@@ -36,13 +37,21 @@
             this.dgLocal = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.tabInternatonal = new System.Windows.Forms.TabPage();
+            this.labIntNum = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dgInt = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.ucFilterPerson1 = new DVLD_Full_Project.Use_Controller.ucFilterPerson();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.ControlTab.SuspendLayout();
             this.tabLocal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgLocal)).BeginInit();
+            this.tabInternatonal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgInt)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -106,6 +115,7 @@
             this.dgLocal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgLocal.BackgroundColor = System.Drawing.Color.White;
             this.dgLocal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgLocal.ContextMenuStrip = this.contextMenuStrip1;
             this.dgLocal.GridColor = System.Drawing.Color.White;
             this.dgLocal.Location = new System.Drawing.Point(17, 15);
             this.dgLocal.Name = "dgLocal";
@@ -129,13 +139,54 @@
             // 
             // tabInternatonal
             // 
-            this.tabInternatonal.Location = new System.Drawing.Point(4, 27);
+            this.tabInternatonal.Controls.Add(this.labIntNum);
+            this.tabInternatonal.Controls.Add(this.label3);
+            this.tabInternatonal.Controls.Add(this.dgInt);
+            this.tabInternatonal.Location = new System.Drawing.Point(4, 25);
             this.tabInternatonal.Name = "tabInternatonal";
             this.tabInternatonal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInternatonal.Size = new System.Drawing.Size(866, 204);
+            this.tabInternatonal.Size = new System.Drawing.Size(866, 206);
             this.tabInternatonal.TabIndex = 1;
             this.tabInternatonal.Text = "International";
             this.tabInternatonal.UseVisualStyleBackColor = true;
+            // 
+            // labIntNum
+            // 
+            this.labIntNum.AutoSize = true;
+            this.labIntNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labIntNum.Location = new System.Drawing.Point(122, 170);
+            this.labIntNum.Name = "labIntNum";
+            this.labIntNum.Size = new System.Drawing.Size(20, 22);
+            this.labIntNum.TabIndex = 17;
+            this.labIntNum.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(15, 170);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 22);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "#Records:";
+            // 
+            // dgInt
+            // 
+            this.dgInt.AllowUserToAddRows = false;
+            this.dgInt.AllowUserToDeleteRows = false;
+            this.dgInt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgInt.BackgroundColor = System.Drawing.Color.White;
+            this.dgInt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgInt.GridColor = System.Drawing.Color.White;
+            this.dgInt.Location = new System.Drawing.Point(19, 17);
+            this.dgInt.Name = "dgInt";
+            this.dgInt.ReadOnly = true;
+            this.dgInt.RowHeadersWidth = 51;
+            this.dgInt.RowTemplate.Height = 24;
+            this.dgInt.RowTemplate.ReadOnly = true;
+            this.dgInt.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgInt.Size = new System.Drawing.Size(829, 141);
+            this.dgInt.TabIndex = 9;
             // 
             // btnClose
             // 
@@ -162,6 +213,23 @@
             this.ucFilterPerson1.Size = new System.Drawing.Size(704, 308);
             this.ucFilterPerson1.TabIndex = 1;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showLicenseInfoToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(227, 70);
+            // 
+            // showLicenseInfoToolStripMenuItem
+            // 
+            this.showLicenseInfoToolStripMenuItem.Image = global::DVLD_Full_Project.Properties.Resources.ShowLicenss32;
+            this.showLicenseInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.showLicenseInfoToolStripMenuItem.Name = "showLicenseInfoToolStripMenuItem";
+            this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(226, 38);
+            this.showLicenseInfoToolStripMenuItem.Text = "Show License Info";
+            this.showLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLicenseInfoToolStripMenuItem_Click);
+            // 
             // frmLicenseHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -181,6 +249,10 @@
             this.tabLocal.ResumeLayout(false);
             this.tabLocal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgLocal)).EndInit();
+            this.tabInternatonal.ResumeLayout(false);
+            this.tabInternatonal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgInt)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -197,5 +269,10 @@
         private System.Windows.Forms.Label labLocalNum;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label labIntNum;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dgInt;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem showLicenseInfoToolStripMenuItem;
     }
 }

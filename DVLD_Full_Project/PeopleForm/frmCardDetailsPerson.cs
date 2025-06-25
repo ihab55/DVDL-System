@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,16 +13,15 @@ namespace DVLD_Full_Project
 {
     public partial class frmCardDetailsPerson : Form
     {
-        private int _ID;
         public frmCardDetailsPerson(int ID)
         {
             InitializeComponent();
-            _ID = ID;
+            ucPersonCard1.FillPersonCard(ID);
         }
-
-        private void frmCardDetailsPerson_Load(object sender, EventArgs e)
+        public frmCardDetailsPerson(string NatID)
         {
-            ucPersonCard1.FillPersonCard(_ID);
+            InitializeComponent();
+            ucPersonCard1.FillPersonCard(NatID);
         }
 
         private void button1_Click(object sender, EventArgs e)

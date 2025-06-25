@@ -59,6 +59,30 @@
     <Compile Include="ApplicationForm\frmEditApplicationType.Designer.cs">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDamageAndLost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDamageAndLost.Designer.cs">
+      <DependentUpon>frmDamageAndLost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDetainLicense.Designer.cs">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageDetainLicense.Designer.cs">
+      <DependentUpon>frmManageDetainLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewInternational.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewInternational.Designer.cs">
+      <DependentUpon>frmNewInternational.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDriver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +113,18 @@
     <Compile Include="frmAddEditTest.Designer.cs">
       <DependentUpon>frmAddEditTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInternationalLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInternationalLicenseInfo.Designer.cs">
+      <DependentUpon>frmInternationalLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInternationalLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInternationalLicenses.Designer.cs">
+      <DependentUpon>frmInternationalLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIssueDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +148,18 @@
     </Compile>
     <Compile Include="ApplicationForm\frmNewLocalDrivingLicenseAPP.Designer.cs">
       <DependentUpon>frmNewLocalDrivingLicenseAPP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelaseDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelaseDetainLicense.Designer.cs">
+      <DependentUpon>frmRelaseDetainLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRenewLicenseApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRenewLicenseApp.Designer.cs">
+      <DependentUpon>frmRenewLicenseApp.cs</DependentUpon>
     </Compile>
     <Compile Include="frmShowLicesnse.cs">
       <SubType>Form</SubType>
@@ -161,11 +209,23 @@
     <Compile Include="ucDLAppInfo.Designer.cs">
       <DependentUpon>ucDLAppInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucInternationalLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucInternationalLicenseInfo.Designer.cs">
+      <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucLicenseInfo.Designer.cs">
       <DependentUpon>ucLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucNewInternational.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucNewInternational.Designer.cs">
+      <DependentUpon>ucNewInternational.cs</DependentUpon>
     </Compile>
     <Compile Include="UsersForm\frmmLogin.cs">
       <SubType>Form</SubType>
@@ -208,12 +268,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Use Controller\UcPerson\ucAddEditPerson.cs">
@@ -249,6 +303,12 @@
     <EmbeddedResource Include="ApplicationForm\frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDamageAndLost.resx">
+      <DependentUpon>frmDamageAndLost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDetainLicense.resx">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDriver.resx">
       <DependentUpon>frmDriver.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,17 +324,35 @@
     <EmbeddedResource Include="frmAddEditTest.resx">
       <DependentUpon>frmAddEditTest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInternationalLicenseInfo.resx">
+      <DependentUpon>frmInternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInternationalLicenses.resx">
+      <DependentUpon>frmInternationalLicenses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmIssueDrivingLicense.resx">
       <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLicenseHistory.resx">
       <DependentUpon>frmLicenseHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmManageDetainLicense.resx">
+      <DependentUpon>frmManageDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManageTest.resx">
       <DependentUpon>frmManageTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm\frmNewLocalDrivingLicenseAPP.resx">
       <DependentUpon>frmNewLocalDrivingLicenseAPP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewInternational.resx">
+      <DependentUpon>frmNewInternational.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelaseDetainLicense.resx">
+      <DependentUpon>frmRelaseDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRenewLicenseApp.resx">
+      <DependentUpon>frmRenewLicenseApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmShowLicesnse.resx">
       <DependentUpon>frmShowLicesnse.cs</DependentUpon>
@@ -300,8 +378,14 @@
     <EmbeddedResource Include="ucDLAppInfo.resx">
       <DependentUpon>ucDLAppInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucInternationalLicenseInfo.resx">
+      <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucLicenseInfo.resx">
       <DependentUpon>ucLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucNewInternational.resx">
+      <DependentUpon>ucNewInternational.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsersForm\frmmLogin.resx">
       <DependentUpon>frmmLogin.cs</DependentUpon>
@@ -325,9 +409,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Use Controller\UcPerson\ucAddEditPerson.resx">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
@@ -461,6 +542,15 @@
     <None Include="ButtonIcon\ShowLicenss32.png" />
     <None Include="ButtonIcon\ShowLicenss72.png" />
     <None Include="CardIcon\help.png" />
+    <None Include="ButtonIcon\world24.png" />
+    <None Include="ButtonIcon\world32.png" />
+    <None Include="ButtonIcon\hand32.png" />
+    <None Include="ButtonIcon\hand48.png" />
+    <None Include="ButtonIcon\hand72.png" />
+    <None Include="ButtonIcon\Release32.png" />
+    <None Include="ButtonIcon\Release48.png" />
+    <None Include="ButtonIcon\RelasMain32.png" />
+    <None Include="ButtonIcon\Rtest32.png" />
     <Content Include="HeadImage\IMG_0750.jpeg" />
   </ItemGroup>
   <ItemGroup />

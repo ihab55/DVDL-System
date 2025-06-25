@@ -121,14 +121,17 @@
   <data name="addressIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\CardIcon\addressIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DriverLince" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\HeadImage\DriverLince.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="id_reload" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\id_reload.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ShowLicenss72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\ShowLicenss72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hand32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\hand32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="id_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\id_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,6 +145,9 @@
   <data name="deleteApp_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\deleteApp_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Release48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\Release48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="application_list (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\application_list (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -153,9 +159,6 @@
   </data>
   <data name="ManageTesr72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\ManageTesr72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ShowLicenss32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ButtonIcon\ShowLicenss32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IssueBtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\IssueBtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,8 +196,8 @@
   <data name="DateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\CardIcon\DateIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="People" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\HeadImage\People.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EmailIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CardIcon\EmailIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cancel_row32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\Cancel_row32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,20 +217,26 @@
   <data name="PhoneImageIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\PhoneImageIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EmailIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\CardIcon\EmailIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="exam72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\exam72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="password" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DriverLince" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\HeadImage\DriverLince.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="test_72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\test_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendar_add32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\calendar_add32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CardIcon\help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hand72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\hand72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="test_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\test_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,14 +262,23 @@
   <data name="exam32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\exam32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ButtonIcon\eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="People" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\HeadImage\People.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hand48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\hand48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DriverIcon-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\DriverIcon-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="world24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\world24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="EditImageIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\EditImageIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="world32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\world32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="person_girl" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\CardIcon\person_girl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -289,11 +307,14 @@
   <data name="task_notes16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\CardIcon\task_notes16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ShowLicenss32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\ShowLicenss32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Release32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\Release32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="worldIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\CardIcon\worldIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IdIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\CardIcon\IdIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="papersADDApp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\papersADDApp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -319,6 +340,9 @@
   <data name="ManageTesr48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HeadImage\ManageTesr48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IdIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CardIcon\IdIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="nextIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\CardIcon\nextIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -328,7 +352,10 @@
   <data name="SaveIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ButtonIcon\SaveIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="help" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\CardIcon\help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RelasMain32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\RelasMain32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rtest32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ButtonIcon\Rtest32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,13 +11,87 @@ namespace DataAccessLayer
 {
     public static class clsInternationalLicenseData
     {
+        public static DataTable GetAllIntLicense()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT InternationalLicenseID AS [Int.License ID],ApplicationID AS [Application ID] ,DriverID AS [Driver ID]
+,IssuedUsingLocalLicenseID AS [L.License ID],IssueDate AS [Issue Date] ,ExpirationDate AS [Expiration Date]
+,IsActive AS [Is Active] FROM InternationalLicenses";
+            SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+        public static DataTable GetAllInternationalLicenseByPersonID(int PersonID)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT InternationalLicenseID AS [Int.License ID],ApplicationID AS [Application ID] 
+,IssuedUsingLocalLicenseID AS [L.License ID],IssueDate AS [Issue Date] ,ExpirationDate AS [Expiration Date]
+,IsActive AS [Is Active] FROM InternationalLicenses INNER JOIN Drivers ON Drivers.DriverID = InternationalLicenses.DriverID
+WHERE Drivers.PersonID = @PersonID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                dt.Load(reader);
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+            
+        public static bool IsExistsByLocalLicense(int LocalLicenseID)
+        {
+            bool isExists = false;
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT X=1 FROM InternationalLicenses WHERE IssuedUsingLocalLicenseID = @LocalLicenseID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LocalLicenseID", LocalLicenseID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                isExists = reader.HasRows;
+            }
+            catch (Exception ex)
+            {
+                isExists = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isExists;
+        }
         public static int AddNewInternationalLicense(
             int AppId, int DriverId, int LocalLicense, DateTime IssueDate,
             DateTime ExpirationDate, bool IsActive, int CreatbyID)
         {
             int InternationalLicenseID = -99;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"INSERT INTO InternationalLicense (ApplicationID, DriverID, 
+            string query = @"INSERT INTO InternationalLicenses (ApplicationID, DriverID, 
 IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID)
        VALUES (@AppId, @DriverId, @LocalLicense, @IssueDate, @ExpirationDate, @IsActive, @CreatedByUser);
        SELECT SCOPE_IDENTITY();";
@@ -42,6 +118,44 @@ IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID)
                 connection.Close();
             }
             return InternationalLicenseID;
+        }
+        public static bool GetInternationalLicenseByLocalID(int LicenseId, ref int internationalLicenseId, 
+            ref int appId, ref int driverId,  ref DateTime issueDate, ref DateTime expirationDate, 
+            ref bool isActive, ref int createdByUserId)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT InternationalLicenseID, ApplicationID, DriverID, 
+IssueDate, ExpirationDate, IsActive, CreatedByUserID FROM InternationalLicenses 
+WHERE IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@IssuedUsingLocalLicenseID", LicenseId);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    internationalLicenseId = (int)reader["internationalLicenseId"];
+                    appId = (int)reader["ApplicationID"];
+                    driverId = (int)reader["DriverID"];
+                    issueDate = (DateTime)reader["IssueDate"];
+                    expirationDate = (DateTime)reader["ExpirationDate"];
+                    isActive = (bool)reader["IsActive"];
+                    createdByUserId = (int)reader["CreatedByUserID"];
+                    isFound = true;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
         }
         public static bool GetInternationalLicenseByID(int InternationalLicenseID, ref int AppId, ref int DriverId, ref int LocalLicense,
             ref DateTime IssueDate, ref DateTime ExpirationDate, ref bool IsActive, ref int CreatedByUserID)

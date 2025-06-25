@@ -178,6 +178,7 @@ namespace DVLD_Full_Project
             contextMenuStrip1.Enabled = true;
             if (dataGridView1.CurrentRow.Cells[6].Value.ToString() == "New")
             {
+                cmsShowLicense.Enabled = false;
                 cmsSechduleTest.Enabled = cmsDeleteApp.Enabled = cmsCancelApp.Enabled = cmsEditApp.Enabled = true;
                 switch ((int)dataGridView1.CurrentRow.Cells[5].Value)
                 {
@@ -197,7 +198,7 @@ namespace DVLD_Full_Project
                         cmsVisionTest.Enabled = false;
                         break;
                     default:
-                        cmsSechduleTest.Enabled=false;
+                        cmsSechduleTest.Enabled = false;
                         cmsIssueDrivingLic.Enabled = true; break;
                 }
             }

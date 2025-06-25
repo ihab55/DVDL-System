@@ -60,7 +60,6 @@ namespace BussinessLayer
         }
         private bool _UpdateApplication()
         {
-            Fees = AppTypeInfo.Fees; // Update Fees based on Application Type
             return clsApplicationData.UpdateApplication(ID, StatusDate);
         }
         public static clsApplication FindApp(int id)
@@ -97,6 +96,7 @@ namespace BussinessLayer
         }
         public bool Save()
         {
+            Fees = AppTypeInfo.Fees; // Update Fees based on Application Type
             switch (_Mode)
             {
                 case _enMode._enAddNew:

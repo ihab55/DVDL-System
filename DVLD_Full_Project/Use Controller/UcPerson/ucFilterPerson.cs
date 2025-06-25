@@ -72,5 +72,13 @@ namespace DVLD_Full_Project.Use_Controller
             Personid = ucPersonCard1.ID;
             textBox1.Text = Personid.ToString();
         }
+        public void EnableCardWithPersonID( int Personid)
+        {
+            groupBox1.Enabled = false;
+            ucPersonCard1.FillPersonCard(Personid);
+            cbFilter.SelectedIndex = 0;
+            Personid = ucPersonCard1.ID;
+            textBox1.Text = Personid.ToString();
+        }
     }
 }

@@ -76,7 +76,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Person Details";
-            this.Load += new System.EventHandler(this.frmCardDetailsPerson_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -47,11 +47,20 @@ namespace BussinessLayer
                 switch (IssueReason)
                 {
                     case 1: return "First Time";
-                    case 2: return "Replacement";
-                    case 3: return "Correction";
+                    case 2: return "Lost replacement";
+                    case 3: return "Damaged replacement";
+                    case 4: return "Renew";
                     default: return "Unknown Reason";
                 }
             }
+        }
+        public static bool IsExists(int licenseId)
+        {
+            return clsLicenseData.IsExists(licenseId);
+        }
+        public static bool IsExistsOrdinary(int licenseId)
+        {
+            return clsLicenseData.IsExistsOrdinary(licenseId);
         }
         private clsLicense(int licenseId,int appid,int Driverid,int LiceneseId,DateTime issusedate,
             DateTime exptiondate,string notes,int paidfees,bool isactive, short issresson, int userid)
