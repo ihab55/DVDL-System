@@ -35,7 +35,7 @@ namespace BussinessLayer
         }
         private bool _AddNewUsers()
         {
-            this.Id = clsUsersData.AddNewUsers(this.PersonInfo.Id, this.UserName, this.Password, this.IsActive);
+            this.Id = clsUsersData.AddNewUsers(this.PersonInfo.PersonID, this.UserName, this.Password, this.IsActive);
             return (this.Id != -99);
         }
         public static clsUser Find(int id)
@@ -72,7 +72,7 @@ namespace BussinessLayer
         }
         private bool _UpdateUsers()
         {
-            return clsUsersData.UpdateUsers(this.Id,this.PersonInfo.Id,this.UserName,this.Password,this.IsActive);
+            return clsUsersData.UpdateUsers(this.Id,this.PersonInfo.PersonID,this.UserName,this.Password,this.IsActive);
         }
         public bool Save()
         {

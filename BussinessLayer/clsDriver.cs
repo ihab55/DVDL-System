@@ -55,12 +55,12 @@ namespace BussinessLayer
         }
         private bool _AddNewDriver()
         {
-            this.DriverID = clsDriverData.AddNewDriver(this.PersonInfo.Id,this.CreatedByInfo.Id,this.CreatedDate);
+            this.DriverID = clsDriverData.AddNewDriver(this.PersonInfo.PersonID,this.CreatedByInfo.Id,this.CreatedDate);
             return (this.DriverID != -99);
         }
         private bool _UpdateDriver()
         {
-            return clsDriverData.UpdateDriver(this.DriverID,this.PersonInfo.Id, this.CreatedByInfo.Id, this.CreatedDate);
+            return clsDriverData.UpdateDriver(this.DriverID,this.PersonInfo.PersonID, this.CreatedByInfo.Id, this.CreatedDate);
         }
         public bool Save()
         {

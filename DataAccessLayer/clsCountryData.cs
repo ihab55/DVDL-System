@@ -10,11 +10,11 @@ namespace DataAccessLayer
 {
     static public class clsCountryData
     {
-        static public DataTable GetAllCountry()
+        static public DataTable GetAllCountries()
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = "SELECT * FROM Countries";
+            string query = "SELECT * FROM Countries ORDER BY CountryName";
             SqlCommand command = new SqlCommand(query, connection);
             try
             {
@@ -36,7 +36,7 @@ namespace DataAccessLayer
             }
             return dt;
         }
-        static public bool GetCountryById(int id,ref string CountryName)
+        static public bool GetCountryInfoByID(int id,ref string CountryName)
         {
             bool Isfounded= false;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
@@ -58,6 +58,47 @@ namespace DataAccessLayer
                 Isfounded = false;
             }finally { connection.Close(); }
             return Isfounded;
+        }
+        public static bool GetCountryInfoByName(string CountryName, ref int ID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+
+            string query = "SELECT * FROM Countries WHERE CountryName = @CountryName";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@CountryName", CountryName);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    ID = (int)reader["CountryID"];
+                }
+                else
+                {
+                    // The record was not found
+                    isFound = false;
+                }
+
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
         }
     }
 }

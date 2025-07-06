@@ -54,7 +54,7 @@ namespace BussinessLayer
         }
         private bool _AddNewApplication()
         {
-            ID = clsApplicationData.AddNewApplication(PersonInfo.Id, Date, AppTypeInfo.ID,
+            ID = clsApplicationData.AddNewApplication(PersonInfo.PersonID, Date, AppTypeInfo.ID,
                (int)Status, StatusDate, Fees, CreatedbyInfo.Id);
             return (ID != -99);
         }

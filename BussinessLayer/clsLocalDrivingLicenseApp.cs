@@ -48,7 +48,7 @@ namespace BussinessLayer
         public bool IsExists()
         {
             return DataAccessLayer.clsLocalDrivingLicenseAppData.IsThisAppExist(
-                ApplicationInfo.PersonInfo.Id, licenseClassInfo.ID);
+                ApplicationInfo.PersonInfo.PersonID, licenseClassInfo.ID);
         }
         private bool AddNewLocalDrivingLicenseApp()
         {

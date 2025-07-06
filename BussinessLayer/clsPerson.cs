@@ -17,133 +17,196 @@ namespace BussinessLayer
         {
             _Update = 0, _Add = 1
         }
-
         private _enMode _Mode;
-        public int Id { get; set; }
+
+        public int PersonID { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
-        public string FullName()
+        public string FullName
         {
-            return $"{FirstName} {SecondName} {ThirdName} {LastName}";
+            get{ return $"{FirstName} {SecondName} {ThirdName} {LastName}"; }
         }
-        public string NationalID { get; set; }
+        public string NationalNo { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public int Gendor { get; set; }
+        public short Gendor { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public int NationalityCountryID { set; get; }
         public clsCountry CountryInfo { get; set; }
-        public string ImagePath { get; set; }
-        private clsPerson(int id, string nationaliD, string firstname, string secondname, string thirdname, string lastname, DateTime dateofbirth, int gendor, string address,
-            string email, string phone, int countryid, string imagepath)
+        private string _ImagePath { get; set; }
+        public string ImagePath
         {
-            Id = id;
-            FirstName = firstname;
-            SecondName = secondname;
-            ThirdName = thirdname;
-            LastName = lastname;
-            DateOfBirth = dateofbirth;
-            Gendor = gendor;
-            Address = address;
-            Email = email;
-            Phone = phone;
-            CountryInfo = clsCountry.Find(countryid);
-            ImagePath = imagepath;
-            NationalID = nationaliD;
-            _Mode = _enMode._Update;
+            get { return _ImagePath; }
+            set
+            {
+                if (value == null)
+                    _ImagePath = "";
+                else
+                    _ImagePath = value;
+            }
+        }
+        /// <summary>
+        /// Private constructor to create a person object with all properties initialized
+        /// </summary>
+        /// <param name="PersonID">Unique identifier for the person</param>
+        /// <param name="FirstName">Person's first name</param>
+        /// <param name="SecondName">Person's second name</param>
+        /// <param name="ThirdName">Person's third name</param>
+        /// <param name="LastName">Person's last name</param>
+        /// <param name="NationalNo">Person's national identification number</param>
+        /// <param name="DateOfBirth">Person's date of birth</param>
+        /// <param name="Gendor">Person's gender (0 for Male, 1 for Female)</param>
+        /// <param name="Address">Person's address</param>
+        /// <param name="Phone">Person's phone number</param>
+        /// <param name="Email">Person's email address</param>
+        /// <param name="NationalityCountryID">ID of the person's nationality country</param>
+        /// <param name="ImagePath">Path to the person's image</param>
+        private clsPerson(int PersonID, string FirstName, string SecondName, string ThirdName,
+            string LastName, string NationalNo, DateTime DateOfBirth, short Gendor,
+             string Address, string Phone, string Email,
+            int NationalityCountryID, string ImagePath)
+        {
+            this.PersonID = PersonID;
+            this.FirstName = FirstName;
+            this.SecondName = SecondName;
+            this.ThirdName = ThirdName;
+            this.LastName = LastName;
+            this.DateOfBirth = DateOfBirth;
+            this.Gendor = Gendor;
+            this.Address = Address;
+            this.Email = Email;
+            this.Phone = Phone;
+            this.NationalityCountryID = NationalityCountryID;
+            CountryInfo = clsCountry.Find(NationalityCountryID);
+            this.ImagePath = ImagePath;
+            this.NationalNo = NationalNo;
+            this._Mode = _enMode._Update;
         }
         
+        /// <summary>
+        /// Default constructor that initializes a new person with default values
+        /// </summary>
         public clsPerson()
         {
-            Id = -99;
-            FirstName = "";
-            SecondName = "";
-            ThirdName = "";
-            LastName = "";
-            DateOfBirth = DateTime.Now;
-            Gendor = -9;
-            Address = "";
-            Email = "";
-            Phone = "";
-            CountryInfo = new clsCountry();
-            ImagePath = "";
-            NationalID = "";
-            _Mode = _enMode._Add;
+            this.PersonID = -99;
+            this.FirstName = "";
+            this.SecondName = "";
+            this.ThirdName = "";
+            this.LastName = "";
+            this.DateOfBirth = DateTime.Now;
+            this.Gendor = 0;
+            this.Address = "";
+            this.Email = "";
+            this.Phone = "";
+            this.NationalityCountryID = -99;
+            this.ImagePath = "";
+            this.NationalNo = "";
+            this._Mode = _enMode._Add;
         }
-        public static clsPerson Find(int ID)
+        /// <summary>
+        /// Finds a person by their ID
+        /// </summary>
+        /// <param name="PersonID">The unique identifier of the person to find</param>
+        /// <returns>A clsPerson object if found; otherwise, null</returns>
+        public static clsPerson Find(int PersonID)
         {
-            string firstname = "";
-            string secondname = "";
-            string thirdname = "";
-            string lastname = "";
-            DateTime dateofbirth = DateTime.Now;
-            int gendor = -99;
-            string address = "";
-            string email = "";
-            string phone = "";
-            int countryid = -99;
-            string imagepath = "";
-            string nationalid = "";
-            if (clsPersonData.GetPersonByID(ID, ref nationalid, ref firstname, ref secondname, ref thirdname, ref lastname, ref dateofbirth, ref gendor, ref address
-            , ref phone, ref email, ref countryid, ref imagepath))
+            string FirstName = "", SecondName = "", ThirdName = "", LastName = "", NationalNo = "", Email = "", Phone = "", Address = "", ImagePath = "";
+            DateTime DateOfBirth = DateTime.Now;
+            int NationalityCountryID = -99;
+            short Gendor = 0;
+            if (clsPersonData.GetPersonInfoByID(PersonID,ref FirstName,ref SecondName,ref ThirdName,
+               ref LastName,ref NationalNo,ref DateOfBirth,ref Gendor,ref Address,ref Phone,
+               ref Email,ref NationalityCountryID,ref ImagePath))
             {
-                return new clsPerson(ID, nationalid, firstname, secondname, thirdname, lastname, dateofbirth, gendor, address, email, phone, countryid, imagepath);
+                return new clsPerson(PersonID,FirstName,SecondName,ThirdName,LastName,NationalNo,DateOfBirth,
+                    Gendor,Address,Phone,Email,NationalityCountryID,ImagePath);
             }
             return null;
         }
-        public static clsPerson Find(string nationalid)
+        /// <summary>
+        /// Finds a person by their National Number
+        /// </summary>
+        /// <param name="NationalNo">The national identification number of the person to find</param>
+        /// <returns>A clsPerson object if found; otherwise, null</returns>
+        public static clsPerson Find(string NationalNo)
         {
-            string firstname = "";
-            string secondname = "";
-            string thirdname = "";
-            string lastname = "";
-            DateTime dateofbirth = DateTime.Now;
-            int gendor = -99;
-            string address = "";
-            string email = "";
-            string phone = "";
-            int countryid = -99;
-            string imagepath = "";
-            int ID = -99;
-            if (clsPersonData.GetPersonByNationalID(ref ID, nationalid, ref firstname, ref secondname, ref thirdname, ref lastname, ref dateofbirth, ref gendor, ref address
-            , ref phone, ref email, ref countryid, ref imagepath))
+            string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Email = "", Phone = "", Address = "", ImagePath = "";
+            DateTime DateOfBirth = DateTime.Now;
+            int NationalityCountryID = -99, PersonID = -99;
+            short Gendor = 0;
+            if (clsPersonData.GetPersonInfoByNationalID(NationalNo,ref PersonID,ref FirstName,
+                ref SecondName,ref ThirdName,ref LastName,ref DateOfBirth,ref Gendor,
+                ref Address,ref Phone,ref Email,ref NationalityCountryID,ref ImagePath))
             {
-                return new clsPerson(ID, nationalid, firstname, secondname, thirdname, lastname, dateofbirth, gendor, address, email, phone, countryid, imagepath);
+                return new clsPerson(PersonID, FirstName, SecondName, ThirdName, LastName, NationalNo, DateOfBirth,
+                    Gendor, Address, Phone, Email, NationalityCountryID, ImagePath);
             }
             return null;
         }
 
+        /// <summary>
+        /// Adds a new person to the database
+        /// </summary>
+        /// <returns>True if the person was added successfully; otherwise, false</returns>
         private bool _AddNewPerson()
         {
-            Id = clsPersonData.AddNewPerson(NationalID, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email, CountryInfo.CountryId, ImagePath);
-            return (Id != -99);
+            this.PersonID = clsPersonData.AddNewPerson(
+this.FirstName,this.SecondName,this.ThirdName,this.LastName,this.NationalNo,this.DateOfBirth,
+this.Gendor,this.Address,this.Phone,this.Email,this.NationalityCountryID,this.ImagePath);
+            return (this.PersonID != -99);
         }
+        /// <summary>
+        /// Updates an existing person's information in the database
+        /// </summary>
+        /// <returns>True if the person was updated successfully; otherwise, false</returns>
         private bool _UpdatePerson()
         {
-            return clsPersonData.UpdatePerson(Id,NationalID,FirstName,SecondName,ThirdName,LastName,DateOfBirth,Gendor,Address,Phone,Email, CountryInfo.CountryId, ImagePath);
+            return clsPersonData.UpdatePerson(this.PersonID,this.FirstName,this.SecondName,
+                this.ThirdName,this.LastName,this.NationalNo,this.DateOfBirth,this.Gendor,
+                this.Address,this.Phone,this.Email,this.NationalityCountryID,this.ImagePath);
         }
+        /// <summary>
+        /// Retrieves all people from the database
+        /// </summary>
+        /// <returns>A DataTable containing all people records</returns>
         public static DataTable GetAllPeople()
         {
             return clsPersonData.GetAllPeople();
         }
-        public bool Delete()
+        /// <summary>
+        /// Deletes a person from the database by their ID
+        /// </summary>
+        /// <param name="ID">The unique identifier of the person to delete</param>
+        /// <returns>True if the person was deleted successfully; otherwise, false</returns>
+        static public bool Delete(int ID)
         {
-            return clsPersonData.DeletePerson(Id);
+            return clsPersonData.DeletePerson(ID);
         }
-        static public bool Delete(int id)
+        /// <summary>
+        /// Checks if a person exists in the database by their ID
+        /// </summary>
+        /// <param name="ID">The unique identifier of the person to check</param>
+        /// <returns>True if the person exists; otherwise, false</returns>
+        public static bool IsExist(int ID)
         {
-            return clsPersonData.DeletePerson(id);
+            return clsPersonData.IsPersonExist(ID);
         }
-        public static bool IsExist(int id)
+        /// <summary>
+        /// Checks if a person exists in the database by their National Number
+        /// </summary>
+        /// <param name="NationlNo">The national identification number of the person to check</param>
+        /// <returns>True if the person exists; otherwise, false</returns>
+        public static bool IsExist(string NationlNo)
         {
-            return clsPersonData.IsPersonExist(id);
+            return clsPersonData.IsPersonExist(NationlNo);
         }
-        public static bool IsExist(string natid)
-        {
-            return clsPersonData.IsPersonExist(natid);
-        }
+        /// <summary>
+        /// Saves the current person object to the database (either adds a new record or updates an existing one)
+        /// </summary>
+        /// <returns>True if the operation was successful; otherwise, false</returns>
         public bool Save()
         {
             switch (_Mode)
