@@ -13,34 +13,15 @@ namespace DVLD_Full_Project
 {
     public partial class frmTakeTest : Form
     {
-        private clsTestTaken testTaken ;
-        public frmTakeTest(int AppoTest, bool Islocked = false)
+        private clsTestTaken _TestTaken ;
+        private int _TestAppointmentID;
+        public frmTakeTest(int TestAppointmentID, clsTestType.enTestType TestTypeID)
         {
             InitializeComponent();
-            
-            if (Islocked)
-            {
-                testTaken = clsTestTaken.Find(AppoTest);
-                _EnableForm();
-            }
-            else
-            {
-                testTaken = new clsTestTaken();
-                testTaken.TestAppointmentInfo = clsTestAppointment.Find(AppoTest);
-                txtTestID.Text = "Not Taken Yet";
-                testTaken.CreatedByInfo = clsGlobal.CurrentUser;
-                testTaken.TestResualt = true;
-            }
+           ctrlSecheduledTest1.TestTypeID = TestTypeID;
+           _TestAppointmentID = TestAppointmentID;
         }
 
-        private void _EnableForm()
-        {
-            rbFail.Checked = testTaken.TestResualt?false: true;
-            btnSave.Enabled = txtNotes.Enabled = rbPass.Enabled = rbFail.Enabled = false;
-            txtTestID.Text = testTaken.TestID.ToString();
-            labMeesage.Visible = true;
-            txtNotes.Text = testTaken.Notes;
-        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -48,49 +29,44 @@ namespace DVLD_Full_Project
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            testTaken.TestAppointmentInfo.IsLocked = true;
-            testTaken.Notes = txtNotes.Text.Trim();
-            clsApplication appInfo = clsApplication.FindAppByPersonID(testTaken.TestAppointmentInfo.LocalAppInfo.ApplicationInfo.PersonInfo.PersonID);
-            if (appInfo != null)
+            if (MessageBox.Show("Are you sure you want to save? After that you cannot change the Pass/Fail results after you save?.",
+                      "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No
+             )
             {
-                appInfo.Status = clsApplication.enStatus.Completed;
-                appInfo.StatusDate = DateTime.Now;
-                appInfo.CompleteApp();
+                return;
             }
-            if (testTaken.Save())
+            _TestTaken.TestAppointmentID = _TestAppointmentID;
+            _TestTaken.TestResult = rbPass.Checked;
+            _TestTaken.Notes = txtNotes.Text;
+            _TestTaken.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+
+            if (_TestTaken.Save())
             {
-                testTaken.TestAppointmentInfo.Save();
-                MessageBox.Show("Test Take Succsesfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
-            else
-            {
-                MessageBox.Show("Error in Saving Test", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            }
+            else{
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+}
+            this.Close();
+        }
 
         private void frmTakeTest_Load(object sender, EventArgs e)
         {
-            txtID.Text = testTaken.TestAppointmentInfo.LocalAppInfo.LocalDrivingLicenseApplicationID.ToString();
-            txtClass.Text = testTaken.TestAppointmentInfo.LocalAppInfo.licenseClassInfo.ClassName;
-            txtName.Text = testTaken.TestAppointmentInfo.LocalAppInfo.ApplicationInfo.PersonInfo.FullName;
-            txtTrail.Text = clsTestTaken.GetNumOfTrailByAppID(testTaken.TestAppointmentInfo.LocalAppInfo.LocalDrivingLicenseApplicationID,testTaken.TestAppointmentInfo.TestTypeInfo.TestTypeId).ToString();
-            txtDate.Text = testTaken.TestAppointmentInfo.AppoitmentDate.ToString("MM/MMM/yyyy");
-            txtFees.Text = testTaken.TestAppointmentInfo.PaidFees.ToString();
-            switch (testTaken.TestAppointmentInfo.TestTypeInfo.TestTypeId)
+            ctrlSecheduledTest1.LoadInfo(_TestAppointmentID);
+            int TestID = ctrlSecheduledTest1.TestID;
+            if (TestID == -99)
             {
-                case 2: // Written Test
-                    pictureBox1.Image = Properties.Resources.exam72;
-                    break;
-                case 3: // Street Test
-                    pictureBox1.Image = Properties.Resources.car_check72;
-                    break;
+                _TestTaken = new clsTestTaken();
             }
-        }
-
-        private void rbPass_CheckedChanged(object sender, EventArgs e)
-        {
-           testTaken.TestResualt = rbPass.Checked;
+            else
+            {
+                _TestTaken = clsTestTaken.Find(TestID);
+                rbFail.Checked = !_TestTaken.TestResult;
+                txtNotes.Text = _TestTaken.Notes;
+                btnSave.Enabled = rbFail.Enabled = rbPass.Enabled = txtNotes.Enabled = false;
+                lblUserMessage.Visible = true;
+            }
         }
     }
 }

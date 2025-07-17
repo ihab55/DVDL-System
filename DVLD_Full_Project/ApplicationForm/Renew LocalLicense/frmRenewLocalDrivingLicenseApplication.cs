@@ -13,10 +13,7 @@ namespace DVLD_Full_Project
 {
     public partial class frmRenewLocalDrivingLicenseApplication : Form
     {
-        private clsLicense _NewclsLicense = new clsLicense();
-        private clsLicense OldLicense;
-
-
+        private int _NewLicenseID = -99;
         public frmRenewLocalDrivingLicenseApplication()
         {
             InitializeComponent();
@@ -29,83 +26,91 @@ namespace DVLD_Full_Project
 
         private void frmRenewLicenseApp_Load(object sender, EventArgs e)
         {
-            _NewclsLicense.ApplicationInfo = new clsApplication();
-            _NewclsLicense.ApplicationInfo.AppTypeInfo = clsApplicationTypes.Find(2); // Assuming 2 is the ID for renewal application type
-            _NewclsLicense.ApplicationInfo.Status = clsApplication.enStatus.Completed;
-            _NewclsLicense.ApplicationInfo.Fees = _NewclsLicense.ApplicationInfo.AppTypeInfo.Fees;
-            _NewclsLicense.CreatedByUserInfo = _NewclsLicense.ApplicationInfo.CreatedbyInfo = clsGlobal.CurrentUser;
+            ucNewInternational1.txtLicenseIDFocus();
+            txtAppDate.Text = DateTime.Now.ToShortDateString();
+            txtIssueDate.Text = txtAppDate.Text;
 
-            _NewclsLicense.IssueReason = 4; // Assuming 4 is the code for renewal reason
-            txtAppDate.Text = _NewclsLicense.ApplicationInfo.Date.ToString("MM/MMM/yyyy");
-            txtlAppFees.Text = _NewclsLicense.ApplicationInfo.Fees.ToString();
-            txtIssueDate.Text = _NewclsLicense.IssueDate.ToString("MM/MMM/yyyy");
-            txtCreatedBy.Text = _NewclsLicense.CreatedByUserInfo.UserName;
+            txtCreatedBy.Text = clsGlobal.CurrentUser.UserName;
+            txtlAppFees.Text = clsApplicationTypes.Find((int)clsApplication.enApplicationType.RenewDrivingLicense).Fees.ToString();
+
         }
-
+        private void RestAllValue() {
+            ucNewInternational1.RestAllValue();
+            txtID_RenewLicense.Text = txtLicenseFees.Text = txtID_IntApp.Text = "???";
+            txtOldLicenseID.Text = txtExpirationDate.Text = txtTotalFees.Text ="???";
+        }
         private void ucNewInternational1_OnLicenseSelected(int obj)
         {
-            OldLicense = clsLicense.Find(obj);
-            _NewclsLicense.DriverInfo = OldLicense.DriverInfo;
-            _NewclsLicense.ApplicationInfo.PersonInfo = OldLicense.ApplicationInfo.PersonInfo;
-            _NewclsLicense.LicenseClassInfo = OldLicense.LicenseClassInfo;
-            _NewclsLicense.ExpriationDate = _NewclsLicense.IssueDate.AddYears(_NewclsLicense.LicenseClassInfo.DefaultValidityLength);
-            _NewclsLicense.PaidFees = _NewclsLicense.LicenseClassInfo.Fees;
-
-            txtOldLicenseID.Text = OldLicense.LicenseID.ToString();
-            txtExpirationDate.Text = _NewclsLicense.ExpriationDate.ToString("MM/MMM/yyyy");
-            txtLicenseFees.Text = (_NewclsLicense.LicenseClassInfo.Fees+ _NewclsLicense.ApplicationInfo.Fees).ToString();
-            txtTotalFees.Text = _NewclsLicense.PaidFees.ToString();
-            if (OldLicense.IsActive)
+            if (ucNewInternational1.LicenseInfo == null)
             {
-                if (OldLicense.ExpriationDate >= DateTime.Now)
-                {
-                    MessageBox.Show("The selected license is valid and can be renewed.", "Valid License", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnSave.Enabled = false;
-                }
-                else
-                {
-                    btnSave.Enabled = true;
-                }
-            }
-            else
-            {
-                MessageBox.Show("The selected license is not active and cannot be renewed.", "Inactive License", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                btnSave.Enabled = false;
+                RestAllValue();
+                return;
             }
             lnkShowHistory.Enabled = true;
+            txtOldLicenseID.Text = ucNewInternational1.LicenseID.ToString();
+            txtExpirationDate.Text = DateTime.Now.AddYears(ucNewInternational1.LicenseInfo.LicenseClassInfo.DefaultValidityLength).ToShortDateString();
+            txtLicenseFees.Text = ucNewInternational1.LicenseInfo.LicenseClassInfo.ClassFees.ToString();
+            txtTotalFees.Text = (Convert.ToSingle(txtlAppFees.Text) + Convert.ToSingle(txtLicenseFees.Text)).ToString();
+            txtNotes.Text = ucNewInternational1.LicenseInfo.Notes;
+            if (!ucNewInternational1.LicenseInfo.IsLicenseExpired())
+            {
+                MessageBox.Show("Selected License is not yet expiared, it will expire on: " + (ucNewInternational1.LicenseInfo.ExpirationDate).ToShortDateString() 
+                    , "License Not Expired", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                return;
+            }
+            if (ucNewInternational1.LicenseInfo.IsDetained)
+            {
+                MessageBox.Show("Selected License is Detained, you cannot renew it until it is released", "License Detained", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+            if (!ucNewInternational1.LicenseInfo.IsActive)
+            {
+                MessageBox.Show("Selected License is not active, you cannot renew it", "License Active", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+            btnSave.Enabled = true;
         }
 
         private void lnkShowHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmLicenseHistory historyForm = new frmLicenseHistory(_NewclsLicense.DriverInfo.PersonInfo.PersonID);
+            frmShowPersonLicenseHistory historyForm = new frmShowPersonLicenseHistory(ucNewInternational1.LicenseInfo.DriverInfo.PersonID);
             historyForm.ShowDialog();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            OldLicense.IsActive = false; // Deactivate the old license
-            _NewclsLicense.Note = txtNotes.Text.Trim();
-            if (MessageBox.Show("Do you want to Renew?", "Quesion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            {
-                if (_NewclsLicense.ApplicationInfo.Save() && OldLicense.Save() && _NewclsLicense.Save())
-                {
-                    MessageBox.Show($"Renew License {_NewclsLicense.LicenseID} Succes.", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    lnkShowInfo.Enabled = true;
-                    ucNewInternational1.EnableFilter(false);
-                    txtID_IntApp.Text = _NewclsLicense.ApplicationInfo.ID.ToString();
-                    txtID_RenewLicense.Text = _NewclsLicense.LicenseID.ToString();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to renew the license. Please check the details and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             btnSave.Enabled = false;
+            if (MessageBox.Show("Are you sure you want to Renew the license?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+            clsLicense _NewLicense = ucNewInternational1.LicenseInfo.RenewLicense(
+                txtNotes.Text.Trim(),clsGlobal.CurrentUser.UserID);
+            if (_NewLicense == null)
+            {
+                MessageBox.Show("Faild to Renew the License", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+            txtID_IntApp.Text = _NewLicense.ApplicationID.ToString();
+            txtID_RenewLicense.Text = _NewLicense.LicenseID.ToString();
+            MessageBox.Show("Licensed Renewed Successfully with ID=" + _NewLicense.LicenseID.ToString(), "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ucNewInternational1.Enabled = false;
+            lnkShowInfo.Enabled = true;
+            _NewLicenseID = _NewLicense.LicenseID;
         }
 
         private void lnkShowInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmShowLicesnse showLicesnse = new frmShowLicesnse(_NewclsLicense);
+            if (_NewLicenseID == -99)
+            {
+                MessageBox.Show("No License has been issued yet.", "No License", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            frmShowLicenseInfo showLicesnse = new frmShowLicenseInfo(_NewLicenseID);
             showLicesnse.ShowDialog();
         }
     }

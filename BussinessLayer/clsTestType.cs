@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,32 +11,41 @@ namespace BussinessLayer
     public class clsTestType
     {
         #region Porerty
-        public int TestTypeId;
-        public string TestName;
+        public enum enTestType { VisionTest = 1, WrittenTest = 2, StreetTest = 3 };
+        public enTestType TestTypeID;
+        public string TestTitle;
         public string TestDescription;
-        public int TestFees;
+        public float TestFees;
         #endregion
-        private clsTestType(int id,string Name,string Description,int fees) {
-            TestTypeId = id;
-            TestName = Name;
-            TestDescription = Description;
-            TestFees = fees;
+        private clsTestType(enTestType TestTypeID,string TestTitle,string TestDescription,float TestFees) {
+            this.TestTypeID = TestTypeID;
+            this.TestTitle = TestTitle;
+            this.TestDescription = TestDescription;
+            this.TestFees = TestFees;
         }
-        public static clsTestType Find(int id)
+        public static clsTestType Find(enTestType TestTypeID)
         {
-            string Name = "";
-            string Description = "";
-            decimal fees = -99;
-            if (clsTestTypeData.GetTestTypeId(id,ref Name,ref Description,ref fees))
+            string TestTitle = "";
+            string TestDescription = "";
+            float TestFees = -99;
+            if (clsTestTypeData.GetTestTypeInfoByID((int)TestTypeID,ref TestTitle,ref TestDescription,ref TestFees))
             {
-                return new clsTestType(id,Name,Description,(int)fees);
+                return new clsTestType(TestTypeID,TestTitle,TestDescription,TestFees);
             }
             return null;
         }
-        public bool UpdateFees(int Newfees)
+        public static DataTable GetAllTestTypes()
         {
-            TestFees = Newfees;
-            return clsTestTypeData.UpdateFees(TestTypeId, TestFees);
+            return clsTestTypeData.GetAllTestTypes();
+
+        }
+        private bool _UpdateTestType()
+        {
+            return clsTestTypeData.UpdateTestType((int)this.TestTypeID, this.TestTitle, this.TestDescription, this.TestFees);
+        }
+        public bool Save()
+        {
+            return _UpdateTestType();
         }
     }
 }

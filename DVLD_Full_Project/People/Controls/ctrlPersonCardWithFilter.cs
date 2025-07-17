@@ -24,8 +24,13 @@ namespace DVLD_Full_Project.Use_Controller
         }
         public int _PersonID { get { return ucPersonCard1.PersonID; } }
         private bool _EnableFilter = true;
-        public bool EnableFilter { set { _EnableFilter = value;
-                groupBox1.Enabled = _EnableFilter; }
+        public bool EnableFilter
+        {
+            set
+            {
+                _EnableFilter = value;
+                groupBox1.Enabled = _EnableFilter;
+            }
             get { return _EnableFilter; }
         }
         public ctrlPersonCardWithFilter()
@@ -43,7 +48,7 @@ namespace DVLD_Full_Project.Use_Controller
                     ucPersonCard1.LoadPersonInfo(textBox1.Text);
                     break;
             }
-            if (OnPersonSelected != null )
+            if (OnPersonSelected != null && this.EnableFilter)
             {
                 OnPersonSelected(ucPersonCard1.PersonID);
             }
@@ -58,7 +63,7 @@ namespace DVLD_Full_Project.Use_Controller
             frm.DataBack += DataBackEvent;
             frm.ShowDialog();
         }
-        private void DataBackEvent (object sender,int PersonID)
+        private void DataBackEvent(object sender, int PersonID)
         {
             cbFilter.SelectedIndex = 0;
             textBox1.Text = PersonID.ToString();
@@ -66,7 +71,7 @@ namespace DVLD_Full_Project.Use_Controller
         }
         public void LoadPersonInfo(int PersonID)
         {
-            cbFilter.SelectedIndex=0;
+            cbFilter.SelectedIndex = 0;
             textBox1.Text = PersonID.ToString();
             FindNow();
         }
@@ -83,7 +88,7 @@ namespace DVLD_Full_Project.Use_Controller
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar==(char) 13)
+            if (e.KeyChar == (char)13)
             {
                 btnSearchPerson.PerformClick();
             }
@@ -91,6 +96,10 @@ namespace DVLD_Full_Project.Use_Controller
             {
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
+        }
+        public void FocusOnFilter()
+        {
+            textBox1.Focus();
         }
     }
 }

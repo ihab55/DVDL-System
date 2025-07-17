@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.ucUserCard1 = new DVLD_Full_Project.Use_Controller.ucUserCard();
+            this.ucUserCard1 = new DVLD_Full_Project.Use_Controller.ctrlUserCard();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             // 
             this.ucUserCard1.Location = new System.Drawing.Point(5, 3);
             this.ucUserCard1.Name = "ucUserCard1";
-            this.ucUserCard1.Size = new System.Drawing.Size(710, 323);
+            this.ucUserCard1.Size = new System.Drawing.Size(766, 323);
             this.ucUserCard1.TabIndex = 0;
             // 
             // label1
@@ -93,7 +93,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = global::DVLD_Full_Project.Properties.Resources.SaveIcon;
-            this.btnSave.Location = new System.Drawing.Point(590, 487);
+            this.btnSave.Location = new System.Drawing.Point(640, 487);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(113, 40);
             this.btnSave.TabIndex = 55;
@@ -110,7 +110,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::DVLD_Full_Project.Properties.Resources.closeIcon;
-            this.btnClose.Location = new System.Drawing.Point(470, 487);
+            this.btnClose.Location = new System.Drawing.Point(520, 487);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(114, 40);
             this.btnClose.TabIndex = 54;
@@ -156,6 +156,7 @@
             this.txtCurrPassword.Name = "txtCurrPassword";
             this.txtCurrPassword.Size = new System.Drawing.Size(279, 27);
             this.txtCurrPassword.TabIndex = 59;
+            this.txtCurrPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmpty_Validating);
             // 
             // txtNewPass
             // 
@@ -164,6 +165,7 @@
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.Size = new System.Drawing.Size(279, 27);
             this.txtNewPass.TabIndex = 60;
+            this.txtNewPass.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmpty_Validating);
             // 
             // txtConfpass
             // 
@@ -172,16 +174,17 @@
             this.txtConfpass.Name = "txtConfpass";
             this.txtConfpass.Size = new System.Drawing.Size(279, 27);
             this.txtConfpass.TabIndex = 61;
+            this.txtConfpass.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfpass_Validating);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // frmUserChangePass
+            // frmChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 539);
+            this.ClientSize = new System.Drawing.Size(765, 539);
             this.ControlBox = false;
             this.Controls.Add(this.txtConfpass);
             this.Controls.Add(this.txtNewPass);
@@ -195,8 +198,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucUserCard1);
-            this.Name = "frmUserChangePass";
+            this.Name = "frmChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.frmChangePassword_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -208,7 +212,7 @@
 
         #endregion
 
-        private Use_Controller.ucUserCard ucUserCard1;
+        private Use_Controller.ctrlUserCard ucUserCard1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

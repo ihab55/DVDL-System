@@ -12,20 +12,21 @@ namespace DVLD_Full_Project.UsersForm
 {
     public partial class frmUserInfo : Form
     {
-        public frmUserInfo(int ID)
+        private int _UserID;
+        public frmUserInfo(int UserID)
         {
             InitializeComponent();
-            ucUserCard1.FillUserCard(ID);
-        }
-        public frmUserInfo(string username)
-        {
-            InitializeComponent();
-            ucUserCard1.FillUserCard(username);
+            _UserID = UserID;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmUserInfo_Load(object sender, EventArgs e)
+        {
+            ucUserCard1.LoadUserInfo(_UserID);
         }
     }
 }

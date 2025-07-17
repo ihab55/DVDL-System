@@ -24,11 +24,11 @@ namespace DVLD_Full_Project
             do
             {
                 IsRestart = false;
-                frmmLogin Login = new frmmLogin();
+                frmLogin Login = new frmLogin();
                 Application.Run(Login);
                 if (Login.DialogResult == DialogResult.OK)
                 {
-                    Application.Run(new Main(Login.UserName));
+                    Application.Run(new Main());
                 }
             }
             while (IsRestart);

@@ -15,10 +15,9 @@ namespace DVLD_Full_Project
 {
     public partial class Main : Form
     {
-        public Main(string username)
+        public Main()
         {
             InitializeComponent();
-            clsGlobal.CurrentUser =clsUser.Find(username);
         }
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -40,30 +39,27 @@ namespace DVLD_Full_Project
         }
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            clsGlobal.CurrentUser = null;
             this.Close();
             Program.IsRestart = true;
         }
 
         private void currentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUserInfo frm = new frmUserInfo(clsGlobal.CurrentUser.Id);
+            frmUserInfo frm = new frmUserInfo(clsGlobal.CurrentUser.UserID);
             frm.ShowDialog();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserName);
+            frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserID);
             frm.ShowDialog();
         }
 
-        private void drivingLicensesServuceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmManageApplicationTypes frm = new frmManageApplicationTypes();
+            frmListApplicationTypes frm = new frmListApplicationTypes();
             frm.ShowDialog();
         }
 

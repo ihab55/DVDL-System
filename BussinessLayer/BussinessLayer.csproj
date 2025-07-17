@@ -49,7 +49,7 @@
     <Compile Include="clsInternationalLicense.cs" />
     <Compile Include="clsLicense.cs" />
     <Compile Include="clsLicenseClass.cs" />
-    <Compile Include="clsLocalDrivingLicenseApp.cs" />
+    <Compile Include="clsLocalDrivingLicenseApplication.cs" />
     <Compile Include="clsManageTests.cs" />
     <Compile Include="clsPerson.cs" />
     <Compile Include="clsTestAppointment.cs" />

@@ -67,7 +67,7 @@
             this.lnkShowInfo = new System.Windows.Forms.LinkLabel();
             this.lnkShowHistory = new System.Windows.Forms.LinkLabel();
             this.labHead = new System.Windows.Forms.Label();
-            this.ucNewInternational1 = new DVLD_Full_Project.ucFilterLicense();
+            this.ucNewInternational1 = new DVLD_Full_Project.ctrlDriverLicenseInfoWithFilter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -527,26 +527,27 @@
             // 
             // ucNewInternational1
             // 
+            this.ucNewInternational1.FilterEnabled = true;
             this.ucNewInternational1.Location = new System.Drawing.Point(2, 48);
             this.ucNewInternational1.Name = "ucNewInternational1";
             this.ucNewInternational1.Size = new System.Drawing.Size(1097, 518);
             this.ucNewInternational1.TabIndex = 72;
             this.ucNewInternational1.OnLicenseSelected += new System.Action<int>(this.ucNewInternational1_OnLicenseSelected);
             // 
-            // frmRenewLicenseApp
+            // frmRenewLocalDrivingLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 870);
             this.ControlBox = false;
+            this.Controls.Add(this.labHead);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ucNewInternational1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lnkShowInfo);
             this.Controls.Add(this.lnkShowHistory);
-            this.Controls.Add(this.labHead);
-            this.Name = "frmRenewLicenseApp";
+            this.Name = "frmRenewLocalDrivingLicenseApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmRenewLicenseApp_Load);
             this.groupBox1.ResumeLayout(false);
@@ -594,7 +595,7 @@
         private System.Windows.Forms.Label txtID_IntApp;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labID_RenewApp;
-        private ucFilterLicense ucNewInternational1;
+        private ctrlDriverLicenseInfoWithFilter ucNewInternational1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.LinkLabel lnkShowInfo;

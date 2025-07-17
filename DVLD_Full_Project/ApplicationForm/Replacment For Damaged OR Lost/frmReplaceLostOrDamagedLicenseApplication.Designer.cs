@@ -36,7 +36,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbLostLicemse = new System.Windows.Forms.RadioButton();
             this.rbDamagedLicense = new System.Windows.Forms.RadioButton();
-            this.ucNewInternational1 = new DVLD_Full_Project.ucFilterLicense();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtCreatedBy = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -56,6 +55,7 @@
             this.txtID_RApp = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labID_IntApp = new System.Windows.Forms.Label();
+            this.ucNewInternational1 = new DVLD_Full_Project.ctrlDriverLicenseInfoWithFilter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -160,6 +160,7 @@
             this.rbLostLicemse.TabIndex = 1;
             this.rbLostLicemse.Text = "Lost Licemse";
             this.rbLostLicemse.UseVisualStyleBackColor = true;
+            this.rbLostLicemse.CheckedChanged += new System.EventHandler(this.rbLostLicemse_CheckedChanged);
             // 
             // rbDamagedLicense
             // 
@@ -174,14 +175,6 @@
             this.rbDamagedLicense.Text = "Damaged License";
             this.rbDamagedLicense.UseVisualStyleBackColor = true;
             this.rbDamagedLicense.CheckedChanged += new System.EventHandler(this.rbDamagedLicense_CheckedChanged);
-            // 
-            // ucNewInternational1
-            // 
-            this.ucNewInternational1.Location = new System.Drawing.Point(-5, 44);
-            this.ucNewInternational1.Name = "ucNewInternational1";
-            this.ucNewInternational1.Size = new System.Drawing.Size(1097, 518);
-            this.ucNewInternational1.TabIndex = 78;
-            this.ucNewInternational1.OnLicenseSelected += new System.Action<int>(this.ucNewInternational1_OnLicenseSelected);
             // 
             // groupBox2
             // 
@@ -390,7 +383,16 @@
             this.labID_IntApp.TabIndex = 3;
             this.labID_IntApp.Text = "I.R.Application ID:";
             // 
-            // frmDamageAndLost
+            // ucNewInternational1
+            // 
+            this.ucNewInternational1.FilterEnabled = true;
+            this.ucNewInternational1.Location = new System.Drawing.Point(-5, 44);
+            this.ucNewInternational1.Name = "ucNewInternational1";
+            this.ucNewInternational1.Size = new System.Drawing.Size(1097, 518);
+            this.ucNewInternational1.TabIndex = 78;
+            this.ucNewInternational1.OnLicenseSelected += new System.Action<int>(this.ucNewInternational1_OnLicenseSelected);
+            // 
+            // frmReplaceLostOrDamagedLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -404,7 +406,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lnkShowInfo);
             this.Controls.Add(this.lnkShowHistory);
-            this.Name = "frmDamageAndLost";
+            this.Name = "frmReplaceLostOrDamagedLicenseApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmDamageAndLost_Load);
             this.groupBox1.ResumeLayout(false);
@@ -424,7 +426,7 @@
 
         #endregion
 
-        private ucFilterLicense ucNewInternational1;
+        private ctrlDriverLicenseInfoWithFilter ucNewInternational1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.LinkLabel lnkShowInfo;

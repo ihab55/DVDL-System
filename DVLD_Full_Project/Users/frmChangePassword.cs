@@ -14,17 +14,10 @@ namespace DVLD_Full_Project.UsersForm
     public partial class frmChangePassword : Form
     {
         private clsUser _clsUser;
-        public frmChangePassword(int id)
+        public frmChangePassword(int UserID)
         {
             InitializeComponent();
-            _clsUser = clsUser.Find(id);
-            ucUserCard1.FillUserCard(_clsUser.Id);
-        }
-        public frmChangePassword(string username)
-        {
-            InitializeComponent();
-            _clsUser = clsUser.Find(username);
-            ucUserCard1.FillUserCard(_clsUser.Id);
+            _clsUser = clsUser.FindByUserID(UserID);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -32,32 +25,67 @@ namespace DVLD_Full_Project.UsersForm
             this.Close();
         }
 
+        private bool txtCurrentPassWord_Right()
+        {
+            if (txtCurrPassword.Text.Trim() != clsGlobal.CurrentUser.Password)
+            {
+                errorProvider1.SetError(txtCurrPassword, "Wrong Password");
+                return false;
+            }
+                errorProvider1.SetError(txtCurrPassword, string.Empty); // Clear error
+                return true;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
-            if (txtCurrPassword.Text == _clsUser.Password)
+            if (!this.ValidateChildren() || !txtCurrentPassWord_Right())
             {
-                if (txtNewPass.Text == txtConfpass.Text)
-                {
-                    _clsUser.Password = txtNewPass.Text;
-                    if (_clsUser.Save())
-                    {
-                        MessageBox.Show("Password changed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error changing password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    errorProvider1.SetError(txtConfpass, "Password does not match");
-                }
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            _clsUser.Password = txtNewPass.Text.Trim();
+            if (_clsUser.Save())
+            {
+                MessageBox.Show("Password Changed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
-                errorProvider1.SetError(txtCurrPassword, "Current password is incorrect");
+                MessageBox.Show("Error in changing password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void frmChangePassword_Load(object sender, EventArgs e)
+        {
+            ucUserCard1.LoadUserInfo(_clsUser.UserID);
+        }
+
+        private void txtEmpty_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txt, "Enter A value");
+                e.Cancel = true; // Prevent focus loss
+            }
+            else
+            {
+                errorProvider1.SetError(txt, string.Empty); // Clear error
+            }
+        }
+
+        private void txtConfpass_Validating(object sender, CancelEventArgs e)
+        {
+            txtEmpty_Validating(sender, e);
+            if (txtConfpass.Text != txtNewPass.Text)
+            {
+                errorProvider1.SetError(txtConfpass, "Password does not match");
+                e.Cancel = true; // Prevent focus loss
+            }
+            else
+            {
+                errorProvider1.SetError(txtConfpass, string.Empty); // Clear error
             }
         }
     }

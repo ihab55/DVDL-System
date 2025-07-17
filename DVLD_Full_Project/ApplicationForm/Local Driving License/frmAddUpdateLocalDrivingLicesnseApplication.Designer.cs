@@ -38,7 +38,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.labCreatedby = new System.Windows.Forms.Label();
             this.txtApplicationfees = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbLicenseClass = new System.Windows.Forms.ComboBox();
             this.txtDate = new System.Windows.Forms.Label();
             this.txtApplicationID = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -69,7 +69,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = global::DVLD_Full_Project.Properties.Resources.SaveIcon;
-            this.btnSave.Location = new System.Drawing.Point(630, 445);
+            this.btnSave.Location = new System.Drawing.Point(673, 439);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(113, 40);
             this.btnSave.TabIndex = 57;
@@ -85,7 +85,7 @@
             this.tabControl1.Location = new System.Drawing.Point(11, 47);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(736, 383);
+            this.tabControl1.Size = new System.Drawing.Size(779, 383);
             this.tabControl1.TabIndex = 55;
             this.tabControl1.TabStop = false;
             // 
@@ -96,7 +96,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(728, 354);
+            this.tabPage1.Size = new System.Drawing.Size(771, 354);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Personal Info";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Image = global::DVLD_Full_Project.Properties.Resources.nextIcon;
-            this.btnNext.Location = new System.Drawing.Point(597, 308);
+            this.btnNext.Location = new System.Drawing.Point(640, 311);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(113, 40);
             this.btnNext.TabIndex = 54;
@@ -120,9 +120,10 @@
             // 
             // ucFilterPerson1
             // 
+            this.ucFilterPerson1.EnableFilter = true;
             this.ucFilterPerson1.Location = new System.Drawing.Point(6, 3);
             this.ucFilterPerson1.Name = "ucFilterPerson1";
-            this.ucFilterPerson1.Size = new System.Drawing.Size(704, 303);
+            this.ucFilterPerson1.Size = new System.Drawing.Size(768, 303);
             this.ucFilterPerson1.TabIndex = 0;
             this.ucFilterPerson1.OnPersonSelected += new System.Action<int>(this.ucFilterPerson1_OnPersonSelected);
             // 
@@ -132,7 +133,7 @@
             this.tabPage2.Controls.Add(this.pictureBox5);
             this.tabPage2.Controls.Add(this.labCreatedby);
             this.tabPage2.Controls.Add(this.txtApplicationfees);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.cbLicenseClass);
             this.tabPage2.Controls.Add(this.txtDate);
             this.tabPage2.Controls.Add(this.txtApplicationID);
             this.tabPage2.Controls.Add(this.pictureBox4);
@@ -147,7 +148,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(728, 354);
+            this.tabPage2.Size = new System.Drawing.Size(771, 354);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Application info";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -192,21 +193,14 @@
             this.txtApplicationfees.TabIndex = 14;
             this.txtApplicationfees.Text = "???";
             // 
-            // comboBox1
+            // cbLicenseClass
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Class1-Small Motorcycle",
-            "Class2-Heavy Motorcycle License",
-            "Class3-Ordinary driving license",
-            "Class4-Commercial",
-            "Class5-Agricultural",
-            "Class6-Small and medium bus",
-            "Class7-Truck and heavy vehicle"});
-            this.comboBox1.Location = new System.Drawing.Point(369, 156);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(223, 24);
-            this.comboBox1.TabIndex = 13;
+            this.cbLicenseClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLicenseClass.FormattingEnabled = true;
+            this.cbLicenseClass.Location = new System.Drawing.Point(369, 156);
+            this.cbLicenseClass.Name = "cbLicenseClass";
+            this.cbLicenseClass.Size = new System.Drawing.Size(223, 24);
+            this.cbLicenseClass.TabIndex = 13;
             // 
             // txtDate
             // 
@@ -316,7 +310,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::DVLD_Full_Project.Properties.Resources.closeIcon;
-            this.btnClose.Location = new System.Drawing.Point(510, 445);
+            this.btnClose.Location = new System.Drawing.Point(553, 439);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(114, 40);
             this.btnClose.TabIndex = 56;
@@ -330,24 +324,25 @@
             this.labHead.AutoSize = true;
             this.labHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labHead.ForeColor = System.Drawing.Color.Red;
-            this.labHead.Location = new System.Drawing.Point(36, 6);
+            this.labHead.Location = new System.Drawing.Point(96, 6);
             this.labHead.Name = "labHead";
             this.labHead.Size = new System.Drawing.Size(608, 38);
             this.labHead.TabIndex = 54;
             this.labHead.Text = "New Local Driving License Application";
             // 
-            // frmNewLocalDrivingLicenseAPP
+            // frmAddUpdateLocalDrivingLicesnseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 491);
+            this.ClientSize = new System.Drawing.Size(798, 487);
             this.ControlBox = false;
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.labHead);
-            this.Name = "frmNewLocalDrivingLicenseAPP";
+            this.Name = "frmAddUpdateLocalDrivingLicesnseApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.frmAddUpdateLocalDrivingLicesnseApplication_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -382,7 +377,7 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label labHead;
         private System.Windows.Forms.Label txtDate;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbLicenseClass;
         private System.Windows.Forms.Label txtApplicationfees;
         private System.Windows.Forms.Label labCreatedby;
         private System.Windows.Forms.Label txtCreatedby;

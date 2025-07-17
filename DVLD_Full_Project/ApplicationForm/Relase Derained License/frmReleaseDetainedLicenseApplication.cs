@@ -13,32 +13,15 @@ namespace DVLD_Full_Project
 {
     public partial class frmReleaseDetainedLicenseApplication : Form
     {
-        private clsDetainedLicenses detainedLicenses;
         public frmReleaseDetainedLicenseApplication()
         {
             InitializeComponent();
         }
-        public frmReleaseDetainedLicenseApplication(int DetainID)
+        public frmReleaseDetainedLicenseApplication(int LicenseID)
         {
             InitializeComponent();
-            detainedLicenses = clsDetainedLicenses.Find(DetainID);
-
-            detainedLicenses.ReleaseApplicationInfo = new clsApplication();
-            detainedLicenses.ReleaseApplicationInfo.AppTypeInfo = clsApplicationTypes.Find(5);
-            detainedLicenses.ReleaseApplicationInfo.Status = clsApplication.enStatus.Completed;
-            detainedLicenses.ReleaseApplicationInfo.PersonInfo = detainedLicenses.LicenseInfo.DriverInfo.PersonInfo;
-            detainedLicenses.ReleasedByUserInfo = detainedLicenses.ReleaseApplicationInfo.CreatedbyInfo = clsGlobal.CurrentUser;
-            detainedLicenses.ReleaseDate = DateTime.Now;
-
-            ucNewInternational1.LoadDataByLicenseID(detainedLicenses.LicenseInfo.LicenseID);
-            txtDetainID.Text = detainedLicenses.DetainedLicenseID.ToString();
-            txtDetainDate.Text = detainedLicenses.DetainDate.ToString("MM/MMM/yyyy");
-            txtFineFees.Text = detainedLicenses.FineFees.ToString();
-            txtLicenseID.Text = detainedLicenses.LicenseInfo.LicenseID.ToString();
-            txtAppFees.Text = detainedLicenses.ReleaseApplicationInfo.AppTypeInfo.Fees.ToString();
-            txtTotalFees.Text = (detainedLicenses.FineFees + detainedLicenses.ReleaseApplicationInfo.AppTypeInfo.Fees).ToString();
-            txtCreatedBy.Text = clsGlobal.CurrentUser.UserName;
-            btnSave.Enabled = lnkShowHistory.Enabled = lnkShowInfo.Enabled = true;
+            ucNewInternational1.Enabled = false;
+            ucNewInternational1.LoadLicenseInfo(LicenseID);
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -46,61 +29,65 @@ namespace DVLD_Full_Project
         }
         private void lnkShowInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmShowLicesnse showLicesnse = new frmShowLicesnse(detainedLicenses.LicenseInfo);
-            showLicesnse.ShowDialog();
+          frmShowLicenseInfo showLicesnse = new frmShowLicenseInfo(ucNewInternational1.LicenseID);
+          showLicesnse.ShowDialog();
         }
         private void lnkShowHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmLicenseHistory licenseHistory = new frmLicenseHistory(detainedLicenses.LicenseInfo.DriverInfo.PersonInfo.PersonID);
-            licenseHistory.ShowDialog();
+           frmShowPersonLicenseHistory licenseHistory = new frmShowPersonLicenseHistory(ucNewInternational1.LicenseInfo.DriverInfo.PersonID);
+           licenseHistory.ShowDialog();
+        }
+ private void _RestAllValues()
+        {
+            txtDetainID.Text = txtDetainDate.Text = txtLicenseID.Text = "???";
+            txtFineFees.Text = txtTotalFees.Text = "???"; 
+            btnSave.Enabled = lnkShowHistory.Enabled = lnkShowInfo.Enabled = false;
+            ucNewInternational1.RestAllValue();
         }
         private void ucNewInternational1_OnLicenseSelected(int obj)
         {
-            if (clsDetainedLicenses.IsDetained(obj))
+            if(ucNewInternational1.LicenseInfo == null)
             {
-                btnSave.Enabled = lnkShowHistory.Enabled = lnkShowInfo.Enabled = true;
-                detainedLicenses = clsDetainedLicenses.FindByLicenseID(obj);
-
-                detainedLicenses.ReleaseApplicationInfo = new clsApplication();
-                detainedLicenses.ReleaseApplicationInfo.AppTypeInfo = clsApplicationTypes.Find(5);
-                detainedLicenses.ReleaseApplicationInfo.Status = clsApplication.enStatus.Completed;
-                detainedLicenses.ReleaseApplicationInfo.PersonInfo = detainedLicenses.LicenseInfo.DriverInfo.PersonInfo;
-                detainedLicenses.ReleasedByUserInfo = detainedLicenses.ReleaseApplicationInfo.CreatedbyInfo = clsGlobal.CurrentUser;
-                detainedLicenses.ReleaseDate = DateTime.Now;
-
-                txtDetainID.Text = detainedLicenses.DetainedLicenseID.ToString();
-                txtDetainDate.Text = detainedLicenses.DetainDate.ToString("MM/MMM/yyyy");
-                txtFineFees.Text = detainedLicenses.FineFees.ToString();
-                txtLicenseID.Text = detainedLicenses.LicenseInfo.LicenseID.ToString();
-                txtAppFees.Text = detainedLicenses.ReleaseApplicationInfo.AppTypeInfo.Fees.ToString();
-                txtTotalFees.Text = (detainedLicenses.FineFees + detainedLicenses.ReleaseApplicationInfo.AppTypeInfo.Fees).ToString();
-                txtCreatedBy.Text = clsGlobal.CurrentUser.UserName;
+                _RestAllValues();
+                return;
             }
-            else
+            lnkShowHistory.Enabled = lnkShowInfo.Enabled = true;
+            if (!ucNewInternational1.LicenseInfo.IsDetained)
             {
-                btnSave.Enabled = lnkShowHistory.Enabled = lnkShowInfo.Enabled = false;
-                MessageBox.Show("License is not deatined","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Selected License i is not detained, choose another one.", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            txtDetainID.Text = ucNewInternational1.LicenseInfo.DetainedInfo.DetainID.ToString();
+            txtDetainDate.Text = ucNewInternational1.LicenseInfo.DetainedInfo.DetainDate.ToShortDateString();
+            txtLicenseID.Text = ucNewInternational1.LicenseID.ToString();
+            txtFineFees.Text = ucNewInternational1.LicenseInfo.DetainedInfo.FineFees.ToString();
+            txtTotalFees.Text = (Convert.ToSingle(txtFineFees.Text) + Convert.ToSingle(txtAppFees.Text)).ToString();
+            
+            btnSave.Enabled = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            detainedLicenses.IsReleased = true;
-            if (MessageBox.Show("Do you want to relase.", "Cheak", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            if (MessageBox.Show("Are you sure you want to release this detained  license?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
-                if (detainedLicenses.ReleaseApplicationInfo.Save() && detainedLicenses.Save())
-                {
-                    txtID_DApp.Text = detainedLicenses.ReleaseApplicationInfo.ID.ToString();
-                    btnSave.Enabled = false;
-                    ucNewInternational1.EnableFilter(false);
-                    MessageBox.Show("Detained License Released Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Failed to release detained license", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
+                return;
             }
+
+            if (!ucNewInternational1.LicenseInfo.ReleaseDetainedLicense(clsGlobal.CurrentUser.UserID))
+            {
+                MessageBox.Show("Failed to release detained license, please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            } 
+            txtID_DApp.Text = ucNewInternational1.LicenseInfo.DetainedInfo.ReleaseApplicationID.ToString();
+            btnSave.Enabled = ucNewInternational1.FilterEnabled = false;
+        }
+
+        private void frmReleaseDetainedLicenseApplication_Load(object sender, EventArgs e)
+        {
+            ucNewInternational1.txtLicenseIDFocus();
+            txtAppFees.Text = clsApplicationTypes.Find((int)clsApplication.enApplicationType.ReleaseDetainedDrivingLicsense).Fees.ToString();
+            txtCreatedBy.Text = clsGlobal.CurrentUser.UserName;
         }
     }
 }

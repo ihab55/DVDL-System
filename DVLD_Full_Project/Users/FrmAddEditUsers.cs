@@ -11,26 +11,46 @@ using BussinessLayer;
 
 namespace DVLD_Full_Project.Use_Controller
 {
-    public partial class FrmAddEditUsers : Form
+    public partial class frmAddEditUsers : Form
     {
         private enum _enFormMode
         {
             _enAddUsers = 0,
             _enEditUsers = 1
         }
-        private _enFormMode _Mode = 0;
+        private _enFormMode _Mode ;
+        private int _UserID = -99;
         private clsUser _User;
-        public FrmAddEditUsers()
+        public frmAddEditUsers()
         {
             InitializeComponent();
             _Mode = _enFormMode._enAddUsers;
-            _User = new clsUser();
         }
-        public FrmAddEditUsers(int id)
+        public frmAddEditUsers(int UserID)
         {
             InitializeComponent();
             _Mode = _enFormMode._enEditUsers;
-            _User = clsUser.Find(id);
+            this._UserID = UserID;
+        }
+
+        private void FrmAddEditUsers_Load(object sender, EventArgs e)
+        {
+            if (_Mode == _enFormMode._enAddUsers)
+            {
+                tabControl1.TabPages[1].Enabled = false;
+            }
+            else
+            {
+                _User = clsUser.FindByUserID(_UserID);
+                labHead.Text = "Edit User";
+                ucFilterPerson1.EnableFilter = false;
+                ucFilterPerson1.LoadPersonInfo(_User.PersonID);
+                txtUsername.Text = _User.UserName;
+                txtPassword.Text = _User.Password;
+                txtCopyPassword.Text = _User.Password;
+                chbIsActive.Checked = _User.IsActive;
+                txtUserID.Text = _User.UserID.ToString();
+            }
         }
         private bool _ChekUserValidity()
         {
@@ -63,12 +83,14 @@ namespace DVLD_Full_Project.Use_Controller
         }
         private void ucFilterPerson1_OnPersonSelected(int obj)
         {
+            _User = new clsUser();
+            _User.PersonID = obj;
             _User.PersonInfo = clsPerson.Find(obj);
             tabPage2.Enabled = true;
         }
         private bool _ValidatePassword()
         {
-            if (txtPassword.Text != txtCopyPassword.Text)
+            if (txtPassword.Text.Trim() != txtCopyPassword.Text.Trim())
             {
                 errorProvider1.SetError(txtCopyPassword, "Password not match");
                 return false;
@@ -79,15 +101,15 @@ namespace DVLD_Full_Project.Use_Controller
         {
             if (_ChekUserValidity() && _ValidatePassword())
             {
-                
-                _User.UserName = txtUsername.Text;
-                _User.Password = txtPassword.Text;
+                _User.UserName = txtUsername.Text.Trim();
+                _User.Password = txtPassword.Text.Trim();
                 _User.IsActive  = chbIsActive.Checked;
                 if (_User.Save())
                 {
-                    txtUserID.Text = _User.Id.ToString();
+                    _Mode = _enFormMode._enEditUsers;
+                    _UserID = _User.UserID;
+                    txtUserID.Text = _UserID.ToString();
                     MessageBox.Show("User data saved successfully.", "Done :)", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
                 }
                 else 
                 { 
@@ -97,25 +119,6 @@ namespace DVLD_Full_Project.Use_Controller
             else
             {
                 MessageBox.Show("Enter your Data\\Password not right","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-        }
-        private void FrmAddEditUsers_Load(object sender, EventArgs e)
-        {
-            if (_Mode == _enFormMode._enAddUsers)
-            {
-                tabControl1.TabPages[1].Enabled = false;
-            }
-            else
-            {
-                labHead.Text = "Edit User";
-                labHead.Left = 230;
-                ucFilterPerson1.Enabled = false;
-                ucFilterPerson1.LoadPersonInfo(_User.PersonInfo.PersonID);
-                txtUsername.Text = _User.UserName;
-                txtPassword.Text = _User.Password;
-                txtCopyPassword.Text = _User.Password;
-                chbIsActive.Checked = _User.IsActive;
-                txtUserID.Text = _User.Id.ToString();
             }
         }
     }

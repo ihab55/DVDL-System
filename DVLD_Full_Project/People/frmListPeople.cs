@@ -13,7 +13,6 @@ namespace DVLD_Full_Project
 {
     public partial class frmListPeople : Form
     {
-        private static DataTable _dtAllPeople;
         private DataTable _dtPeople ;
         public frmListPeople()
         {
@@ -21,7 +20,7 @@ namespace DVLD_Full_Project
         }
         private void _RefreashData()
         {
-            _dtAllPeople = clsPerson.GetAllPeople();
+            DataTable _dtAllPeople = clsPerson.GetAllPeople();
             _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
                                                        "FirstName", "SecondName", "ThirdName", "LastName",
                                                        "GendorCaption", "DateOfBirth", "CountryName",

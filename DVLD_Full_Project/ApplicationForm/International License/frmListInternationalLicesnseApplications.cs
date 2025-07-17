@@ -19,66 +19,116 @@ namespace DVLD_Full_Project
         {
             InitializeComponent();
         }
-        private void _Refresh()
-        {
-            _PrintDv = BussinessLayer.clsInternationalLicense.GetAllIntLicense();
-            dataGridView1.DataSource = _PrintDv;
-            labNum.Text = dataGridView1.Rows.Count.ToString();
-        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         private void frmInternationalLicenses_Load(object sender, EventArgs e)
         {
-            _Refresh();
+            _PrintDv = clsInternationalLicense.GetAllIntLicense();
+
+            dataGridView1.DataSource = _PrintDv;
+            cmbFilter.SelectedIndex = 0;
+            labNum.Text = dataGridView1.Rows.Count.ToString();
+
+            dataGridView1.Columns[0].HeaderText = "Int.License ID";
+            dataGridView1.Columns[0].Width = 160;
+
+            dataGridView1.Columns[1].HeaderText = "Application ID";
+            dataGridView1.Columns[1].Width = 150;
+
+            dataGridView1.Columns[2].HeaderText = "Driver ID";
+            dataGridView1.Columns[2].Width = 130;
+
+            dataGridView1.Columns[3].HeaderText = "L.License ID";
+            dataGridView1.Columns[3].Width = 130;
+
+            dataGridView1.Columns[4].HeaderText = "Issue Date";
+            dataGridView1.Columns[4].Width = 180;
+
+            dataGridView1.Columns[5].HeaderText = "Expiration Date";
+            dataGridView1.Columns[5].Width = 180;
+
+            dataGridView1.Columns[6].HeaderText = "Is Active";
+            dataGridView1.Columns[6].Width = 120;
         }
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            textBox1.Text = "";
+            cbIsReleased.SelectedIndex = 0;
             if (cmbFilter.SelectedIndex == 0)
             {
-                textBox1.Visible = false;
+                textBox1.Visible = cbIsReleased.Visible = false;
+                _PrintDv.DefaultView.RowFilter = "";
+                labNum.Text = dataGridView1.Rows.Count.ToString();
+                return;
             }
+            if (cmbFilter.Text == "Is Active")
+            {
+                textBox1.Visible = false;
+                cbIsReleased.Visible = true;
+                cbIsReleased.Focus();
+                cbIsReleased.SelectedIndex = 0;
+            }
+
             else
+
             {
                 textBox1.Visible = true;
+                cbIsReleased.Visible = false;
+                textBox1.Focus();
             }
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            DataView view = _PrintDv.DefaultView;
-            if (textBox1.Text == "")
+
+
+            string FilterColumn = "";
+            //Map Selected Filter to real Column name 
+            switch (cmbFilter.Text)
             {
-                _Refresh();
-                return;
-            }
-            if (cmbFilter.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a filter first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            try
-            {
-                string filterColumn = cmbFilter.SelectedItem.ToString();
-                if (_PrintDv.Columns[filterColumn].DataType == typeof(string))
-                {
-                    view.RowFilter = $"[{filterColumn}] LIKE '%{textBox1.Text}%'";
-                }
-                else
-                {
-                    // For non-string columns, use an equality filter or other appropriate logic
-                    if (int.TryParse(textBox1.Text, out int numericValue))
+                case "International License ID":
+                    FilterColumn = "InternationalLicenseID";
+                    break;
+                case "Application ID":
                     {
-                        view.RowFilter = $"[{filterColumn}] = {numericValue}";
+                        FilterColumn = "ApplicationID";
+                        break;
                     }
-                }
-                labNum.Text = view.Count.ToString();
+                    ;
+
+                case "Driver ID":
+                    FilterColumn = "DriverID";
+                    break;
+
+                case "Local License ID":
+                    FilterColumn = "IssuedUsingLocalLicenseID";
+                    break;
+
+                case "Is Active":
+                    FilterColumn = "IsActive";
+                    break;
+
+
+                default:
+                    FilterColumn = "None";
+                    break;
             }
-            catch (Exception ex)
+
+
+            //Reset the filters in case nothing selected or filter value conains nothing.
+            if (textBox1.Text.Trim() == "" || FilterColumn == "None")
             {
-                _Refresh();
-                MessageBox.Show($"Error filtering data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _PrintDv.DefaultView.RowFilter = "";
+                labNum.Text = dataGridView1.Rows.Count.ToString();
+                return;
             }
+
+
+
+            _PrintDv.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, textBox1.Text.Trim());
+
+            labNum.Text = dataGridView1.Rows.Count.ToString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -90,7 +140,7 @@ namespace DVLD_Full_Project
         private void showPersonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             IntLic = clsInternationalLicense.Find((int)dataGridView1.CurrentRow.Cells[0].Value);
-            frmLicenseHistory frmLicenseHistory = new frmLicenseHistory(IntLic.DriverInfo.PersonInfo.PersonID);
+            frmShowPersonLicenseHistory frmLicenseHistory = new frmShowPersonLicenseHistory(IntLic.DriverInfo.PersonInfo.PersonID);
             frmLicenseHistory.ShowDialog();
         }
 
@@ -105,6 +155,38 @@ namespace DVLD_Full_Project
         {
             frmInternationalLicenseInfo frmInternationalLicenseInfo = new frmInternationalLicenseInfo((int)dataGridView1.CurrentRow.Cells[0].Value);
             frmInternationalLicenseInfo.ShowDialog();
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void cbIsReleased_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string FilterValue = cbIsReleased.Text;
+
+            switch (FilterValue)
+            {
+                case "All":
+                    break;
+                case "Yes":
+                    FilterValue = "1";
+                    break;
+                case "No":
+                    FilterValue = "0";
+                    break;
+            }
+
+
+            if (FilterValue == "All")
+                _PrintDv.DefaultView.RowFilter = "";
+            else
+                //in this case we deal with numbers not string.
+                _PrintDv.DefaultView.RowFilter = string.Format("[{0}] = {1}", "IsActive", FilterValue);
+
+            labNum.Text = dataGridView1.Rows.Count.ToString();
+
         }
     }
 }

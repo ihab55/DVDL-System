@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labHead = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,9 +41,11 @@
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtFees = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // labHead
@@ -156,6 +159,7 @@
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(342, 24);
             this.txtTitle.TabIndex = 61;
+            this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtTitle_Validating);
             // 
             // txtFees
             // 
@@ -164,6 +168,8 @@
             this.txtFees.Name = "txtFees";
             this.txtFees.Size = new System.Drawing.Size(342, 24);
             this.txtFees.TabIndex = 62;
+            this.txtFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFees_KeyPress);
+            this.txtFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtFees_Validating);
             // 
             // txtID
             // 
@@ -174,6 +180,10 @@
             this.txtID.Size = new System.Drawing.Size(34, 25);
             this.txtID.TabIndex = 63;
             this.txtID.Text = "??";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmEditApplicationType
             // 
@@ -200,6 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,5 +230,6 @@
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.TextBox txtFees;
         private System.Windows.Forms.Label txtID;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

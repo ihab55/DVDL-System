@@ -39,13 +39,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnRelease = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showPersonDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showLicenseDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.relaseDetaiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRelease = new System.Windows.Forms.Button();
+            this.cbIsReleased = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -89,20 +90,22 @@
             this.textBox1.TabIndex = 17;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // cmbFilter
             // 
             this.cmbFilter.BackColor = System.Drawing.Color.Silver;
+            this.cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFilter.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cmbFilter.FormattingEnabled = true;
             this.cmbFilter.Items.AddRange(new object[] {
-            "(None)",
-            "D.ID",
+            "None",
+            "Detain ID",
             "Is Released",
-            "National No",
+            "National No.",
             "Full Name",
-            "Release App.ID"});
+            "Release Application ID"});
             this.cmbFilter.Location = new System.Drawing.Point(160, 242);
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.Size = new System.Drawing.Size(225, 37);
@@ -184,18 +187,6 @@
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.Size = new System.Drawing.Size(1173, 239);
             this.dataGridView1.TabIndex = 10;
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // btnRelease
-            // 
-            this.btnRelease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelease.Image = global::DVLD_Full_Project.Properties.Resources.Release32;
-            this.btnRelease.Location = new System.Drawing.Point(957, 222);
-            this.btnRelease.Name = "btnRelease";
-            this.btnRelease.Size = new System.Drawing.Size(99, 57);
-            this.btnRelease.TabIndex = 20;
-            this.btnRelease.UseVisualStyleBackColor = true;
-            this.btnRelease.Click += new System.EventHandler(this.btnRelease_Click);
             // 
             // contextMenuStrip1
             // 
@@ -207,7 +198,7 @@
             this.toolStripMenuItem2,
             this.relaseDetaiToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(281, 190);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(281, 162);
             // 
             // showPersonDetailsToolStripMenuItem
             // 
@@ -239,7 +230,7 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(261, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(277, 6);
             // 
             // relaseDetaiToolStripMenuItem
             // 
@@ -251,12 +242,40 @@
             this.relaseDetaiToolStripMenuItem.Text = "Relase Detained License";
             this.relaseDetaiToolStripMenuItem.Click += new System.EventHandler(this.relaseDetaiToolStripMenuItem_Click);
             // 
-            // frmManageDetainLicense
+            // btnRelease
+            // 
+            this.btnRelease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelease.Image = global::DVLD_Full_Project.Properties.Resources.Release32;
+            this.btnRelease.Location = new System.Drawing.Point(957, 222);
+            this.btnRelease.Name = "btnRelease";
+            this.btnRelease.Size = new System.Drawing.Size(99, 57);
+            this.btnRelease.TabIndex = 20;
+            this.btnRelease.UseVisualStyleBackColor = true;
+            this.btnRelease.Click += new System.EventHandler(this.btnRelease_Click);
+            // 
+            // cbIsReleased
+            // 
+            this.cbIsReleased.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbIsReleased.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.cbIsReleased.FormattingEnabled = true;
+            this.cbIsReleased.Items.AddRange(new object[] {
+            "All",
+            "Yes",
+            "No"});
+            this.cbIsReleased.Location = new System.Drawing.Point(412, 245);
+            this.cbIsReleased.Name = "cbIsReleased";
+            this.cbIsReleased.Size = new System.Drawing.Size(121, 37);
+            this.cbIsReleased.TabIndex = 160;
+            this.cbIsReleased.Visible = false;
+            this.cbIsReleased.SelectedIndexChanged += new System.EventHandler(this.cbIsReleased_SelectedIndexChanged);
+            // 
+            // frmListDetainedLicenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1201, 591);
             this.ControlBox = false;
+            this.Controls.Add(this.cbIsReleased);
             this.Controls.Add(this.btnRelease);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnDetain);
@@ -268,8 +287,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "frmManageDetainLicense";
+            this.Name = "frmListDetainedLicenses";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmListDetainedLicenses_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -297,5 +317,6 @@
         private System.Windows.Forms.ToolStripMenuItem showPersonLicenseHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem relaseDetaiToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbIsReleased;
     }
 }

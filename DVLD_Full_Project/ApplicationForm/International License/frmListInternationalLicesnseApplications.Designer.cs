@@ -44,6 +44,7 @@
             this.showPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showLicenseDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPersonToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbIsReleased = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -101,19 +102,22 @@
             this.textBox1.TabIndex = 37;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // cmbFilter
             // 
             this.cmbFilter.BackColor = System.Drawing.Color.Silver;
+            this.cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFilter.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cmbFilter.FormattingEnabled = true;
             this.cmbFilter.Items.AddRange(new object[] {
-            "(None)",
-            "Int.License ID",
+            "None",
+            "International License ID",
             "Application ID",
             "Driver ID",
-            "L.License ID"});
+            "Local License ID",
+            "Is Active"});
             this.cmbFilter.Location = new System.Drawing.Point(169, 244);
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.Size = new System.Drawing.Size(225, 37);
@@ -232,12 +236,29 @@
             this.showPersonToolStripMenuItem1.Text = "Show Person License History";
             this.showPersonToolStripMenuItem1.Click += new System.EventHandler(this.showPersonToolStripMenuItem1_Click);
             // 
-            // frmInternationalLicenses
+            // cbIsReleased
+            // 
+            this.cbIsReleased.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbIsReleased.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.cbIsReleased.FormattingEnabled = true;
+            this.cbIsReleased.Items.AddRange(new object[] {
+            "All",
+            "Yes",
+            "No"});
+            this.cbIsReleased.Location = new System.Drawing.Point(421, 244);
+            this.cbIsReleased.Name = "cbIsReleased";
+            this.cbIsReleased.Size = new System.Drawing.Size(121, 37);
+            this.cbIsReleased.TabIndex = 164;
+            this.cbIsReleased.Visible = false;
+            this.cbIsReleased.SelectedIndexChanged += new System.EventHandler(this.cbIsReleased_SelectedIndexChanged);
+            // 
+            // frmListInternationalLicesnseApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1421, 598);
             this.ControlBox = false;
+            this.Controls.Add(this.cbIsReleased);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.labNum);
             this.Controls.Add(this.label1);
@@ -249,7 +270,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "frmInternationalLicenses";
+            this.Name = "frmListInternationalLicesnseApplications";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmInternationalLicenses_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -278,5 +299,6 @@
         private System.Windows.Forms.ToolStripMenuItem showPersonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showLicenseDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showPersonToolStripMenuItem1;
+        private System.Windows.Forms.ComboBox cbIsReleased;
     }
 }

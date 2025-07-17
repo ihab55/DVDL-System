@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,23 +10,23 @@ namespace DataAccessLayer
 {
     public static class clsTestTypeData
     {
-        public static bool GetTestTypeId(int id, ref string name, ref string descr
-            ,ref decimal fees)
+        public static bool GetTestTypeInfoByID(int TestTypeID, ref string TestTypeTitle, 
+            ref string TestDescription,ref float TestFees)
         {
             bool Isfounded= false;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = "SELECT TestTypeTitle,TestTypeDescription,TestTypeFees FROM TestTypes WHERE TestTypeID = @id";
+            string query = "SELECT * FROM TestTypes WHERE TestTypeID = @id";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@id", TestTypeID);
             try
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    name = reader["TestTypeTitle"].ToString();
-                    descr = reader["TestTypeDescription"].ToString();
-                    fees = (decimal)reader["TestTypeFees"];
+                    TestTypeTitle = reader["TestTypeTitle"].ToString();
+                    TestDescription = reader["TestTypeDescription"].ToString();
+                    TestFees = Convert.ToSingle(reader["TestTypeFees"]);
                     Isfounded = true;
                 }
                 reader.Close();
@@ -37,14 +38,60 @@ namespace DataAccessLayer
             finally { connection.Close(); }
             return Isfounded;
         }
-        public static bool UpdateFees (int id, int fees)
+        public static DataTable GetAllTestTypes()
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+
+            string query = "SELECT * FROM TestTypes order by TestTypeID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+
+
+            }
+
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+
+        }
+        public static bool UpdateTestType (int TestTypeID, string TestTypeTitle,
+            string TestDescription, float TestFees)
         {
             int IsUpdate = -99;
             SqlConnection connection = new SqlConnection( DataSetting.ConnctionName);
-            string query = "UPDATE TestTypes SET TestTypeFees = @fees WHERE TestTypeID = @id";
+            string query = @"UPDATE TestTypes
+   SET TestTypeTitle = @TestTypeTitle
+      ,TestTypeDescription = @TestTypeDescription
+      ,TestTypeFees = @TestTypeFees
+ WHERE TestTypeID = @TestTypeID";
             SqlCommand command= new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@id", id);
-            command.Parameters.AddWithValue("@fees", fees);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+            command.Parameters.AddWithValue("@TestTypeTitle", TestTypeTitle);
+            command.Parameters.AddWithValue("@TestTypeDescription", TestDescription);
+            command.Parameters.AddWithValue("@TestTypeFees", TestFees);
             try
             {
                 connection.Open();

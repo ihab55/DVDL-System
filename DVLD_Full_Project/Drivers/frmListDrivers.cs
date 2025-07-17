@@ -13,11 +13,10 @@ namespace DVLD_Full_Project
 {
     public partial class frmListDrivers : Form
     {
-        private DataTable DataTable;
+        private DataTable _dtAllDrivers;
         public frmListDrivers()
         {
             InitializeComponent();
-            cmbFilter.SelectedIndex = 0;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -27,45 +26,102 @@ namespace DVLD_Full_Project
 
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbFilter.SelectedIndex == 0)
-            {
-                textBox1.Visible = false;
-                 dataGridView1.DataSource = DataTable = clsDriver.GetDriver();
-                labNum.Text = dataGridView1.RowCount.ToString();
-                return;
-            }
-            textBox1.Visible = true;
+            textBox1.Visible = (cmbFilter.SelectedIndex != 0);
+            textBox1.Text = string.Empty;
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            DataView view = DataTable.DefaultView;
-            if (textBox1.Text != "")
+            string FilterColumn = "";
+            //Map Selected Filter to real Column name 
+            switch (cmbFilter.Text)
             {
-                try
-                {
-                    string filterColumn = cmbFilter.SelectedItem.ToString();
+                case "Driver ID":
+                    FilterColumn = "DriverID";
+                    break;
 
-                    if (DataTable.Columns[filterColumn].DataType == typeof(string))
-                    {
-                        view.RowFilter = $"[{filterColumn}] LIKE '%{textBox1.Text}%'";
-                    }
-                    else
-                    {
-                        // For non-string columns, use an equality filter or other appropriate logic
-                        if (int.TryParse(textBox1.Text, out int numericValue))
-                        {
-                            view.RowFilter = $"[{filterColumn}] = {numericValue}";
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    cmbFilter.SelectedIndex=0;
-                    MessageBox.Show($"Error filtering data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                case "Person ID":
+                    FilterColumn = "PersonID";
+                    break;
+
+                case "National No.":
+                    FilterColumn = "NationalNo";
+                    break;
+
+
+                case "Full Name":
+                    FilterColumn = "FullName";
+                    break;
+
+                default:
+                    FilterColumn = "None";
+                    break;
+
             }
-            labNum.Text = view.Count.ToString();
+
+            //Reset the filters in case nothing selected or filter value conains nothing.
+            if (textBox1.Text.Trim() == "" || FilterColumn == "None")
+            {
+                _dtAllDrivers.DefaultView.RowFilter = "";
+                labNum.Text = dataGridView1.Rows.Count.ToString();
+                return;
+            }
+
+
+            if (FilterColumn != "FullName" && FilterColumn != "NationalNo")
+                //in this case we deal with numbers not string.
+                _dtAllDrivers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, textBox1.Text.Trim());
+            else
+                _dtAllDrivers.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, textBox1.Text.Trim());
+
+            labNum.Text = dataGridView1.Rows.Count.ToString();
+        }
+
+        private void frmListDrivers_Load(object sender, EventArgs e)
+        {
+
+            cmbFilter.SelectedIndex = 0;
+            _dtAllDrivers = clsDriver.GetDriver();
+            dataGridView1.DataSource = _dtAllDrivers;
+            labNum.Text = dataGridView1.Rows.Count.ToString();
+
+                dataGridView1.Columns[0].HeaderText = "Driver ID";
+            dataGridView1.Columns[0].Width = 120;
+
+                dataGridView1.Columns[1].HeaderText = "Person ID";
+            dataGridView1.Columns[1].Width = 120;
+
+                dataGridView1.Columns[2].HeaderText = "National No.";
+            dataGridView1.Columns[2].Width = 140;
+
+            dataGridView1.Columns[3].HeaderText = "Full Name";
+            dataGridView1.Columns[3].Width = 320;
+
+            dataGridView1.Columns[4].HeaderText = "Date";
+            dataGridView1.Columns[4].Width = 170;
+
+            dataGridView1.Columns[5].HeaderText = "Active Licenses";
+            dataGridView1.Columns[5].Width = 150;
+            }
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //we allow number incase person id or user id is selected.
+            if (cmbFilter.Text == "Driver ID" || cmbFilter.Text == "Person ID")
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowPersonInfo frm = new frmShowPersonInfo((int)dataGridView1.CurrentRow.Cells[1].Value);
+            frm.ShowDialog();
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory((int)dataGridView1.CurrentRow.Cells[1].Value);
+            frm.ShowDialog();
         }
     }
-}
+    }
+

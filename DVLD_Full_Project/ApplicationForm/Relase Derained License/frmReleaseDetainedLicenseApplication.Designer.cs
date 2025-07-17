@@ -58,7 +58,7 @@
             this.labHead = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ucNewInternational1 = new DVLD_Full_Project.ucFilterLicense();
+            this.ucNewInternational1 = new DVLD_Full_Project.ctrlDriverLicenseInfoWithFilter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -417,13 +417,14 @@
             // 
             // ucNewInternational1
             // 
+            this.ucNewInternational1.FilterEnabled = true;
             this.ucNewInternational1.Location = new System.Drawing.Point(4, 57);
             this.ucNewInternational1.Name = "ucNewInternational1";
             this.ucNewInternational1.Size = new System.Drawing.Size(1097, 518);
             this.ucNewInternational1.TabIndex = 72;
             this.ucNewInternational1.OnLicenseSelected += new System.Action<int>(this.ucNewInternational1_OnLicenseSelected);
             // 
-            // frmRelaseDetainLicense
+            // frmReleaseDetainedLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -436,8 +437,9 @@
             this.Controls.Add(this.lnkShowInfo);
             this.Controls.Add(this.lnkShowHistory);
             this.Controls.Add(this.labHead);
-            this.Name = "frmRelaseDetainLicense";
+            this.Name = "frmReleaseDetainedLicenseApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmReleaseDetainedLicenseApplication_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -471,7 +473,7 @@
         private System.Windows.Forms.Label txtID_DApp;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labID_DApp;
-        private ucFilterLicense ucNewInternational1;
+        private ctrlDriverLicenseInfoWithFilter ucNewInternational1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.LinkLabel lnkShowInfo;

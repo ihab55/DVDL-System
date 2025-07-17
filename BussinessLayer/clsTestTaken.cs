@@ -9,64 +9,70 @@ namespace BussinessLayer
 {
     public class clsTestTaken
     {
-        public int TestID { get; set; }
-        public clsTestAppointment TestAppointmentInfo { get; set; }
-        public bool TestResualt { get; set; }
-        public string Notes { get; set; }
-        public clsUser CreatedByInfo { get; set; }
         private enum _enMode { _enAddNew = 0, _enUpdate = 1 };
         _enMode _Mode;
+        public int TestID { get; set; }
+        public int TestAppointmentID { get; set; }
+        public clsTestAppointment TestAppointmentInfo { get; set; }
+        public bool TestResult { get; set; }
+        public string Notes { get; set; }
+        public int CreatedByUserID { get; set; }
         public clsTestTaken()
         {
-            TestID = -99;
-            //TestAppointmentInfo
-            TestResualt = false;
-            Notes = "";
-            //CreatedByInfo
+            this.TestID = -99;
+            this.TestAppointmentID = -99;
+            this.TestResult = false;
+            this.Notes = "";
+            this.CreatedByUserID = -99;
             _Mode = _enMode._enAddNew;
         }
-        private clsTestTaken(int testID, int TestAppoId, bool testResualt, string notes,
+        private clsTestTaken(int TestID, int TestAppointmentID, bool TestResult, string Notes,
             int CreatedByid)
         {
-            TestID = testID;
-            TestAppointmentInfo = clsTestAppointment.Find(TestAppoId);
-            TestResualt = testResualt;
-            Notes = notes;
-            CreatedByInfo = clsUser.Find(CreatedByid);
+            this.TestID = TestID;
+            this.TestAppointmentID = TestAppointmentID;
+            TestAppointmentInfo = clsTestAppointment.Find(TestAppointmentID);
+            this.TestResult = TestResult;
+            this.Notes = Notes;
+            this.CreatedByUserID = CreatedByUserID;
             _Mode = _enMode._enUpdate;
         }
         private bool _AddNewTestTaken()
         {
-            this.TestID = clsTestTakenData.AddNewTestTaken(TestAppointmentInfo.TestAppointmentID, TestResualt, Notes, CreatedByInfo.Id);
+            this.TestID = clsTestTakenData.AddNewTest(this.TestAppointmentID, this.TestResult, 
+                this.Notes, this.CreatedByUserID);
             return (this.TestID != -99);
-        }
-        public static clsTestTaken Find(int TestAppo)
-        {
-            int id = -99;
-            bool testResualt = false;
-            string notes = "";
-            int createdByid = -99;
-            if (clsTestTakenData.GetTestTakenByAppoId(ref id, TestAppo, ref testResualt,
-                ref notes, ref createdByid))
-            {
-                return new clsTestTaken(id, TestAppo, testResualt,
-                notes, createdByid);
-            }
-            return null;
         }
         private bool _UpdateTestTaken()
         {
-            return clsTestTakenData.UpdateTestTaken(this.TestID,
-                TestAppointmentInfo.TestAppointmentID,
-                TestResualt, Notes, CreatedByInfo.Id);
+            return clsTestTakenData.UpdateTest(this.TestID,this.TestAppointmentID,this.TestResult, 
+                this.Notes, this.CreatedByUserID);
         }
-        int GetPassTest()
+        public static clsTestTaken Find(int TestID)
         {
-            return clsTestTakenData.GetTestPassByAppID(this.TestAppointmentInfo.LocalAppInfo.LocalDrivingLicenseApplicationID);
+            int TestAppointmentID = -99, CreatedByid = -99;
+            bool TestResult = false;
+            string Notes = "";
+            if (clsTestTakenData.GetTestInfoByID(TestID,ref TestAppointmentID,ref TestResult,
+                ref Notes, ref CreatedByid))
+            {
+                return new clsTestTaken(TestID,TestAppointmentID,TestResult,Notes,CreatedByid);
+            }
+            return null;
         }
-        public static int GetPassTestByAppID(int LocalappID)
+        public static clsTestTaken FindLastTestPerPersonAndLicenseClass
+            (int PersonID, int LicenseClassID, clsTestType.enTestType TestTypeID)
         {
-            return clsTestTakenData.GetTestPassByAppID(LocalappID);
+            int TestAppointmentID = -99, CreatedByid = -99, TestID = -99;
+            bool TestResult = false;
+            string Notes = "";
+            if (clsTestTakenData.GetLastTestByPersonAndTestTypeAndLicenseClass(
+                PersonID,LicenseClassID,(int) TestTypeID,ref TestID, ref TestAppointmentID, 
+                ref TestResult,ref Notes, ref CreatedByid))
+            {
+                return new clsTestTaken(TestID, TestAppointmentID, TestResult, Notes, CreatedByid);
+            }
+            return null;
         }
         public bool Save()
         {
@@ -84,9 +90,13 @@ namespace BussinessLayer
             }
             return false;
         }
-        public static int GetNumOfTrailByAppID(int LclappID, int TestId)
+        public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
         {
-            return clsTestTakenData.GetNumOfTrailByAppID(LclappID, TestId);
+            return clsTestTakenData.GetPassedTestCount(LocalDrivingLicenseApplicationID);
+        }
+        public static bool PassedAllTests(int LocalDrivingLicenseApplicationID)
+        {
+            return GetPassedTestCount(LocalDrivingLicenseApplicationID)==3;
         }
     }
 }

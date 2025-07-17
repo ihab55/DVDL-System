@@ -11,12 +11,37 @@ namespace DataAccessLayer
 {
     public static class clsApplicationTypesData
     {
-
+        public static bool GetApplicationTypesInfoByID(int ApplicationTypeID, ref string Title, ref float Fees)
+        {
+            bool result = false;
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = "SELECT * FROM ApplicationTypes WHERE ApplicationTypeID = @ApplicationTypeID";
+            SqlCommand Command = new SqlCommand(query, connection);
+            Command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = Command.ExecuteReader();
+                if (reader.Read())
+                {
+                    Title = reader["ApplicationTypeTitle"].ToString();
+                    Fees = Convert.ToSingle(reader["ApplicationFees"]);
+                    result = true;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                result = false;
+            }
+            finally { connection.Close(); }
+            return result;
+        }
         public static DataTable GetAllApplicationTypes()
         {
             DataTable dataTable = new DataTable();
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string qeury = "SELECT ApplicationTypeID AS ID ,ApplicationTypeTitle AS Title,ApplicationFees As Fees FROM ApplicationTypes";
+            string qeury = "SELECT * FROM ApplicationTypes";
             SqlCommand sqlCommand = new SqlCommand(qeury, connection);
             try
             {
@@ -30,15 +55,15 @@ namespace DataAccessLayer
             }finally {connection.Close();}
             return dataTable;
         }
-        public static bool UpdateApplicationType(int id, string title, decimal fees)
+        public static bool UpdateApplicationType(int ApplicationTypeID, string Title, float Fees)
         {
             int result = 0;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
             string query = "UPDATE ApplicationTypes SET ApplicationTypeTitle = @ApplicationTypeTitle, ApplicationFees = @ApplicationFees WHERE ApplicationTypeID = @ApplicationTypeID";
             SqlCommand Command = new SqlCommand(query, connection);
-            Command.Parameters.AddWithValue("@ApplicationTypeID", id);
-            Command.Parameters.AddWithValue("@ApplicationTypeTitle", title);
-            Command.Parameters.AddWithValue("@ApplicationFees", fees);
+            Command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            Command.Parameters.AddWithValue("@ApplicationTypeTitle", Title);
+            Command.Parameters.AddWithValue("@ApplicationFees", Fees);
             try
             {
                 connection.Open();
@@ -51,32 +76,6 @@ namespace DataAccessLayer
             }
             finally { connection.Close(); }
             return (result >0);
-        }
-        public static bool GetApplicationTypesByID(int id,ref string title,ref decimal fees)
-        {
-            bool result = false;
-            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = "SELECT * FROM ApplicationTypes WHERE ApplicationTypeID = @ApplicationTypeID";
-            SqlCommand Command = new SqlCommand(query, connection);
-            Command.Parameters.AddWithValue("@ApplicationTypeID", id);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = Command.ExecuteReader();
-                if (reader.Read())
-                {
-                    title = reader["ApplicationTypeTitle"].ToString();
-                    fees = (decimal)reader["ApplicationFees"];
-                    result = true;
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                result = false;
-            }
-            finally { connection.Close(); }
-            return result;
         }
         
     }

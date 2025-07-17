@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -8,27 +9,131 @@ using System.Threading.Tasks;
 namespace DataAccessLayer
 {
     public static class clsTestTakenData
-    {
-        public static int AddNewTestTaken(int testAppoID, bool testResult,
-            string notes, int createdById)
+    {      
+        public static bool GetTestInfoByID(int TestID,ref int TestAppointmentID,ref bool TestResult,
+           ref string Notes,ref int CreatedByUserID)
+        {
+            bool Isfouned = false;
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT * FROM Tests WHERE TestID = @TestID";
+            SqlCommand command = new SqlCommand(query,connection);
+            command.Parameters.AddWithValue("@TestID", TestID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    TestAppointmentID = (int)reader["TestAppointmentID"];
+                    TestResult = (bool)reader["TestResult"];
+                    Notes = (reader["Notes"]== DBNull.Value)?"": reader["Notes"].ToString();
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                    Isfouned = true;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Isfouned = false;
+            }
+            finally { connection.Close(); }
+            return Isfouned;
+        }
+        public static bool GetLastTestByPersonAndTestTypeAndLicenseClass(int PersonID,int LicenseClassID
+            ,int TestTypeID,ref int TestID, ref int TestAppointmentID, ref bool TestResult,
+           ref string Notes, ref int CreatedByUserID)
+        {
+            bool Isfouned = false;
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = @"SELECT  top 1 Tests.TestID, 
+                Tests.TestAppointmentID, Tests.TestResult, 
+			    Tests.Notes, Tests.CreatedByUserID, Applications.ApplicantPersonID
+                FROM            LocalDrivingLicenseApplications INNER JOIN
+                                         Tests INNER JOIN
+                                         TestAppointments ON Tests.TestAppointmentID = TestAppointments.TestAppointmentID ON LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = TestAppointments.LocalDrivingLicenseApplicationID INNER JOIN
+                                         Applications ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
+                WHERE        (Applications.ApplicantPersonID = @PersonID) 
+                        AND (LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID)
+                        AND ( TestAppointments.TestTypeID=@TestTypeID)
+                ORDER BY Tests.TestAppointmentID DESC";
+            SqlCommand command = new SqlCommand(query,connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    Isfouned = true;
+                    TestID = (int)reader["TestID"];
+                    TestAppointmentID = (int)reader["TestAppointmentID"];
+                    TestResult = (bool)reader["TestResult"];
+                    Notes =(reader["Notes"] == DBNull.Value)? "": (string)reader["Notes"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Isfouned = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Isfouned;
+        }
+
+        public static DataTable GetAllTests()
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+            string query = "SELECT * FROM Tests order by TestID";
+            SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                dt.Load(reader);
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+                dt = null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+        public static int AddNewTest(int TestAppointmentID, bool TestResult,
+            string Notes, int CreatedByUserID)
         {
             int newTestID = -99;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
             string query = @"INSERT INTO Tests ( TestAppointmentID, TestResult, 
-Notes, CreatedByUserID) VALUES (@testAppoID, @testResult, @notes, @CreatedById);
+Notes, CreatedByUserID) VALUES (@TestAppointmentID, @TestResult, @Notes, @CreatedByUserID);
+
+UPDATE TestAppointments  SET IsLocked=1 where TestAppointmentID = @TestAppointmentID;
     SELECT SCOPE_IDENTITY();";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@testAppoID", testAppoID);
-            command.Parameters.AddWithValue("@testResult", testResult);
-            if (notes != "")
+            command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+            command.Parameters.AddWithValue("@TestResult", TestResult);
+            if (Notes != "")
             {
-                command.Parameters.AddWithValue("@notes", notes); 
+                command.Parameters.AddWithValue("@Notes", Notes); 
             }
             else
             {
                 command.Parameters.AddWithValue("@notes", System.DBNull.Value);
             }
-            command.Parameters.AddWithValue("@CreatedById", createdById);
+            command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
             try
             {
                 connection.Open();
@@ -45,104 +150,57 @@ Notes, CreatedByUserID) VALUES (@testAppoID, @testResult, @notes, @CreatedById);
             }
             return newTestID;
         }
-        public static bool UpdateTestTaken(int id,int testAppoId,bool testResualt,
-        string notes, int createdByid)
+        public static bool UpdateTest(int TestID,int TestAppointmentID,bool TestResult,
+        string Notes, int CreatedByUserID)
         {
-            int Affrcted = -99;
+            int Affected = -99;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
             string query = @"UPDATE Tests
-   SET TestAppointmentID = @testAppoId ,TestResult = @testResualt
-      ,Notes = @notes ,CreatedByUserID = @createdByid
- WHERE TestID = @id";
+   SET TestAppointmentID = @TestAppointmentID ,TestResult = @TestResult
+      ,Notes = @Notes ,CreatedByUserID = @CreatedByUserID
+ WHERE TestID = @TestID";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@testAppoId", testAppoId);
-            command.Parameters.AddWithValue("@testResualt", testResualt);
-            command.Parameters.AddWithValue("@notes", notes);
-            command.Parameters.AddWithValue("@createdByid", createdByid);
-            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+            command.Parameters.AddWithValue("@TestResult", TestResult);
+            command.Parameters.AddWithValue("@Notes", Notes);
+            command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+            command.Parameters.AddWithValue("@TestID", TestID);
             try
             {
                 connection.Open();
-                Affrcted = command.ExecuteNonQuery();
+                Affected = command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                Affrcted = -99;
+                Affected = -99;
             }
             finally { connection.Close(); } 
-            return (Affrcted>0);
+            return (Affected>0);
         }
-        public static bool GetTestTakenByAppoId(ref int id,int testAppoID,ref bool testResult,
-           ref string notes,ref int createdById)
+        public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
         {
-            bool Isfouned = false;
+            byte PassedCount = 0;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = "SELECT TestID,TestResult ,Notes ,CreatedByUserID FROM Tests WHERE TestAppointmentID  = @id";
-            SqlCommand command = new SqlCommand(query,connection);
-            command.Parameters.AddWithValue("@id", testAppoID);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    id = (int)reader["TestID"];
-                    testResult = (bool)reader["TestResult"];
-                    notes = reader["Notes"].ToString();
-                    createdById = (int)reader["CreatedByUserID"];
-                    Isfouned = true;
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                Isfouned = false;
-            }
-            finally { connection.Close(); }
-            return Isfouned;
-        }
-        public static int GetTestPassByAppID(int LDLC)
-        {
-            int PasTest = -99;
-            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"SELECT COUNT(CASE WHEN TestResult = 1 THEN 1 END) FROM Tests INNER JOIN TestAppointments ON TestAppointments.TestAppointmentID = Tests.TestAppointmentID
-WHERE TestAppointments.LocalDrivingLicenseApplicationID = @LDLC";
-            SqlCommand command = new SqlCommand(query,connection);
-            command.Parameters.AddWithValue("@LDLC", LDLC);
-            try
-            {
-                connection.Open();
-                object value = command.ExecuteScalar();
-                PasTest = (value != null && int.TryParse(value.ToString(), out int result)) ? result : -99;
-            }
-            catch (Exception ex)
-            {
-                PasTest = -99;
-            }
-            finally { connection.Close(); }
-            return PasTest;
-        }
-        public static int GetNumOfTrailByAppID(int LDLC, int TestType)
-        {
-            int NumOfTestTaken = -99;
-            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"SELECT COUNT(CASE WHEN TestResult = 0 THEN 1 END) FROM Tests INNER JOIN TestAppointments ON Tests.TestAppointmentID = TestAppointments.TestAppointmentID 
-WHERE LocalDrivingLicenseApplicationID = @LDLC AND TestTypeID = @TestType";
+            string query = @"SELECT PassedTestCount = count(TestTypeID)
+                         FROM Tests INNER JOIN
+                         TestAppointments ON Tests.TestAppointmentID = TestAppointments.TestAppointmentID
+						 where LocalDrivingLicenseApplicationID =@LocalDrivingLicenseApplicationID and TestResult=1";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@LDLC", LDLC);
-            command.Parameters.AddWithValue("@TestType", TestType);
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
             try
             {
                 connection.Open();
                 object value = command.ExecuteScalar();
-                NumOfTestTaken = (value != null && int.TryParse(value.ToString(), out int result)) ? result : -99;
+                PassedCount = (value != null && byte.TryParse(value.ToString(), out byte result)) ? result : (byte)0;
             }
             catch (Exception ex)
             {
-                NumOfTestTaken = -99;
+                PassedCount = 0;
             }
             finally { connection.Close(); }
-            return NumOfTestTaken; 
+            return PassedCount;
         }
+
+
     } 
 }

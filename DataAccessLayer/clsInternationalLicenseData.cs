@@ -11,20 +11,30 @@ namespace DataAccessLayer
 {
     public static class clsInternationalLicenseData
     {
-        public static DataTable GetAllIntLicense()
+
+        public static DataTable GetAllInternationalLicenses()
         {
+
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"SELECT InternationalLicenseID AS [Int.License ID],ApplicationID AS [Application ID] ,DriverID AS [Driver ID]
-,IssuedUsingLocalLicenseID AS [L.License ID],IssueDate AS [Issue Date] ,ExpirationDate AS [Expiration Date]
-,IsActive AS [Is Active] FROM InternationalLicenses";
+            string query = @"
+            SELECT    InternationalLicenseID, ApplicationID,DriverID,
+		                IssuedUsingLocalLicenseID , IssueDate, 
+                        ExpirationDate, IsActive
+		    from InternationalLicenses 
+                order by IsActive, ExpirationDate desc";
+
             SqlCommand command = new SqlCommand(query, connection);
             try
             {
                 connection.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(dt);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                    dt.Load(reader);
+                reader.Close();
             }
+
             catch (Exception ex)
             {
                 dt = null;
@@ -35,22 +45,74 @@ namespace DataAccessLayer
             }
             return dt;
         }
-        public static DataTable GetAllInternationalLicenseByPersonID(int PersonID)
+        public static bool GetInternationalLicenseInfoByID(int InternationalLicenseID,
+            ref int ApplicationID,
+            ref int DriverID, ref int IssuedUsingLocalLicenseID,
+            ref DateTime IssueDate, ref DateTime ExpirationDate, ref bool IsActive, ref int CreatedByUserID)
         {
-            DataTable dt = new DataTable();
+            bool isFound = false;
+
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"SELECT InternationalLicenseID AS [Int.License ID],ApplicationID AS [Application ID] 
-,IssuedUsingLocalLicenseID AS [L.License ID],IssueDate AS [Issue Date] ,ExpirationDate AS [Expiration Date]
-,IsActive AS [Is Active] FROM InternationalLicenses INNER JOIN Drivers ON Drivers.DriverID = InternationalLicenses.DriverID
-WHERE Drivers.PersonID = @PersonID";
+
+            string query = "SELECT * FROM InternationalLicenses WHERE InternationalLicenseID = @InternationalLicenseID";
+
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            command.Parameters.AddWithValue("@InternationalLicenseID", InternationalLicenseID);
+
             try
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                dt.Load(reader);
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    ApplicationID = (int)reader["ApplicationID"];
+                    DriverID = (int)reader["DriverID"];
+                    IssuedUsingLocalLicenseID = (int)reader["IssuedUsingLocalLicenseID"];
+                    IssueDate = (DateTime)reader["IssueDate"];
+                    ExpirationDate = (DateTime)reader["ExpirationDate"];
+                    IsActive = (bool)reader["IsActive"];
+                    CreatedByUserID = (int)reader["DriverID"];
+                }
+                reader.Close();
             }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+        public static DataTable GetDriverInternationalLicenses(int DriverID)
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
+
+            string query = @"
+            SELECT    InternationalLicenseID, ApplicationID,
+		                IssuedUsingLocalLicenseID , IssueDate, 
+                        ExpirationDate, IsActive
+		    from InternationalLicenses where DriverID=@DriverID
+                order by ExpirationDate desc";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+                    dt.Load(reader);
+                reader.Close();
+            }
+
             catch (Exception ex)
             {
                 dt = null;
@@ -61,53 +123,52 @@ WHERE Drivers.PersonID = @PersonID";
             }
             return dt;
         }
-            
-        public static bool IsExistsByLocalLicense(int LocalLicenseID)
-        {
-            bool isExists = false;
-            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"SELECT X=1 FROM InternationalLicenses WHERE IssuedUsingLocalLicenseID = @LocalLicenseID";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@LocalLicenseID", LocalLicenseID);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                isExists = reader.HasRows;
-            }
-            catch (Exception ex)
-            {
-                isExists = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return isExists;
-        }
-        public static int AddNewInternationalLicense(
-            int AppId, int DriverId, int LocalLicense, DateTime IssueDate,
-            DateTime ExpirationDate, bool IsActive, int CreatbyID)
+        //DeActive for old International License 
+        public static int AddNewInternationalLicense(int ApplicationID,
+             int DriverID, int IssuedUsingLocalLicenseID,
+             DateTime IssueDate, DateTime ExpirationDate, bool IsActive, int CreatedByUserID)
         {
             int InternationalLicenseID = -99;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"INSERT INTO InternationalLicenses (ApplicationID, DriverID, 
-IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID)
-       VALUES (@AppId, @DriverId, @LocalLicense, @IssueDate, @ExpirationDate, @IsActive, @CreatedByUser);
-       SELECT SCOPE_IDENTITY();";
+            string query = @"
+                               Update InternationalLicenses 
+                               set IsActive=0
+                               where DriverID=@DriverID;
+
+                             INSERT INTO InternationalLicenses
+                               (
+                                ApplicationID,
+                                DriverID,
+                                IssuedUsingLocalLicenseID,
+                                IssueDate,
+                                ExpirationDate,
+                                IsActive,
+                                CreatedByUserID)
+                         VALUES
+                               (@ApplicationID,
+                                @DriverID,
+                                @IssuedUsingLocalLicenseID,
+                                @IssueDate,
+                                @ExpirationDate,
+                                @IsActive,
+                                @CreatedByUserID);
+                            SELECT SCOPE_IDENTITY();";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@AppId", AppId);
-            command.Parameters.AddWithValue("@DriverId", DriverId);
-            command.Parameters.AddWithValue("@LocalLicense", LocalLicense);
+
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
+            command.Parameters.AddWithValue("@IssuedUsingLocalLicenseID", IssuedUsingLocalLicenseID);
             command.Parameters.AddWithValue("@IssueDate", IssueDate);
             command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
             command.Parameters.AddWithValue("@IsActive", IsActive);
-            command.Parameters.AddWithValue("@CreatedByUser", CreatbyID);
+            command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
             try
             {
                 connection.Open();
-                object value = command.ExecuteScalar();
-                InternationalLicenseID = (value != null && int.TryParse(value.ToString(), out int result)) ? result : -99;
+                object result = command.ExecuteScalar();
+                InternationalLicenseID = (result != null && int.TryParse(result.ToString(), out int insertedID)) ? 
+                    insertedID : -99 ;
+            
             }
             catch (Exception ex)
             {
@@ -116,138 +177,86 @@ IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID)
             finally
             {
                 connection.Close();
-            }
+            }     
             return InternationalLicenseID;
         }
-        public static bool GetInternationalLicenseByLocalID(int LicenseId, ref int internationalLicenseId, 
-            ref int appId, ref int driverId,  ref DateTime issueDate, ref DateTime expirationDate, 
-            ref bool isActive, ref int createdByUserId)
+        public static bool UpdateInternationalLicense(
+              int InternationalLicenseID, int ApplicationID,
+             int DriverID, int IssuedUsingLocalLicenseID,
+             DateTime IssueDate, DateTime ExpirationDate, bool IsActive, int CreatedByUserID)
         {
-            bool isFound = false;
-            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"SELECT InternationalLicenseID, ApplicationID, DriverID, 
-IssueDate, ExpirationDate, IsActive, CreatedByUserID FROM InternationalLicenses 
-WHERE IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@IssuedUsingLocalLicenseID", LicenseId);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    internationalLicenseId = (int)reader["internationalLicenseId"];
-                    appId = (int)reader["ApplicationID"];
-                    driverId = (int)reader["DriverID"];
-                    issueDate = (DateTime)reader["IssueDate"];
-                    expirationDate = (DateTime)reader["ExpirationDate"];
-                    isActive = (bool)reader["IsActive"];
-                    createdByUserId = (int)reader["CreatedByUserID"];
-                    isFound = true;
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return isFound;
-        }
-        public static bool GetInternationalLicenseByID(int InternationalLicenseID, ref int AppId, ref int DriverId, ref int LocalLicense,
-            ref DateTime IssueDate, ref DateTime ExpirationDate, ref bool IsActive, ref int CreatedByUserID)
-        {
-            bool isFound = false;
-            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"SELECT ApplicationID, DriverID, IssuedUsingLocalLicenseID, 
-IssueDate, ExpirationDate, IsActive, CreatedByUserID FROM InternationalLicenses 
-WHERE InternationalLicenseID = @InternationalLicenseID";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@InternationalLicenseID", InternationalLicenseID);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    AppId = (int)reader["ApplicationID"];
-                    DriverId = (int)reader["DriverID"];
-                    LocalLicense = (int)reader["IssuedUsingLocalLicenseID"];
-                    IssueDate = (DateTime)reader["IssueDate"];
-                    ExpirationDate = (DateTime)reader["ExpirationDate"];
-                    IsActive = (bool)reader["IsActive"];
-                    CreatedByUserID = (int)reader["CreatedByUserID"];
-                    isFound = true;
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return isFound;
-        }
-        public static bool UpdateInternationalLicense(int InternationalLicenseID, int AppId, int DriverId, int LocalLicense, DateTime IssueDate,
-            DateTime ExpirationDate, bool IsActive, int UpdatedByUserID)
-        {
-            int isUpdated = -99;
+
+            int rowsAffected = 0;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
             string query = @"UPDATE InternationalLicenses
-   SET ApplicationID = @AppId ,DriverID = @DriverId ,IssuedUsingLocalLicenseID = @LocalLicense
-,IssueDate = @IssueDate , ExpirationDate = @ExpirationDate ,IsActive = @IsActive ,
-CreatedByUserID = @UpdatedByUserID WHERE InternationalLicenseID = @InternationalLicenseID ";
+                           SET 
+                              ApplicationID=@ApplicationID,
+                              DriverID = @DriverID,
+                              IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID,
+                              IssueDate = @IssueDate,
+                              ExpirationDate = @ExpirationDate,
+                              IsActive = @IsActive,
+                              CreatedByUserID = @CreatedByUserID
+                         WHERE InternationalLicenseID=@InternationalLicenseID";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@AppId", AppId);
-            command.Parameters.AddWithValue("@DriverId", DriverId);
-            command.Parameters.AddWithValue("@LocalLicense", LocalLicense);
+
+            command.Parameters.AddWithValue("@InternationalLicenseID", InternationalLicenseID);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
+            command.Parameters.AddWithValue("@IssuedUsingLocalLicenseID", IssuedUsingLocalLicenseID);
             command.Parameters.AddWithValue("@IssueDate", IssueDate);
             command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
             command.Parameters.AddWithValue("@IsActive", IsActive);
-            command.Parameters.AddWithValue("@UpdatedByUserID", UpdatedByUserID);
-            command.Parameters.AddWithValue("@InternationalLicenseID", InternationalLicenseID);
+            command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
             try
             {
                 connection.Open();
-                isUpdated = command.ExecuteNonQuery();
+                rowsAffected = command.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {
-                isUpdated = -99;
+                rowsAffected = 0;
             }
             finally
             {
                 connection.Close();
             }
-            return (isUpdated>0);
+            return (rowsAffected > 0);
         }
-        public static bool DeleteInternationalLicense(int InternationalLicenseID)
+        public static int GetActiveInternationalLicenseIDByDriverID(int DriverID)
         {
-            int isDeleted = -99;
+            int InternationalLicenseID = -99;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-            string query = @"DELETE FROM InternationalLicenses WHERE InternationalLicenseID = @InternationalLicenseID";
+            string query = @"  
+                            SELECT Top 1 InternationalLicenseID
+                            FROM InternationalLicenses 
+                            where DriverID=@DriverID and GetDate() between IssueDate and ExpirationDate 
+                          AND IsActive=1
+                            order by ExpirationDate Desc;";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@InternationalLicenseID", InternationalLicenseID);
+
+            command.Parameters.AddWithValue("@DriverID", DriverID);
             try
             {
                 connection.Open();
-                isDeleted = command.ExecuteNonQuery();
+                object result = command.ExecuteScalar();
+                    InternationalLicenseID = (result != null && int.TryParse(result.ToString(), out int insertedID))?
+                    insertedID:-99;
             }
+
             catch (Exception ex)
             {
-                isDeleted = -99;
-            }
+                InternationalLicenseID = -99;
+    }
             finally
             {
                 connection.Close();
             }
-            return (isDeleted > 0);
+            return InternationalLicenseID;
         }
-    } 
+
+
+    }
 }

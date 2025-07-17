@@ -9,32 +9,32 @@ namespace BussinessLayer
 {
     public class clsApplicationTypes
     {
-        public int ID;
+        public int ApplicationTypeID;
         public string Title;
-        public int Fees;
+        public float Fees;
         public static DataTable GetAllApplicationTypes()
         {
             return DataAccessLayer.clsApplicationTypesData.GetAllApplicationTypes();
         }
-        private clsApplicationTypes (int id , string title, int fees)
+        private clsApplicationTypes (int ID , string Title, float Fees)
         {
-            ID = id;
-            Title = title;
-            Fees = fees;
+            this.ApplicationTypeID = ID;
+            this.Title = Title;
+            this.Fees = Fees;
         }  
-        public static clsApplicationTypes Find (int id)
+        public static clsApplicationTypes Find (int ID)
         {
-            string title = "";
-            decimal fees = 0;
-            if (clsApplicationTypesData.GetApplicationTypesByID(id,ref title,ref fees))
+            string Title = "";
+            float Fees = 0;
+            if (clsApplicationTypesData.GetApplicationTypesInfoByID(ID,ref Title,ref Fees))
             {
-                return new clsApplicationTypes(id, title,(int) fees);
+                return new clsApplicationTypes(ID, Title, Fees);
             }
             return null;
         }
         private bool _UpdateApplicationType()
         {
-            return clsApplicationTypesData.UpdateApplicationType(ID, Title, Fees);
+            return clsApplicationTypesData.UpdateApplicationType(this.ApplicationTypeID, this.Title, this.Fees);
         }
         public bool Save()
         {

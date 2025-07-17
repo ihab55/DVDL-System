@@ -1,6 +1,6 @@
 ﻿namespace DVLD_Full_Project.Use_Controller
 {
-    partial class FrmAddEditUsers
+    partial class frmAddEditUsers
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
+            this.ucFilterPerson1 = new DVLD_Full_Project.Use_Controller.ctrlPersonCardWithFilter();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.chbIsActive = new System.Windows.Forms.CheckBox();
             this.txtCopyPassword = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ucFilterPerson1 = new DVLD_Full_Project.Use_Controller.ctrlPersonCardWithFilter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -66,7 +66,7 @@
             this.labHead.AutoSize = true;
             this.labHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labHead.ForeColor = System.Drawing.Color.Red;
-            this.labHead.Location = new System.Drawing.Point(270, 9);
+            this.labHead.Location = new System.Drawing.Point(269, 9);
             this.labHead.Name = "labHead";
             this.labHead.Size = new System.Drawing.Size(259, 38);
             this.labHead.TabIndex = 2;
@@ -79,7 +79,7 @@
             this.tabControl1.Location = new System.Drawing.Point(10, 50);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(736, 383);
+            this.tabControl1.Size = new System.Drawing.Size(776, 383);
             this.tabControl1.TabIndex = 3;
             this.tabControl1.TabStop = false;
             // 
@@ -90,7 +90,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(728, 354);
+            this.tabPage1.Size = new System.Drawing.Size(768, 354);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Personal Info";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@
             this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Image = global::DVLD_Full_Project.Properties.Resources.nextIcon;
-            this.btnNext.Location = new System.Drawing.Point(597, 308);
+            this.btnNext.Location = new System.Drawing.Point(640, 311);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(113, 40);
             this.btnNext.TabIndex = 54;
@@ -110,6 +110,15 @@
             this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // ucFilterPerson1
+            // 
+            this.ucFilterPerson1.EnableFilter = true;
+            this.ucFilterPerson1.Location = new System.Drawing.Point(6, 3);
+            this.ucFilterPerson1.Name = "ucFilterPerson1";
+            this.ucFilterPerson1.Size = new System.Drawing.Size(759, 303);
+            this.ucFilterPerson1.TabIndex = 0;
+            this.ucFilterPerson1.OnPersonSelected += new System.Action<int>(this.ucFilterPerson1_OnPersonSelected);
             // 
             // tabPage2
             // 
@@ -269,7 +278,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = global::DVLD_Full_Project.Properties.Resources.SaveIcon;
-            this.btnSave.Location = new System.Drawing.Point(629, 448);
+            this.btnSave.Location = new System.Drawing.Point(667, 439);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(113, 40);
             this.btnSave.TabIndex = 53;
@@ -286,7 +295,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::DVLD_Full_Project.Properties.Resources.closeIcon;
-            this.btnClose.Location = new System.Drawing.Point(509, 448);
+            this.btnClose.Location = new System.Drawing.Point(547, 439);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(114, 40);
             this.btnClose.TabIndex = 52;
@@ -299,19 +308,11 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ucFilterPerson1
-            // 
-            this.ucFilterPerson1.Location = new System.Drawing.Point(6, 3);
-            this.ucFilterPerson1.Name = "ucFilterPerson1";
-            this.ucFilterPerson1.Size = new System.Drawing.Size(704, 303);
-            this.ucFilterPerson1.TabIndex = 0;
-            this.ucFilterPerson1.OnPersonSelected += new System.Action<int>(this.ucFilterPerson1_OnPersonSelected);
-            // 
             // FrmAddEditUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 491);
+            this.ClientSize = new System.Drawing.Size(795, 491);
             this.ControlBox = false;
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tabControl1);

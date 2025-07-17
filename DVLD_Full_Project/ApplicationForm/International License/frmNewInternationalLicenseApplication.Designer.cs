@@ -37,7 +37,7 @@
             this.lnkShowInfo = new System.Windows.Forms.LinkLabel();
             this.lnkShowHistory = new System.Windows.Forms.LinkLabel();
             this.labHead = new System.Windows.Forms.Label();
-            this.ucNewInternational1 = new DVLD_Full_Project.ucFilterLicense();
+            this.ucNewInternational1 = new DVLD_Full_Project.ctrlDriverLicenseInfoWithFilter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCreatedBy = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -465,7 +465,7 @@
         private System.Windows.Forms.LinkLabel lnkShowInfo;
         private System.Windows.Forms.LinkLabel lnkShowHistory;
         private System.Windows.Forms.Label labHead;
-        private ucFilterLicense ucNewInternational1;
+        private ctrlDriverLicenseInfoWithFilter ucNewInternational1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label txtCreatedBy;
         private System.Windows.Forms.PictureBox pictureBox8;
