@@ -5,41 +5,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BussinessLayer;
+using Microsoft.Win32;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DVLD_Full_Project
 {
     public static class clsGlobal
     {
-        private static string _CreateDataString(string username, string password)
-        {
-            return $"{username}#//#{password}";
-        }
-        private static string[] _SplitSpecialString(string UserNameAndPassWordString)
-        {
-            return UserNameAndPassWordString.Split(new string[] { "#//#" }, StringSplitOptions.None);
-        }
         public static clsUser CurrentUser { get; set; }
-        private static string filePath = "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\UserLogin.txt";
         public static bool GetStoredCredential(ref string UserName, ref string Password)
         {
-            if (File.Exists(filePath) && new FileInfo(filePath).Length > 0)
+            bool IsSave = false;
+            string SubKeypath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";
+            try
             {
-                string[] Data = _SplitSpecialString(File.ReadAllText(filePath));
-                UserName = Data[0];
-                Password = Data[1];
-                return true;
+                UserName = Registry.GetValue(SubKeypath, "UserName", UserName) as string;
+                Password = Registry.GetValue(SubKeypath, "Password", Password) as string;
+                IsSave = true;
             }
-            return false;
+            catch (Exception ex) { IsSave = false; }
+            return IsSave;
         }
-        public static void SaveRememberMeCredentials(string UserName, string Password)
+        public static bool SaveRememberMeCredentials(string UserName, string Password)
         {
-
-            File.WriteAllText(filePath,_CreateDataString(UserName, Password));
-        }
-        public static void SaveRememberMeCredentials()
-        {
-            File.WriteAllText(filePath, string.Empty);
+            bool IsSave = false;
+            string SubKeypath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";
+            try
+            {
+                Registry.SetValue(SubKeypath, "UserName", UserName, RegistryValueKind.String);
+                Registry.SetValue(SubKeypath, "Password", Password, RegistryValueKind.String);
+                IsSave = true;
+            }
+            catch (Exception ex) { IsSave = false; }
+            return IsSave;
         }
     }
 }

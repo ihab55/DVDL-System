@@ -19,8 +19,6 @@ namespace DVLD_Full_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Application.Run(new frmManageDetainLicense());
-
             do
             {
                 IsRestart = false;

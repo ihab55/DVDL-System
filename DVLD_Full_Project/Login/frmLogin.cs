@@ -40,10 +40,6 @@ namespace DVLD_Full_Project
             {
                 clsGlobal.SaveRememberMeCredentials(txtUsername.Text.Trim(),txtPassword.Text.Trim());
             }
-            else
-            {
-                clsGlobal.SaveRememberMeCredentials();
-            }
             if (clsGlobal.CurrentUser.IsActive)
             {
                 this.DialogResult = DialogResult.OK;

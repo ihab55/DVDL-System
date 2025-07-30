@@ -1,18 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\",
+  "WorkspaceRootPath": "D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\projects\\mydvld\\dvld_full_project\\global class\\clsglobal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:global class\\clsglobal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\login\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:login\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\newprojects\\fullproject\\dvld_full_project\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B27CD1D0-03AF-43CE-8AF5-80FDB52BDE0C}|..\\BussinessLayer\\BussinessLayer.csproj|d:\\courses\\projects\\mydvld\\bussinesslayer\\clslocaldrivinglicenseapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,34 +21,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Main.Designer.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\Main.Designer.cs",
-              "RelativeDocumentMoniker": "Main.Designer.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\Main.Designer.cs",
-              "RelativeToolTip": "Main.Designer.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAuwHIAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-17T05:39:34.02Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Main.cs",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\Main.cs",
-              "RelativeDocumentMoniker": "Main.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\Main.cs",
-              "RelativeToolTip": "Main.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAqwDkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-17T05:10:23.319Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -57,14 +30,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Main.cs [Design]",
-              "DocumentMoniker": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\Main.cs",
-              "RelativeDocumentMoniker": "Main.cs",
-              "ToolTip": "D:\\Courses\\NewProjects\\FullProject\\DVLD_Full_Project\\Main.cs [Design]",
-              "RelativeToolTip": "Main.cs [Design]",
+              "Title": "clsGlobal.cs",
+              "DocumentMoniker": "D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\Global Class\\clsGlobal.cs",
+              "RelativeDocumentMoniker": "Global Class\\clsGlobal.cs",
+              "ToolTip": "D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\Global Class\\clsGlobal.cs",
+              "RelativeToolTip": "Global Class\\clsGlobal.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAswA8AAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-17T05:38:59.221Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-07-22T07:16:39.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\Login\\frmLogin.cs",
+              "RelativeDocumentMoniker": "Login\\frmLogin.cs",
+              "ToolTip": "D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\Login\\frmLogin.cs",
+              "RelativeToolTip": "Login\\frmLogin.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAADgvykAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T07:18:06.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "clsLocalDrivingLicenseApplication.cs",
+              "DocumentMoniker": "D:\\Courses\\Projects\\MYDVLD\\BussinessLayer\\clsLocalDrivingLicenseApplication.cs",
+              "RelativeDocumentMoniker": "..\\BussinessLayer\\clsLocalDrivingLicenseApplication.cs",
+              "ToolTip": "D:\\Courses\\Projects\\MYDVLD\\BussinessLayer\\clsLocalDrivingLicenseApplication.cs",
+              "RelativeToolTip": "..\\BussinessLayer\\clsLocalDrivingLicenseApplication.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAwwLMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T11:40:05.504Z"
             }
           ]
         }
