@@ -28,7 +28,15 @@
     <li>- Secure authentication with user sessions</li>
     <li>- Data validation and error handling</li>
   </ul>
-  
+
+  <h2 style="color: #0a66c2; font-size: 20px;">🔹 How TO Apply ?</h2>
+  <ul style="padding-left: 20px;">
+    <li>-Resotre DVLD.bak</li>
+    <li>- Open Presentation Layer</li>
+    <li>- App.Config</li>
+    <li>- Change Connectstring to your DB Connection in XML</li>
+    <li>- Run Program</li>
+  </ul>
   <p>This project helped me strengthen my skills in application development, database design, and user experience optimization.</p>
   
   <p style="margin-top: 30px;">
