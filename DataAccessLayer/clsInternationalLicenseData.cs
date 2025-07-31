@@ -37,6 +37,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 dt = null;
             }
             finally
@@ -80,7 +81,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogger.LogEvent(ex);
                 isFound = false;
             }
             finally
@@ -115,6 +116,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 dt = null;
             }
             finally
@@ -172,6 +174,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 InternationalLicenseID = -99;
             }
             finally
@@ -217,6 +220,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 rowsAffected = 0;
             }
             finally
@@ -248,6 +252,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 InternationalLicenseID = -99;
     }
             finally

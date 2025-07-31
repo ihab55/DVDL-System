@@ -43,6 +43,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 IsFound = false;
             }
             finally
@@ -71,6 +72,8 @@ Licenses.ExpirationDate, Licenses.IsActive FROM Licenses INNER JOIN
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
+                clsLogger.LogEvent(ex);
                 dt = null;
             }
             finally
@@ -117,6 +120,7 @@ Licenses.ExpirationDate, Licenses.IsActive FROM Licenses INNER JOIN
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 NewLicenseID = -99;
             }
             finally
@@ -160,6 +164,7 @@ ExpirationDate = @ExpirationDate ,Notes = @Notes ,PaidFees = @PaidFees ,IsActive
                 IsAffected = command.ExecuteNonQuery();
             }catch(Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 IsAffected = -99;
             }
             finally
@@ -193,6 +198,7 @@ ExpirationDate = @ExpirationDate ,Notes = @Notes ,PaidFees = @PaidFees ,IsActive
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 LicenseID = -99;
             }
             finally
@@ -216,6 +222,7 @@ ExpirationDate = @ExpirationDate ,Notes = @Notes ,PaidFees = @PaidFees ,IsActive
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 IsAffected = -99;
             }
             finally

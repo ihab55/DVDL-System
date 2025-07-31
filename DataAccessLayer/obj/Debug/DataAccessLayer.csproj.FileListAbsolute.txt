@@ -4,3 +4,9 @@ D:\Courses\NewProjects\FullProject\DataAccessLayer\obj\Debug\DataAccessLayer.csp
 D:\Courses\NewProjects\FullProject\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 D:\Courses\NewProjects\FullProject\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\Courses\NewProjects\FullProject\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\Courses\Projects\MYDVLD\DVDL-System\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Courses\Projects\MYDVLD\DVDL-System\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Courses\Projects\MYDVLD\DVDL-System\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+D:\Courses\Projects\MYDVLD\DVDL-System\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\Courses\Projects\MYDVLD\DVDL-System\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Courses\Projects\MYDVLD\DVDL-System\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

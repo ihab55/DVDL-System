@@ -27,7 +27,7 @@ namespace DVLD_Full_Project.UsersForm
 
         private bool txtCurrentPassWord_Right()
         {
-            if (txtCurrPassword.Text.Trim() != clsGlobal.CurrentUser.Password)
+            if (clsGlobal.ComputeHash(txtCurrPassword.Text.Trim()) != _clsUser.Password)
             {
                 errorProvider1.SetError(txtCurrPassword, "Wrong Password");
                 return false;
@@ -44,7 +44,7 @@ namespace DVLD_Full_Project.UsersForm
                     "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            _clsUser.Password = txtNewPass.Text.Trim();
+            _clsUser.Password = clsGlobal.ComputeHash(txtNewPass.Text.Trim());
             if (_clsUser.Save())
             {
                 MessageBox.Show("Password Changed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

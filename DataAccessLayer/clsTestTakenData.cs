@@ -34,6 +34,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 Isfouned = false;
             }
             finally { connection.Close(); }
@@ -78,6 +79,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 Isfouned = false;
             }
             finally
@@ -104,6 +106,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 dt = null;
             }
             finally
@@ -142,6 +145,7 @@ UPDATE TestAppointments  SET IsLocked=1 where TestAppointmentID = @TestAppointme
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 newTestID = -99;
             }
             finally
@@ -172,6 +176,7 @@ UPDATE TestAppointments  SET IsLocked=1 where TestAppointmentID = @TestAppointme
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 Affected = -99;
             }
             finally { connection.Close(); } 
@@ -195,6 +200,7 @@ UPDATE TestAppointments  SET IsLocked=1 where TestAppointmentID = @TestAppointme
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 PassedCount = 0;
             }
             finally { connection.Close(); }

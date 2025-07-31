@@ -36,6 +36,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 IsFouned = false;
             }
             finally { connection.Close(); }
@@ -67,6 +68,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 IsFouned = false;
             }
             finally { connection.Close(); }
@@ -87,6 +89,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 dtAllLicenseClass = null;
             }
             finally { connection.Close(); }
@@ -114,6 +117,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 LicenseClassID = -99;
             }
             finally { connection.Close(); }
@@ -142,6 +146,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 IsUpdated = false;
             }
             finally { connection.Close(); }

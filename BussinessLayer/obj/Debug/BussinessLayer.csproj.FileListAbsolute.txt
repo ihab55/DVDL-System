@@ -7,3 +7,12 @@ D:\Courses\NewProjects\FullProject\BussinessLayer\obj\Debug\BussinessLayer.cspro
 D:\Courses\NewProjects\FullProject\BussinessLayer\obj\Debug\Bussines.E1038C4E.Up2Date
 D:\Courses\NewProjects\FullProject\BussinessLayer\obj\Debug\BussinessLayer.dll
 D:\Courses\NewProjects\FullProject\BussinessLayer\obj\Debug\BussinessLayer.pdb
+D:\Courses\Projects\MYDVLD\DVDL-System\BussinessLayer\bin\Debug\BussinessLayer.dll
+D:\Courses\Projects\MYDVLD\DVDL-System\BussinessLayer\bin\Debug\BussinessLayer.pdb
+D:\Courses\Projects\MYDVLD\DVDL-System\BussinessLayer\bin\Debug\DataAccessLayer.dll
+D:\Courses\Projects\MYDVLD\DVDL-System\BussinessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Courses\Projects\MYDVLD\DVDL-System\BussinessLayer\obj\Debug\BussinessLayer.csproj.AssemblyReference.cache
+D:\Courses\Projects\MYDVLD\DVDL-System\BussinessLayer\obj\Debug\BussinessLayer.csproj.CoreCompileInputs.cache
+D:\Courses\Projects\MYDVLD\DVDL-System\BussinessLayer\obj\Debug\Bussines.E1038C4E.Up2Date
+D:\Courses\Projects\MYDVLD\DVDL-System\BussinessLayer\obj\Debug\BussinessLayer.dll
+D:\Courses\Projects\MYDVLD\DVDL-System\BussinessLayer\obj\Debug\BussinessLayer.pdb

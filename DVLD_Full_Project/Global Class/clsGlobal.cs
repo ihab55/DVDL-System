@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using BussinessLayer;
+using DVLD_Full_Project.Login;
 using Microsoft.Win32;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -23,7 +25,7 @@ namespace DVLD_Full_Project
                 Password = Registry.GetValue(SubKeypath, "Password", Password) as string;
                 IsSave = true;
             }
-            catch (Exception ex) { IsSave = false; }
+            catch (Exception ex) { clsLoggerEvent.LogEvent(ex); IsSave = false; }
             return IsSave;
         }
         public static bool SaveRememberMeCredentials(string UserName, string Password)
@@ -36,8 +38,17 @@ namespace DVLD_Full_Project
                 Registry.SetValue(SubKeypath, "Password", Password, RegistryValueKind.String);
                 IsSave = true;
             }
-            catch (Exception ex) { IsSave = false; }
+            catch (Exception ex) { clsLoggerEvent.LogEvent(ex); IsSave = false; }
             return IsSave;
         }
+        public static string ComputeHash(string input)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] Hashbytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
+                return BitConverter.ToString(Hashbytes).Replace("-", "").ToLower();
+            }
+        }
+
     }
 }

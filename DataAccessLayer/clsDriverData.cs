@@ -24,7 +24,9 @@ namespace DataAccessLayer
                 SqlDataReader reader = command.ExecuteReader();
                 IsExists = reader.HasRows;
             }
-            catch (Exception ex) { IsExists = false; }
+            catch (Exception ex)
+            {
+                clsLogger.LogEvent(ex); IsExists = false; }
             finally { connection.Close(); }
             return IsExists;
         }
@@ -49,7 +51,9 @@ namespace DataAccessLayer
                 }
                 reader.Close ();
             }
-            catch (Exception ex) { IsFounded = false; }
+            catch (Exception ex)
+            {
+                clsLogger.LogEvent(ex); IsFounded = false; }
             finally { connection.Close(); }
             return IsFounded;
         }
@@ -75,7 +79,9 @@ namespace DataAccessLayer
                 }
                 reader.Close();
             }
-            catch (Exception ex) { IsFounded = false; }
+            catch (Exception ex)
+            {
+                clsLogger.LogEvent(ex); IsFounded = false; }
             finally { connection.Close(); }
             return IsFounded;
         }
@@ -94,6 +100,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 table = null;
             }
             finally { connection.Close(); }
@@ -118,6 +125,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 DriverID = -99;
             }
             finally { connection.Close(); }
@@ -140,6 +148,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 Affected = -99;
             }finally { connection.Close(); }
             return (Affected>0);

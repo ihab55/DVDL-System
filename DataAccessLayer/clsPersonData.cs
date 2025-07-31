@@ -62,7 +62,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 isFounded = false;
-                //Error Message
+                clsLogger.LogEvent(ex);
             }
             finally { 
             connection.Close();
@@ -121,7 +121,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 isFounded = false;
-                //Error Message
+                clsLogger.LogEvent(ex);
             }
             finally
             {
@@ -202,7 +202,7 @@ SELECT SCOPE_IDENTITY();";
             catch (Exception ex)
             {
                 id = -99;
-                //Error Message
+                clsLogger.LogEvent(ex);
             }
             finally
             {
@@ -291,8 +291,8 @@ SELECT SCOPE_IDENTITY();";
             }
             catch (Exception ex)
             {
-                Affected = 0 ;
-                //Error Message
+                Affected = 0;
+                clsLogger.LogEvent(ex);
             }
             finally
             {
@@ -336,7 +336,7 @@ SELECT SCOPE_IDENTITY();";
             catch (Exception ex)
             {
                 dt = null;
-                //Error Message
+                clsLogger.LogEvent(ex);
             }
             finally
             {
@@ -365,7 +365,7 @@ SELECT SCOPE_IDENTITY();";
             catch (Exception ex)
             {
                 Affected = 0;
-                //Error Message
+                clsLogger.LogEvent(ex);
             }
             finally
             {
@@ -396,7 +396,7 @@ SELECT SCOPE_IDENTITY();";
             catch (Exception ex)
             {
                 isFounded = false;
-                //Error Message
+                clsLogger.LogEvent(ex);
             }
             finally
             {
@@ -427,7 +427,7 @@ SELECT SCOPE_IDENTITY();";
             catch (Exception ex)
             {
                 isFounded = false;
-                //Error Message
+                clsLogger.LogEvent(ex);
             }
             finally
             {

@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DataAccessLayer
 {
     public static class clsApplicationData
-    {    
-        public static bool GetApplicationInfoByID(int ApplicationID, ref int ApplicantPersonID, 
-            ref DateTime ApplicationDate,ref int ApplicationTypeID,ref byte ApplicationStatus
-            ,ref DateTime LastStatusDate, ref float PaidFees, ref int CreatedByUserID)  
+    {
+        public static bool GetApplicationInfoByID(int ApplicationID, ref int ApplicantPersonID,
+            ref DateTime ApplicationDate, ref int ApplicationTypeID, ref byte ApplicationStatus
+            , ref DateTime LastStatusDate, ref float PaidFees, ref int CreatedByUserID)
         {
             bool IsFouned = false;
             SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
@@ -40,6 +35,7 @@ ApplicationStatus AS Status,LastStatusDate
             }
             catch (SqlException ex)
             {
+                clsLogger.LogEvent(ex);
                 IsFouned = false;
             }
             finally
@@ -49,7 +45,7 @@ ApplicationStatus AS Status,LastStatusDate
             return IsFouned;
         }
         public static int AddNewApplication(int ApplicantPersonID, DateTime ApplicationDate
-            , int ApplicationTypeID,byte ApplicationStatus, DateTime LastStatusDate, 
+            , int ApplicationTypeID, byte ApplicationStatus, DateTime LastStatusDate,
             float PaidFees, int CreatedByUserID)
         {
             int ID = -99;
@@ -74,6 +70,7 @@ ApplicationStatus AS Status,LastStatusDate
             }
             catch (SqlException ex)
             {
+                clsLogger.LogEvent(ex);
                 ID = -99;
             }
             finally
@@ -115,6 +112,7 @@ ApplicationStatus AS Status,LastStatusDate
             }
             catch (SqlException ex)
             {
+                clsLogger.LogEvent(ex);
                 rowsAffected = -99;
             }
             finally
@@ -147,7 +145,7 @@ ApplicationStatus AS Status,LastStatusDate
             }
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                clsLogger.LogEvent(ex);
                 rowsAffected = 0;
             }
             finally
@@ -184,7 +182,7 @@ ApplicationStatus AS Status,LastStatusDate
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogger.LogEvent(ex);
                 isFound = false;
             }
             finally
@@ -226,7 +224,7 @@ ApplicationStatus AS Status,LastStatusDate
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogger.LogEvent(ex);
                 return ActiveApplicationID;
             }
             finally
@@ -269,7 +267,7 @@ ApplicationStatus AS Status,LastStatusDate
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogger.LogEvent(ex);
                 ActiveApplicationID = -99;
             }
             finally
@@ -307,8 +305,8 @@ ApplicationStatus AS Status,LastStatusDate
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
-                return false;
+                clsLogger.LogEvent(ex);
+                rowsAffected = 0;
             }
 
             finally

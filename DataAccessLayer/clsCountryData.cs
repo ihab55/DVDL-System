@@ -27,7 +27,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                // Handle exception
+                clsLogger.LogEvent(ex);
                 return null;
             }
             finally
@@ -54,7 +54,9 @@ namespace DataAccessLayer
                 }
                 reader.Close();
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            {
+                clsLogger.LogEvent(ex);
                 Isfounded = false;
             }finally { connection.Close(); }
             return Isfounded;
@@ -90,7 +92,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogger.LogEvent(ex);
                 isFound = false;
             }
             finally

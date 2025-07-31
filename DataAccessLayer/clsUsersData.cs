@@ -34,7 +34,8 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                 Isfounded = false;
+                clsLogger.LogEvent(ex);
+                Isfounded = false;
             }
             finally
             {
@@ -66,6 +67,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 Isfounded = false;
             }
             finally
@@ -97,6 +99,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 Isfounded = false;
             }
             finally
@@ -126,6 +129,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 id = -99;
             }
             finally
@@ -154,6 +158,7 @@ Password = @Password ,IsActive = @IsActive WHERE UserID = @UserID";
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 IsAffected = 0;
             }
             finally { connection.Close(); }
@@ -181,6 +186,7 @@ Password = @Password ,IsActive = @IsActive WHERE UserID = @UserID";
             }
             catch(Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 dt = null;
             }
             finally
@@ -202,7 +208,9 @@ Password = @Password ,IsActive = @IsActive WHERE UserID = @UserID";
                 connection.Open();
                 IsDeleted = command.ExecuteNonQuery();
             }
-            catch (Exception ex) { IsDeleted = 0; }
+            catch (Exception ex)
+            {
+                clsLogger.LogEvent(ex); IsDeleted = 0; }
             finally{ connection.Close(); }
             return (IsDeleted > 0);
         }
@@ -222,6 +230,7 @@ Password = @Password ,IsActive = @IsActive WHERE UserID = @UserID";
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 Isfounded = false;
             }
             finally
@@ -246,6 +255,7 @@ Password = @Password ,IsActive = @IsActive WHERE UserID = @UserID";
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 Isfounded = false;
             }
             finally
@@ -277,7 +287,7 @@ Password = @Password ,IsActive = @IsActive WHERE UserID = @UserID";
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogger.LogEvent(ex);
                 isFound = false;
             }
             finally

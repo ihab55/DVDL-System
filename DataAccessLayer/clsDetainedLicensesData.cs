@@ -51,6 +51,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 isFound = false;
             }
             finally
@@ -100,6 +101,7 @@ IsReleased, ReleaseDate, ReleasedByUserID, ReleaseApplicationID
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 isFound = false;
             }
             finally
@@ -123,6 +125,7 @@ IsReleased, ReleaseDate, ReleasedByUserID, ReleaseApplicationID
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 dt = null;
             }
             finally
@@ -152,6 +155,7 @@ IsReleased, ReleaseDate, ReleasedByUserID, ReleaseApplicationID
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 DetainedLicenseID = -99;
             }
             finally
@@ -197,6 +201,7 @@ IsReleased, ReleaseDate, ReleasedByUserID, ReleaseApplicationID
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 rowsAffected = -99;
             }
             finally
@@ -233,7 +238,7 @@ ReleasedByUserID = @ReleasedByUserID ,
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogger.LogEvent(ex);
                 return false;
             }
 
@@ -258,6 +263,7 @@ ReleasedByUserID = @ReleasedByUserID ,
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 IsFouned = false;
             }
             finally

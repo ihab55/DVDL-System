@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinessLayer;
+using DVLD_Full_Project.Login;
 
 namespace DVLD_Full_Project
 {
@@ -30,7 +31,8 @@ namespace DVLD_Full_Project
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            clsGlobal.CurrentUser = clsUser.FindByUserNameAndPassword(txtUsername.Text.Trim(), txtPassword.Text.Trim());
+            clsGlobal.CurrentUser = clsUser.FindByUserNameAndPassword(txtUsername.Text.Trim()
+                , clsGlobal.ComputeHash(txtPassword.Text.Trim()));
             if (clsGlobal.CurrentUser == null)
             {
                 MessageBox.Show("Invalid UserName or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -44,6 +46,7 @@ namespace DVLD_Full_Project
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+                clsLoggerEvent.InfoThatUserEnter();
                 return;
             }
                 MessageBox.Show("Ask Admin to Active Account", "Informatio", MessageBoxButtons.OK, MessageBoxIcon.Information);

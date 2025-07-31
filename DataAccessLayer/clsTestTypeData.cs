@@ -33,7 +33,8 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                Isfounded=false;
+                clsLogger.LogEvent(ex);
+                Isfounded =false;
             }
             finally { connection.Close(); }
             return Isfounded;
@@ -67,7 +68,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                clsLogger.LogEvent(ex);
             }
             finally
             {
@@ -99,6 +100,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 IsUpdate = -99;
             }finally { connection.Close(); }
             return (IsUpdate > 0);  

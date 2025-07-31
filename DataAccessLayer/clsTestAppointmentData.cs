@@ -39,7 +39,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it as needed
+                clsLogger.LogEvent(ex);
                 isFound = false;
             }
             finally
@@ -77,7 +77,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it as needed
+                clsLogger.LogEvent(ex);
                 isFound = false;
             }
             finally
@@ -103,7 +103,7 @@ Where LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID And T
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it as needed
+                clsLogger.LogEvent(ex);
                 dt = null;
             }
             finally
@@ -143,7 +143,7 @@ SELECT SCOPE_IDENTITY();";
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it as needed
+                clsLogger.LogEvent(ex);
                 newAppointmentId = -99;
             }
             finally
@@ -187,7 +187,7 @@ SET TestTypeID = @TestTypeID ,LocalDrivingLicenseApplicationID = @LocalDrivingLi
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it as needed
+                clsLogger.LogEvent(ex);
                 rowsAffected = 0;
             }
             finally
@@ -214,6 +214,7 @@ SET TestTypeID = @TestTypeID ,LocalDrivingLicenseApplicationID = @LocalDrivingLi
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 TestTypeID = -99;
             }
             finally

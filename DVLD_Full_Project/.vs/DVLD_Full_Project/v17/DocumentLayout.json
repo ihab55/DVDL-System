@@ -1,17 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\",
+  "WorkspaceRootPath": "D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\projects\\mydvld\\dvld_full_project\\global class\\clsglobal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|d:\\courses\\projects\\mydvld\\dvdl-system\\dvld_full_project\\users\\frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:users\\frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\global class\\clsglobal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:global class\\clsglobal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\login\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\login\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:login\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B27CD1D0-03AF-43CE-8AF5-80FDB52BDE0C}|..\\BussinessLayer\\BussinessLayer.csproj|d:\\courses\\projects\\mydvld\\bussinesslayer\\clslocaldrivinglicenseapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\users\\frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:users\\frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\login\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E75F45C2-BFF8-4003-B5D4-87497EC2D279}|DVLD_Full_Project.csproj|solutionrelative:login\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,8 +30,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "clsGlobal.cs",
+              "DocumentMoniker": "D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\Global Class\\clsGlobal.cs",
+              "RelativeDocumentMoniker": "Global Class\\clsGlobal.cs",
+              "ToolTip": "D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\Global Class\\clsGlobal.cs",
+              "RelativeToolTip": "Global Class\\clsGlobal.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA4wDIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T19:29:41.254Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -30,39 +53,51 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "clsGlobal.cs",
-              "DocumentMoniker": "D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\Global Class\\clsGlobal.cs",
-              "RelativeDocumentMoniker": "Global Class\\clsGlobal.cs",
-              "ToolTip": "D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\Global Class\\clsGlobal.cs",
-              "RelativeToolTip": "Global Class\\clsGlobal.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAswA8AAABYAAAAAAAAAA==",
+              "Title": "frmChangePassword.cs",
+              "DocumentMoniker": "D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\Users\\frmChangePassword.cs",
+              "RelativeDocumentMoniker": "Users\\frmChangePassword.cs",
+              "ToolTip": "D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\Users\\frmChangePassword.cs",
+              "RelativeToolTip": "Users\\frmChangePassword.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwCgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T07:16:39.488Z",
+              "WhenOpened": "2025-07-31T19:32:03.489Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmLogin.cs",
-              "DocumentMoniker": "D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\Login\\frmLogin.cs",
-              "RelativeDocumentMoniker": "Login\\frmLogin.cs",
-              "ToolTip": "D:\\Courses\\Projects\\MYDVLD\\DVLD_Full_Project\\Login\\frmLogin.cs",
-              "RelativeToolTip": "Login\\frmLogin.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAADgvykAAAANAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "frmChangePassword.cs [Design]",
+              "DocumentMoniker": "D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\Users\\frmChangePassword.cs",
+              "RelativeDocumentMoniker": "Users\\frmChangePassword.cs",
+              "ToolTip": "D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\Users\\frmChangePassword.cs [Design]",
+              "RelativeToolTip": "Users\\frmChangePassword.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T07:18:06.935Z"
+              "WhenOpened": "2025-07-31T19:32:00.127Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "clsLocalDrivingLicenseApplication.cs",
-              "DocumentMoniker": "D:\\Courses\\Projects\\MYDVLD\\BussinessLayer\\clsLocalDrivingLicenseApplication.cs",
-              "RelativeDocumentMoniker": "..\\BussinessLayer\\clsLocalDrivingLicenseApplication.cs",
-              "ToolTip": "D:\\Courses\\Projects\\MYDVLD\\BussinessLayer\\clsLocalDrivingLicenseApplication.cs",
-              "RelativeToolTip": "..\\BussinessLayer\\clsLocalDrivingLicenseApplication.cs",
-              "ViewState": "AgIAAKQAAAAAAAAAAAAwwLMAAAAnAAAAAAAAAA==",
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\Login\\frmLogin.cs",
+              "RelativeDocumentMoniker": "Login\\frmLogin.cs",
+              "ToolTip": "D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\Login\\frmLogin.cs",
+              "RelativeToolTip": "Login\\frmLogin.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAvwCAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T11:40:05.504Z"
+              "WhenOpened": "2025-07-31T19:30:50.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmLogin.cs [Design]",
+              "DocumentMoniker": "D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\Login\\frmLogin.cs",
+              "RelativeDocumentMoniker": "Login\\frmLogin.cs",
+              "ToolTip": "D:\\Courses\\Projects\\MYDVLD\\DVDL-System\\DVLD_Full_Project\\Login\\frmLogin.cs [Design]",
+              "RelativeToolTip": "Login\\frmLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T19:30:46.774Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

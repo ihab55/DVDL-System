@@ -25,6 +25,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 dataTable = null;
             }
             finally { connection.Close(); }
@@ -53,6 +54,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 result = 0;
             }
             finally { connection.Close(); }
@@ -80,6 +82,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 result = false;
             }
             finally { connection.Close(); }

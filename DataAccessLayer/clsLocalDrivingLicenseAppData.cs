@@ -10,64 +10,6 @@ namespace DataAccessLayer
 {
     public static class clsLocalDrivingLicenseAppData
     {
-        //Another way to get all local driving license applications
-        //        public static DataTable GetAllLocalApp() 
-        //        {
-        //            DataTable dt = new DataTable();
-        //            SqlConnection connection = new SqlConnection(DataSetting.ConnctionName);
-        //            string query = @"SELECT 
-        //    LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID AS [L.D.LAppID], 
-        //    LicenseClasses.ClassName AS [Driving Class], 
-        //    People.NationalNo,
-        //    (People.FirstName + ' ' +
-        //    People.SecondName + ' '+
-        //    People.ThirdName + ' '+ 
-        //    People.LastName) AS [FULL Name], 
-        //    Applications.ApplicationDate,
-        //     COUNT(CASE WHEN Tests.TestResult = 1 THEN 1 END) AS [Passed Tests], 
-        //  CASE WHEN Applications.ApplicationStatus = 1 THEN 'New'
-        //  WHEN Applications.ApplicationStatus = 2 THEN 'Canceled' 
-        //  WHEN Applications.ApplicationStatus = 3 THEN 'Completed' END AS Status
-        //FROM LocalDrivingLicenseApplications 
-        //LEFT JOIN Applications 
-        //    ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID 
-        //LEFT JOIN LicenseClasses 
-        //    ON LocalDrivingLicenseApplications.LicenseClassID = LicenseClasses.LicenseClassID 
-        //LEFT JOIN People 
-        //    ON Applications.ApplicantPersonID = People.PersonID 
-        //LEFT JOIN TestAppointments 
-        //    ON LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = TestAppointments.LocalDrivingLicenseApplicationID 
-        //LEFT JOIN Tests 
-        //    ON TestAppointments.TestAppointmentID = Tests.TestAppointmentID
-        //GROUP BY 
-        //    LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID,
-        //    LicenseClasses.ClassName,
-        //    People.NationalNo,
-        //    (People.FirstName + ' ' +
-        //    People.SecondName + ' '+
-        //    People.ThirdName + ' '+ 
-        //    People.LastName),
-        //    Applications.ApplicationDate,
-        //    Applications.ApplicationStatus";
-        //            SqlCommand command = new SqlCommand(query, connection);
-        //            try
-        //            {
-        //                connection.Open();
-        //                SqlDataReader reader = command.ExecuteReader();
-        //                dt.Load(reader);
-        //                reader.Close();
-        //            }
-        //            catch (SqlException ex)
-        //            {
-        //                dt = null;
-        //            }
-        //            finally
-        //            {
-        //                connection.Close();
-        //            }
-        //            return dt;
-        //        }
-
         public static bool GetLocalDrivingLicenseApplicationInfoByID
             (int LocalDrivingLicenseApplicationID,ref int ApplicationID
             ,ref int LicenseClassID)
@@ -96,6 +38,7 @@ namespace DataAccessLayer
             }
             catch (SqlException ex)
             {
+                clsLogger.LogEvent(ex);
                 Isfound = false;
             }
             finally
@@ -132,6 +75,7 @@ namespace DataAccessLayer
             }
             catch (SqlException ex)
             {
+                clsLogger.LogEvent(ex);
                 Isfound = false;
             }
             finally
@@ -164,6 +108,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 dt = null;
             }
             finally
@@ -192,6 +137,7 @@ namespace DataAccessLayer
             }
             catch (SqlException ex)
             {
+                clsLogger.LogEvent(ex);
                 LocalDrivingLicenseApplicationID = -99;
             }
             finally
@@ -220,6 +166,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 Affcted = -99;
             }finally {connection.Close(); }
             return (Affcted > 0);
@@ -240,6 +187,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 Affcted = -99;
             }
             finally { connection.Close(); }
@@ -284,6 +232,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
 
+                clsLogger.LogEvent(ex);
                 Result = false;
             }
 
@@ -332,6 +281,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
+                clsLogger.LogEvent(ex);
                 IsFound = false;
             }
 
@@ -380,8 +330,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
-
+                clsLogger.LogEvent(ex);
             }
 
             finally
@@ -430,8 +379,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
-
+                clsLogger.LogEvent(ex);
             }
 
             finally
